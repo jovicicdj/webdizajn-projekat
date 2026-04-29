@@ -123,6 +123,7 @@ main{
 .landing{
     width: 100%;
     background-color:#EEEDFE;
+    background-color: rgb(247, 247, 233);
     display: flex;
     flex-direction:row;
 }
@@ -163,7 +164,7 @@ main{
 
 .autori{
     width: 125px;
-    background-color: #EEEDFE;
+    background-color: transparent;
     color: #857af8;
     border-color: #AFA9EC;
     border-style: solid;
