@@ -125,7 +125,6 @@ main{
     background-color:#EEEDFE;
     display: flex;
     flex-direction:row;
-    padding: 25px 20px;
 }
 
 .landing-text{
@@ -134,6 +133,8 @@ main{
     flex-direction: column;
     margin-top: 20px;
     gap: 5px;   
+    padding: 25px 20px;
+
 }
 
 .landing-text h2{
@@ -168,10 +169,23 @@ main{
     border-style: solid;
 }
 
+.landing-image{
+    flex: 1;
+    width: 60%;
+    background-image: url(images/knjige-horizontalno.png);
+    background-repeat: no-repeat;
+    background-position: -50px -25px;
+    background-size: cover;
+    background-size: 115% 130%;
+
+}
+
+
+    
 .search-filters{
     width: 100%;
     min-height: 65px;
-    background-color: #1e1e1e;
+    background-color: #161616;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -195,7 +209,7 @@ main{
    
     height: 30px;
     padding: 0 16px;
-    border-radius: 999px;   /* ključ */
+    border-radius: 999px;   
     font-size: 12px;
     border: 1px solid rgba(255,255,255,0.1);
     background: transparent;
@@ -293,7 +307,7 @@ main{
 .book-genre{
     height: 30px;
     padding: 0 16px;
-    border-radius: 999px;   /* ključ */
+    border-radius: 999px;   
     font-size: 12px;
     border: 1px solid rgba(40, 223, 46, 0.1);
     cursor: pointer;
@@ -321,9 +335,34 @@ main{
 
 footer{
     width: 100%;
-    min-height: 75px;
-    background-color: #1e1e1e;
+    min-height: 60px;
+    background-color: #161616;
     display: flex;
+    justify-content: space-between;
+    
+}
+
+.footer-card{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    border-right: solid 1px #6153dd5d;
+    gap: 3px;
+}
+
+.footer-card p{
+    margin: 0;
+}
+
+.footer-stat{
+    color: #6153dd;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.footer-value{
+    color: white;
+    font-size: 0.75em;
 }
