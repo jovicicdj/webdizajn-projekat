@@ -53,28 +53,14 @@ header a{
 
 }
 
-.header-left{
-    display: flex;
-    align-items: center;
-    
-}
-
 .folio{
     font-weight: bold;
     color: #695ae9;
 }
 
-.header-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-}
 
 .header-right{
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
 }
 
@@ -160,12 +146,13 @@ main{
     background-color: #6153dd;
     color: white;
     border-style: none;
+    font-weight: bold;
 }
 
 .autori{
     width: 125px;
     background-color: transparent;
-    color: #857af8;
+    color: #5f53e2;
     border-color: #AFA9EC;
     border-style: solid;
 }
@@ -226,6 +213,28 @@ main{
     display: flex;
     flex-direction:column;
     padding: 12px 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    position: relative;
+
+}
+
+.books::-webkit-scrollbar {
+    height: 8px;
+}
+
+.books::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.books::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.books::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
 }
 
 .books-header{
@@ -241,9 +250,15 @@ main{
     margin: 0;
 }
 
-.books-header a{
+.books-content a{
     text-decoration: none;
     color: #6153dd;
+    position: absolute;
+    top: 25px;
+    left: 100%;
+    font-size: 0.85em;
+    width: 100px;
+    
 }
 
 .books-content{
@@ -260,6 +275,8 @@ main{
     flex-direction: column;
     width: 150px;
     font-size: 12px;
+    flex: 0 0 auto;
+
 }
 
 .book-card img{
@@ -283,6 +300,13 @@ main{
     position: absolute;
     top: 90%;
     left: 10px;
+    background-color: rgba(0, 0, 0, 0.729);
+    border-radius: 6px;
+    padding: 0px 2px;
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
 }
 
 .book-desc{
@@ -291,6 +315,7 @@ main{
     flex-direction: column;
     gap: 3px;
     text-align: center;
+    
 }
 
 .book-desc p{
@@ -332,6 +357,21 @@ main{
 .fantazija{
     background: #3b1f1f;
     color: #f87171;
+}
+
+.sci-fi{
+    background: #3a321a;
+    color: #facc15;
+}
+
+.triler{
+    background: #2a1a2f;
+    color: #c084fc;
+}
+
+.novela{
+    background: #2a2a2a;
+    color: #d1d5db;
 }
 
 footer{
