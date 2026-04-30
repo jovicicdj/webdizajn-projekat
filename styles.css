@@ -30,8 +30,8 @@ header{
     background-color: #121212;
     position: sticky;
     top: 0;
-
-   
+    border-bottom: 1px solid #70707048;
+    /*background-color: red;*/
 }
 
 header ul{
@@ -50,10 +50,18 @@ header ul li{
 header a{
     text-decoration: none;
     color: #949494;
-
 }
 
-.folio{
+header a:hover{
+    color: #988dff;
+    cursor: pointer;
+}
+
+.active-hyperlink{
+    color: #695ae9
+}
+
+.brend{
     font-weight: bold;
     color: #695ae9;
 }
@@ -88,12 +96,84 @@ header a{
     border-style: none;
 }
 
-main{
+.main-index{
     width: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
     
+}
+
+.main-pojedinacna{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-pojedinacna-content{
+    height: 85vh;
+    padding: 0 16px;
+    display: flex;
+    gap: 16px;
+}
+
+.main-pojedinacna-header{
+    display: flex;
+    padding: 8px 16px;
+}
+
+.main-pojedinacna-header a{
+    font-size: 0.85em;
+    text-decoration: none;
+    color: #695ae9;
+}
+
+.main-pojedinacna-left{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.knjiga-prikaz{
+    background-color: #1F1F1F;  
+    flex: 0.65;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+}
+
+.knjiga-info{
+    background-color: #1F1F1F;
+    flex: 0.45;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+
+}
+
+.recenzija{
+    background-color: #1F1F1F;
+    flex: 0.75;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+}
+
+.lista-recenzija{
+    background-color: #1F1F1F;
+    flex: 1;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+}
+
+.main-pojedinacna-right{
+    flex: 1;
+    height: 52%;
+    background-color: #1F1F1F;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
 }
 
 .hero-section{
@@ -266,8 +346,6 @@ main{
     display: flex;
     padding: 12px 0px;
     gap: 16px;
-
-    
 }
 
 .book-card{
@@ -276,23 +354,30 @@ main{
     width: 150px;
     font-size: 12px;
     flex: 0 0 auto;
-
 }
 
-.book-card img{
+.book-cover{
+    width: 150px;
+    height: 225px;
+    position: relative;
+}
+
+.book-cover img{
     width: 100%;
     height: 100%;
     object-fit:cover;
     border-radius: 20px;
-    z-index: 0;
+    z-index: 10; 
 }
 
-.book-cover{
-    height: 225px;
-    display: flex;
+.book-cover a{
     position: relative;
-}
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
 
+}
 .book-cover p{
     margin: 0;
     z-index: 100;
@@ -305,9 +390,9 @@ main{
     padding: 0px 2px;
     max-width: 130px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    
+    text-overflow: ellipsis;    
 }
+
 
 .book-desc{
     margin-top: 8px;
