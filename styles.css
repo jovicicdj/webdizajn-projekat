@@ -121,8 +121,8 @@ header a:hover{
     padding: 8px 16px;
 }
 
-.main-pojedinacna-header a{
-    font-size: 0.85em;
+.pojedinacna-hiperlink{
+    font-size: 0.75em;
     text-decoration: none;
     color: #695ae9;
 }
@@ -137,23 +137,143 @@ header a:hover{
 .knjiga-prikaz{
     background-color: #1F1F1F;  
     flex: 0.65;
-    padding: 8px 16px;
+    padding: 16px 16px;
     color: white;
     border-radius: 8px;
+    display: flex;
+    gap: 12px;
+}
+
+.knjiga-slika{
+    width: 100px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.knjiga-slika img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .knjiga-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.knjiga-info-top{
+    flex: 1;
+    padding: 0px 8px;
+    padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    border-bottom: 1px solid #70707048;
+}
+
+.knjiga-info-top p{
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+}
+
+
+.knjiga-info-bottom{
+    flex: 1;
+    padding: 0 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.knjiga-atributi{
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+}
+
+.atribut-card{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    height: 30px;
+}
+
+.atribut-ime{
+    font-size: 0.52em;
+    margin: 0;
+    color: #4f4e4e;
+
+}
+
+.atribut-vrednost{
+    font-size: 0.62em;
+    margin: 0;
+    color: #ABABAB;
+}
+
+.knjiga-rejting{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.stars{
+    color: #f5b301;
+    font-size: 0.85em;
+}
+
+.score{
+    font-size: 0.85em;
+}
+
+.broj-recenzija{
+    font-size: 0.75em;
+    color: #4f4e4e;
+}
+
+.knjiga-opis{
     background-color: #1F1F1F;
-    flex: 0.45;
-    padding: 8px 16px;
+    height: auto;
+    padding: 12px 16px;
     color: white;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 
+}
+
+.section-header{
+    font-size: 0.75em;
+    height: 20px;
+    border-bottom: 1px solid #70707048;
+    padding-bottom: 25px;
+}
+
+.section-header p{
+    margin: 0;
+    font-weight: 700;
+}
+
+.knjiga-opis-content{
+    font-size:0.7em;
+    flex: 1;
+    padding-top: 10px;
+}
+
+.knjiga-opis-content p{
+    margin: 0;
+    font-size: 0.85em;
+    color: #ABABAB; 
 }
 
 .recenzija{
     background-color: #1F1F1F;
-    flex: 0.75;
+    flex: 0.85;
     padding: 8px 16px;
     color: white;
     border-radius: 8px;
@@ -422,6 +542,10 @@ header a:hover{
     font-size: 12px;
     border: 1px solid rgba(40, 223, 46, 0.1);
     cursor: pointer;
+}
+
+.button-pojedinacna-info{
+    height: 20px;
 }
 
 .roman{
