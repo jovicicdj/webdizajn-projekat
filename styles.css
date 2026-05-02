@@ -229,6 +229,7 @@ header a:hover{
 .stars{
     color: #f5b301;
     font-size: 0.85em;
+    text-align: center;
 }
 
 .score{
@@ -319,13 +320,14 @@ header a:hover{
 }
 
 #submit-dugme{
-    width: 120px;
+    
     padding: 0;
     height: 30px;
     background-color: #1A1A1A;
     font-size: 0.7em;
     border-color: hsl(0, 0%, 44%);
 }
+
 form{
     display: flex;
     flex-direction: column;
@@ -347,21 +349,97 @@ form{
 
 .main-pojedinacna-right{
     flex: 1;
-    height: 400px;
-    background-color: #1F1F1F;
-    padding: 8px 16px;
+    height: 500px;
+    padding: 0 16px;
     color: white;
     border-radius: 8px;
-}
-
-.recenzija-card{
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 15px;
+}
+
+.main-pojedinacna-right p{
+    margin: 0;
+    padding: 0;
+}
+
+.knjiga-info-dodatak{
+    border-radius: 8px;
+    background-color: #1F1F1F;
+    padding: 8px 8px;
+}
+
+.knjiga-info-dodatak-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 4px;
+}
+
+
+.slicne-knjige{
+    flex: 1;
+    border-radius: 8px;
+    background-color: #1F1F1F;
+    padding: 8px 8px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.slicne-knjige-card{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
     padding: 6px 0;
     border-bottom: 1px solid #70707048;
 
 }
+
+.slicne-knjige-slika{
+    width: 50%;
+}
+
+.slicne-knjige-slika img{
+    width: 100px;
+    
+    border-radius: 8px;
+}
+
+.slicne-knjige-tekst{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.recenzija-card{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    padding: 6px 0;
+    border-bottom: 1px solid #70707048;
+}
+
+.recenzija-podaci{
+    width: 80%;
+}
+
+.recenzija-datum{
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.recenzija-datum-tekst{
+    font-size: 12px;
+}
+
+
+
 
 .recenzija-card p{
     padding: 0;
