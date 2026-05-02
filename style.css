@@ -5,6 +5,14 @@
     font-family: "Merriweather", sans-serif;
 }
 
+* h6{
+    margin: 0;
+}
+
+* p{
+    margin: 0;
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
@@ -78,13 +86,15 @@ header a{
     border-style: none;
 }
 
-main{
+.main-autori{
     width: 100%;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 
-.active{
+.active-page{
     color: #695ae9;
 }
 
@@ -171,26 +181,32 @@ input {
     display: flex;
     flex-direction: column;
     width: 100%;
-
+    flex: 1;
 }
 
 .authors-header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     background-color: #121212;
     color: aliceblue;
+    height: 40px;
     padding: 12px 20px;
 }
 
 .authors-header h6{
     font-size: 13px;
     font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
 }
 
 .authors-header p{
     color:#646464;
     font-size: 11px;
+    margin: 0;
+    margin-top: 5px
 }
 
 footer{
@@ -225,3 +241,83 @@ footer{
     color: white;
     font-size: 0.75em;
 }
+
+.authors{
+    flex:1;
+    width: 100%;
+    color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+    padding: 8px 20px 16px 20px;
+
+}
+
+.author-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 20px;
+    gap: 4px;
+}
+
+.author-avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.stars {
+    color: #f5c518;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+}
+
+.author-info{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-size: 0.75em;
+    color: #646464;
+}
+
+.status.deceased{
+    background-color: #5a1a1a;
+    color: #e06060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.status.active{
+    background-color: #1a3a1a;
+    color: #60e060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.status.retired{
+    background-color: #2a2a1a;
+    color: #e0c060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.view-profile{
+    width: 100%;
+    height: 35px;
+    background:transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: #ccc;
+    font-size: 0.75em;
+    margin-top: 4px;
+}
+
+
