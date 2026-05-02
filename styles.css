@@ -107,18 +107,21 @@ header a:hover{
 .main-pojedinacna{
     display: flex;
     flex-direction: column;
+    flex: 1;
+    padding: 12px 0;
 }
 
 .main-pojedinacna-content{
-    height: 85vh;
+    height: 100%;
     padding: 0 16px;
     display: flex;
     gap: 16px;
+
 }
 
 .main-pojedinacna-header{
     display: flex;
-    padding: 8px 16px;
+    padding: 3px 16px;
 }
 
 .pojedinacna-hiperlink{
@@ -131,7 +134,8 @@ header a:hover{
     width: 80%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
+    
 }
 
 .knjiga-prikaz{
@@ -277,23 +281,118 @@ header a:hover{
     padding: 8px 16px;
     color: white;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.recenzija-forma{
+    flex: 1;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.recenzija-forma label{
+    font-size: 0.7em;
+}
+
+.recenzija-forma input, textarea{
+    width: 100%;
+    border-radius: 5px;
+    height: 35px;
+    background-color: #30302E;
+    border-style: none;
+    padding: 6px 8px;
+    font-size: 0.75em;
+    color: #dededc;
+    border: 1px solid #70707048;
+}
+
+.recenzija-forma textarea{
+    min-height: 75px;
+    resize: none;
+}
+
+.recenzija-forma input::placeholder, .recenzija-forma textarea::placeholder{
+    color: hsl(60, 1%, 53%);
+}
+
+#submit-dugme{
+    width: 120px;
+    padding: 0;
+    height: 30px;
+    background-color: #1A1A1A;
+    font-size: 0.7em;
+    border-color: hsl(0, 0%, 44%);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .lista-recenzija{
     background-color: #1F1F1F;
     flex: 1;
+    height: 225px;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex: 0 0 auto;
+}
+
+.main-pojedinacna-right{
+    flex: 1;
+    height: 400px;
+    background-color: #1F1F1F;
     padding: 8px 16px;
     color: white;
     border-radius: 8px;
 }
 
-.main-pojedinacna-right{
-    flex: 1;
-    height: 52%;
-    background-color: #1F1F1F;
-    padding: 8px 16px;
-    color: white;
-    border-radius: 8px;
+.recenzija-card{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 0;
+    border-bottom: 1px solid #70707048;
+
+}
+
+.recenzija-card p{
+    padding: 0;
+    margin: 0;
+    font-size: 9px;
+}
+
+.recenzija-score{
+    color: #f5b301;
+}
+
+.recenzija-sadrzaj{
+    color: #ABABAB;
+}
+
+.lista-recenzija::-webkit-scrollbar {
+    width: 10px;
+}
+
+.lista-recenzija::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.lista-recenzija::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.lista-recenzija::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
 }
 
 .hero-section{
@@ -541,7 +640,7 @@ header a:hover{
     border-radius: 999px;   
     font-size: 12px;
     border: 1px solid rgba(40, 223, 46, 0.1);
-    cursor: pointer;
+    cursor: default !important;
 }
 
 .button-pojedinacna-info{

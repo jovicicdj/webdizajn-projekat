@@ -15,7 +15,7 @@
     <div class="wrapper">
         <header>
             <div class="header-left">
-                <a href="#"><span class="brend">Knjige</span>.rs</a>
+                <a href="index.html"><span class="brend">Knjige</span>.rs</a>
             </div>
 
             <div class="header-center">
@@ -108,17 +108,68 @@
                             <div class="section-header">
                                 <p>Ostavi recenziju</p>
                             </div>
+
+                            <div class="recenzija-forma">
+                                <form action="" method="post" enctype="multipart/form-data">
+
+                                    <label for="naslov">Naslov recenzije</label>
+                                    <input type="text" id="naslov" placeholder="Kratak naslov vase recenzije..." required> 
+
+                                    <label for="sadrzaj">Tekst recenzije</label>
+                                    <textarea name="" id="sadrzaj" placeholder="Podelite svoje utiske o knjizi..." required></textarea>
+
+                                    <input type="submit" id="submit-dugme" value="Objavi recenziju">
+
+                                </form>
+                            </div>
+
+                            
                         </div>
         
                         <div class="lista-recenzija">
-                            <p>Lista recenzija</p>
+                            <div class="section-header">Lista recenzija</div>
+
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">marko_nj</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <p class="recenzija-sadrzaj">Izuzetno snažna i emotivna priča. Tolstoj briljira u prikazu unutrašnjih konflikata likova i moralnih dilema. Svaka stranica nosi težinu i smisao—apsolutni klasik koji opravdava svoju reputaciju.</p>
+                            </div>
+
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">bookwormNo1</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                                <p class="recenzija-sadrzaj">Odlična knjiga, ali zahteva strpljenje. Početak mi je bio spor, ali kasnije se priča razvija u nešto zaista posebno. Likovi su duboko razrađeni.</p>
+                            </div>
+                            
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">aleksa_v</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <p class="recenzija-sadrzaj">Remek-delo u svakom smislu. Način na koji su isprepletane ljubavne i društvene teme je fascinantan. Nije lagano štivo, ali vredi svake strane.</p>
+                            </div>
+                            
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">jelena1232</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                                <p class="recenzija-sadrzaj">Tolstoj je ovde na vrhuncu. Likovi su neverovatno složeni, a emocije toliko realne da imaš osećaj kao da poznaješ Anu lično. Jedna od onih knjiga koje ostanu sa tobom dugo nakon čitanja.</p>
+                            </div>
+
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">petar_petrovic</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                                <p class="recenzija-sadrzaj">Razumem zašto je klasik, ali meni lično je bilo teško da ostanem fokusirana. Priča je dobra, ali tempo mi nije odgovarao. Možda nije za svakoga.</p>
+                            </div>
+
+                            <div class="recenzija-card">
+                                <p class="recenzija-korisnik">djole</p>
+                                <p class="recenzija-score">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                                <p class="recenzija-sadrzaj">Veoma kvalitetno napisano, ali ponekad previše opširno. Ipak, psihološka dubina i prikaz društva su na visokom nivou. Definitivno preporuka.</p>
+                            </div>                            
                         </div>
                     </div>
         
                     <div class="main-pojedinacna-right">
-                        <p>Kartice</p>
-                    </div>
-        
+                        <div class="knjiga-info-dodatak"></div>
+                    </div>        
                 </div>
             </div>
         </main>
