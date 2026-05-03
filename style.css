@@ -13,6 +13,10 @@
     margin: 0;
 }
 
+.admin-body {
+    overflow: hidden;
+}
+
 /*DEFAULT SCROLLBAR*/
 body::-webkit-scrollbar {
     width: 10px;
@@ -339,6 +343,9 @@ footer{
     margin-top: 4px;
 }
 
+
+/*POJEDINACAN AUTOR*/
+/*POJEDINACAN AUTOR*/
 /*POJEDINACAN AUTOR*/
 .main-pojedinacan-autor{
     width: 100%;
@@ -739,3 +746,96 @@ footer{
     text-align: right;
 }
 /*KARTICE DESNO KRAJ*/
+
+/*POJEDINACAN AUTOR KRAJ*/
+
+
+
+/*ADMIN AUTORI*/
+.main-admin{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.adm-header{
+    background-color: orange;
+    height: 45px;
+    color: black;
+    padding: 12px 20px;
+}
+
+.adm-search-row{
+    background-color: yellow;
+    height: 60px;
+    color: black;
+    padding: 12px 20px;
+}
+
+.adm-content{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 16px;
+    min-height: 0;
+}
+
+.adm-levo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    min-height: 0;
+}
+
+.adm-tabela-header{
+    background-color: green;
+    height: 40px;
+    color: white;
+    padding: 8px;
+}
+
+.adm-tabela-body{
+    flex: 1;
+    background-color: purple;
+    overflow-y: auto;
+    color: white;
+    min-height: 0;
+}
+
+/*ADMIN SCROLLBAR*/
+.adm-tabela-body::-webkit-scrollbar{
+    width: 8px;
+}
+ 
+.adm-tabela-body::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+ 
+.adm-tabela-body::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+ 
+.adm-tabela-body::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+/*ADMIN SCROLLBAR KRAJ*/
+
+.adm-red{
+    background-color: rgb(100, 0, 100);
+    color: white;
+    padding: 12px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.adm-desno{
+    width: 300px;
+    background-color: red;
+    color: white;
+    padding: 16px;
+}
+/*ADMIN KRAJ*/
