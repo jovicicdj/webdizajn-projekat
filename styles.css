@@ -12,11 +12,28 @@
     min-height: 100vh;
     /*padding: 0 8px;*/ 
     background-color: #121212;
-    
 }
 
 body{
     overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
 }
 
 header{
@@ -108,7 +125,8 @@ header a:hover{
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 12px 0;
+    padding: 5px 0;
+    margin-bottom: 8px;
 }
 
 .main-pojedinacna-content{
@@ -384,6 +402,7 @@ form{
     display: flex;
     flex-direction: column;
     
+    
 }
 
 .slicne-knjige-card{
@@ -437,9 +456,6 @@ form{
 .recenzija-datum-tekst{
     font-size: 12px;
 }
-
-
-
 
 .recenzija-card p{
     padding: 0;
