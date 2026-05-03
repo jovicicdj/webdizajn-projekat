@@ -53,6 +53,7 @@ header{
     position: sticky;
     top: 0;
     border-bottom: 1px solid #70707048;
+    z-index: 1000;
 }
 
 header ul{
@@ -116,6 +117,10 @@ header a{
 
 .active-page{
     color: #695ae9;
+}   
+
+.inactive-page:hover{
+    color: #9b8ff5;
 }
 
 .main-upper{
@@ -574,12 +579,7 @@ footer{
     border-radius: 999px;
     font-size: 12px;
     border: 1px solid rgba(40,223,46,0.1);
-    cursor: pointer;
-}
-
-.horor {
-    background: #1a0a0a;
-    color: #f87171;
+    cursor: default !important;
 }
 
 .roman{
@@ -609,22 +609,133 @@ footer{
     color: #c084fc;
 }
 .novela{
-    background: #2a2a2a;
-    color: #d1d5db;
+    color: #C89B6D;
+    background-color: #2F241A;
 }
 .horor{
     background: #1a0a0a;
-    color: #f87171; border: 1px solid rgba(248,113,113,0.15); }
+    color: #f87171; border: 1px solid rgba(248,113,113,0.15);
+}
 /*ZANROVI KRAJ*/
 
+
+/*KARTICE DESNO*/
 .pa-desno {
     width: 220px;
-    flex-shrink: 0;
-    background-color: red;
-    color: white;
-    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     position: sticky;
     top: 70px;
     align-self: flex-start;
-    height: fit-content;
 }
+
+.pa-ocena-card{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: aliceblue;
+}
+
+.pa-ocena-broj,
+.pa-ocena-card .stars,
+.pa-ocena-count {
+    align-self: center;
+}
+
+.pa-ocena-card .stars{
+    font-size: 1.2em;
+}
+
+.pa-ocena-broj{
+    color: #f5c518;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0;
+}
+
+.pa-ocena-count{
+    color: #646464;
+    font-size: 0.7em;
+}
+
+.pa-devider{
+    width: 100%;
+    height: 1px;
+    background-color: #70707048;
+    margin: 4px 0;
+}
+
+.pa-vasa-ocena-label {
+    color: #a2a2a2;
+    font-size: 0.8em;
+}
+
+/* INTERAKTIVNE ZVEZDICE */
+.pa-zvezdice{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+.pa-zvezdice span{
+    font-size: 1.4em;
+    color: #444;
+    cursor: pointer;
+}
+
+.pa-zvezdice span::before{
+    content: "★";
+}
+
+.pa-zvezdice span:hover,
+.pa-zvezdice span:hover ~ span {
+    color: #f5c518;
+}
+
+.pa-oceni-btn {
+    margin-top: 4px;
+}
+/* INTERAKTIVNE ZVEZDICE KRAJ */
+
+.pa-kontakt-card{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: aliceblue;
+}
+
+.pa-kontakt-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.pa-kontakt-ime{
+    color: #646464;
+    font-size: 0.65em;
+}
+
+.pa-kontakt-vrednost{
+    color: #ABABAB;
+    font-size: 0.65em;
+    text-align: right;
+}
+
+.pa-kontakt-link{
+    color: #695ae9;
+    font-size: 0.65em;
+    text-decoration: none;
+    text-align: right;
+}
+/*KARTICE DESNO KRAJ*/
