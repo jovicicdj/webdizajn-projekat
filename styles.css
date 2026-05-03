@@ -14,6 +14,15 @@
     background-color: #121212;
 }
 
+.admin-wrapper{
+    height: 100vh;
+}
+
+p{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
 body{
     overflow-y: auto;
 }
@@ -580,10 +589,11 @@ form{
     height: 35px;
     background-color: #2f2e2e;
     border-style: none;
-    padding: 12px 20px;
+    padding: 12px 16px;
     font-size: 0.75em;
-    
-    
+    border-radius: 10px;
+    color: white;
+    border: 1px solid #70707048;
 }
 
 .filter-card{
@@ -738,7 +748,7 @@ form{
 }
 
 .button-pojedinacna-info{
-    height: 20px;
+    height: 35px;
 }
 
 .roman{
@@ -772,8 +782,189 @@ form{
 }
 
 .novela{
-    background: #2a2a2a;
-    color: #d1d5db;
+    color: #C89B6D;
+    background-color: #2F241A;
+}
+
+.bajka{
+    color: #ff01ff;
+    background-color: #3A1F2F;
+}
+
+.main-knjige-admin{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-bottom: 8px;
+    padding-top: 0;
+    gap: 4px;
+
+}
+
+.main-knjige-admin-top{
+    color: white;
+  
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-panel{
+    display: flex;
+    justify-content: space-between;
+    background-color: #211C3F;
+    font-size: 0.8em;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-bottom: 0.5px solid rgba(137, 43, 226, 0.559);
+}
+
+.role{
+    height: 20px;
+    padding: 0 16px;
+    border-radius: 999px;   
+    font-size: 12px;
+    border: 1px solid rgba(40, 223, 46, 0.1);
+    cursor: default !important;
+    background-color: #2A2350;
+    color: #A78BFA;
+}
+
+.pretraga-knjiga{
+    padding: 12px 12px;
+    /* background-color: red; */
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+
+
+}
+
+.pretraga-knjiga button{
+    height: 35px;
+    width: 70px;
+    padding: 2px 4px;
+    font-size: 0.65em;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 76%, 0.858);
+}
+
+.pretraga-knjiga input{
+    flex: 1;
+}
+
+.main-knjige-admin-bottom{
+    color: white;
+    flex: 1;
+    display: flex;
+    gap: 8px;
+}
+
+.tabela-knjiga{
+    width: 75%;
+    height: 585px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 16px;
+    overflow-y: auto;
+    flex: 0 0 auto;
+    
+}
+
+.tabela-knjiga::-webkit-scrollbar {
+    width: 10px;
+}
+
+.tabela-knjiga::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.tabela-knjiga::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.tabela-knjiga::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
+}
+
+.tabela-header{
+    padding: 6px 6px;
+    font-size: 0.8em;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+    background-color: #1A1A1A;
+}
+
+.tabela-row div, .tabela-header div{
+    display: flex;
+    align-items: center;
+    font-size: 0.85em;
+    gap: 4px;
+
+}
+
+.tabela-row{
+    padding: 6px 6px;
+    font-size: 0.8em;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+
+}
+
+.tabela-knjiga-slika{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.tr-1 p{
+    font-size: 10px;  
+}
+
+.tr-1{
+    width: 14%;
+    max-width: 150px;
+    
+}
+
+.tr-8{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tr-2, .tr-3, .tr-4, .tr-5, .tr-6, .tr-7, .tr-8{
+    width: 11%;
+    
+}
+
+.button-tabela{
+    height: 25px;
+}
+
+.stars-tabela{
+    font-size: 15px;
+}
+
+.tabela-rejting{
+    font-size: 15px;
+}
+
+.action-buttons{
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.knjige-admin-forma{
+    width: 10%;
 }
 
 footer{
