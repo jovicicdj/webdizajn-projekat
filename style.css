@@ -5,13 +5,33 @@
     font-family: "Merriweather", sans-serif;
 }
 
-* h6{
+* h6,h4{
     margin: 0;
 }
 
 * p{
     margin: 0;
 }
+
+/*DEFAULT SCROLLBAR*/
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
+}
+/*DEFAULT SCROLLBAR KRAJ*/
 
 .wrapper{
     display: flex;
@@ -126,13 +146,6 @@ header a{
     margin-bottom: 1px;
 }
 
-.heading h3,
-.heading p {
-    margin: 0;
-}
-
-
-
 .search-filters{
     background-color: #161616;
     width: 100%;
@@ -227,10 +240,6 @@ footer{
     gap: 3px;
 }
 
-.footer-card p{
-    margin: 0;
-}
-
 .footer-stat{
     color: #6153dd;
     font-size: 1em;
@@ -240,6 +249,11 @@ footer{
 .footer-value{
     color: white;
     font-size: 0.75em;
+}
+
+.footer-card p {
+    margin: 0;
+    padding: 0;
 }
 
 .authors{
@@ -320,4 +334,297 @@ footer{
     margin-top: 4px;
 }
 
+/*POJEDINACAN AUTOR*/
+.main-pojedinacan-autor{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
+
+/*HERO ZA POJEDINACNE*/
+.pa-hero{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 120px;
+    color: white;
+    padding: 16px 20px;
+    border-bottom: 1px solid #70707048;
+}
+
+.pa-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6153dd;
+    flex-shrink: 0;
+}
+
+.pa-hero-info{
+    flex: 1;
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pa-ime-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.pa-ime{
+    color: aliceblue;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.pa-opis{
+    color: #646464;
+    font-size: 0.7em;
+    max-width: 100%;
+}
+
+.pa-stats{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding-top: 10px;
+
+}
+
+.pa-stat-card{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pa-stat-broj{
+    color: aliceblue;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.pa-stat-naziv{
+    color: #646464;
+    font-size: 0.6em;
+}
+
+.pa-back-link{
+    margin-left: auto;
+    align-self: flex-start;
+    text-decoration: none;
+    color: #695ae9;
+    font-size: 0.75em;
+    white-space: nowrap;
+    padding-top: 4px;
+}
+/*KRAJ HERO ZA POJEDINACNE*/
+
+
+.pa-content{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 10px;
+    align-items: stretch;
+    padding: 16px 16px;
+}
+
+.pa-levo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.pa-sekcija{
+    padding: 16px;
+    color: white;
+    min-height: 100px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+/*Biografija*/
+.pa-biografija{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+}
+
+.pa-sekcija-naslov{
+    position: sticky;
+    left: 0;
+    color: aliceblue;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #70707048;
+    margin-bottom: 4px;
+}
+
+.pa-bio-tekst{
+    color: #ABABAB;
+    font-size: 0.75em;
+    line-height: 2;
+}
+/*Biografija Kraj*/
+
+/*KNJIGE I SCROLLBAR*/
+.pa-knjige{
+    flex: 1;
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 10px 16px 0px 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.pa-knjige-scroll{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding-bottom: 12px;
+}
+
+.pa-knjige::-webkit-scrollbar{
+    height: 8px;
+}
+
+.pa-knjige::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.pa-knjige::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.pa-knjige::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+
+.pa-knjige-scroll .book-card{
+    flex: 0 0 auto;
+    width: 150px;
+    font-size: 12px;
+}
+
+.pa-knjige-scroll .book-cover{
+    width: 150px;
+    height: 225px;
+    position: relative;
+}
+
+.pa-knjige-scroll .book-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.pa-knjige-scroll .book-cover p{
+    margin: 0;
+    color: white;
+    position: absolute;
+    top: 90%;
+    left: 10px;
+    background-color: rgba(0,0,0,0.729);
+    border-radius: 6px;
+    padding: 0 2px;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pa-knjige-scroll .book-desc{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: center;
+}
+
+.pa-knjige-scroll .book-author{
+    color: white;
+}
+
+.pa-knjige-scroll .book-recom {
+    color: #6153DD;
+}
+/*KNJIGE I SCROLLBAR KRAJ*/
+
+
+/*ZANROVI*/
+.book-genre {
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid rgba(40,223,46,0.1);
+    cursor: pointer;
+}
+
+.horor {
+    background: #1a0a0a;
+    color: #f87171;
+}
+
+.roman{
+    background: #3b1f2b;
+    color: #f472b6;
+}
+
+.klasik{
+    background: #1b3a3a;
+    color: #2dd4bf;
+}
+
+.distopija{
+    background: #1e293b;
+    color: #60a5fa;
+}
+.fantazija{
+    background: #3b1f1f;
+    color: #f87171;
+}
+.sci-fi{
+    background: #3a321a;
+    color: #facc15;
+}
+.triler{
+    background: #2a1a2f;
+    color: #c084fc;
+}
+.novela{
+    background: #2a2a2a;
+    color: #d1d5db;
+}
+.horor{
+    background: #1a0a0a;
+    color: #f87171; border: 1px solid rgba(248,113,113,0.15); }
+/*ZANROVI KRAJ*/
+
+.pa-desno {
+    width: 220px;
+    flex-shrink: 0;
+    background-color: red;
+    color: white;
+    padding: 16px;
+    position: sticky;
+    top: 70px;
+    align-self: flex-start;
+    height: fit-content;
+}
