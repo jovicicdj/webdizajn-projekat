@@ -902,7 +902,7 @@ form{
     display: flex;
     align-items: center;
     font-size: 0.85em;
-    gap: 4px;
+    gap: 6px;
 
 }
 
@@ -964,7 +964,7 @@ form{
 }
 
 .knjige-admin-forma{
-    width: 10%;
+    padding: 6px 0;     
 }
 
 footer{
