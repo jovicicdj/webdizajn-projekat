@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper admin-wrapper">
         <header>
             <div class="header-left">
                 <a href="index.html"><span class="brend">Knjige</span>.rs</a>
@@ -31,6 +31,569 @@
                 <button class="button register">Registracija</button>
             </div>
         </header>
+
+        <main class="main-knjige-admin">
+            <div class="main-knjige-admin-top">
+                <div class="admin-panel">
+                    <p>Admin panel - Knjige</p>
+                    <button class="role">Administrator</button>
+                </div>
+
+                <div class="pretraga-knjiga">
+                    <input type="search" class="search-bar" placeholder="Pretrazite knjige po nazivu ili zanru...">
+                    <button class="filter-card">&#43; Dodaj knjigu</button>
+                </div>
+            </div>
+
+            <div class="main-knjige-admin-bottom">
+                <div class="tabela-knjiga">
+                    <div class="tabela-header">
+                        <div class="tr-1">
+                            <p>Knjiga</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Autor</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <p>Zanr</p>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>Broj recenzija</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <p>Prosecna ocena</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>Datum dodavanja</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>ISBN</p>
+                         </div>
+
+                         
+                    </div>
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/karenjina.jpg" alt="Ana Karenjina" class="tabela-knjiga-slika">
+                            <p>Ana Karenjina</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Lav Tolstoj</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre roman button-tabela">Roman</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1218</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>25.8.2006.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></i></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/zivotinjska farma.jpg" alt="Zivotinjska farma" class="tabela-knjiga-slika">
+                            <p>Zivotinjska farma</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Dzordz Orvel</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre distopija button-tabela">Distopija</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1558</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <p class="tabela-rejting">4.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>08.03.2026.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></i></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+                     <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/hobiti.jpg" alt="Hobiti" class="tabela-knjiga-slika">
+                            <p>Hobiti</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>J. R. R. Tolkin</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre fantazija button-tabela">Fantazija</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>2016</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>12.02.2024.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></i></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>                                                       
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                        </div>
+                    </div>
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/da vincijev kod.jpg" alt="Da Vincijev kod" class="tabela-knjiga-slika">
+                            <p>Da Vincijev kod</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Dan Brown</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre triler button-tabela">Triler</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>857</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <p class="tabela-rejting">4.5</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>22.04.2025.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+                    <!-- ovde -->
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/prokleta avlija.jpg" alt="Prokleta avlija" class="tabela-knjiga-slika">
+                            <p>Prokleta avlija</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Ivo Andric</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre klasik button-tabela">Klasik</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1987</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>16.05.2025.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/stranac.jpg" alt="Stranac" class="tabela-knjiga-slika">
+                            <p>Stranac</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Alber Kami</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre roman button-tabela">Roman</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1622</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">4.8</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>21.07.2023.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/metamorfoza.jpg" alt="Metamorfoza" class="tabela-knjiga-slika">
+                            <p>Metamorfoza</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Franc Kafka</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre novela button-tabela">Novela</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1002</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>14.09.2025.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/rat svetova.jpg" alt="Rat svetova" class="tabela-knjiga-slika">
+                            <p>Rat svetova</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>H. G. Vels</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre sci-fi button-tabela">Sci-fi</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1254</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <p class="tabela-rejting">4.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>10.10.2019.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/rat i mir.jpg" alt="rat i mir" class="tabela-knjiga-slika">
+                            <p>Rat i mir</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Lav Tolstoj</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre klasik button-tabela">Klasik</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>2451</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>07.12.2023.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+                    
+
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/tri praseta.jpg" alt="Tri praseta" class="tabela-knjiga-slika">
+                            <p>Tri praseta</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Braca Grim</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre bajka button-tabela">Bajka</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1999</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>01.09.2000.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/mali princ.jpg" alt="Mali princ" class="tabela-knjiga-slika">
+                            <p>Mali princ</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>Antoan de Sent Egziperi</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre roman button-tabela">Roman</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>3000</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                            <p class="tabela-rejting">5.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>19.2.2020.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+
+                    <div class="tabela-row">
+                        <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
+                         datum dodavanja; ISBN; action buttons-->
+                        <div class="tr-1">
+                            <img src="images/majstor i margarita.png" alt="Majstor i Margarita" class="tabela-knjiga-slika">
+                            <p>Majstor i Margarita</p>
+                        </div>
+
+                        <div class="tr-2">
+                            <p>M. Bulgakov</p>
+                        </div>
+
+                        <div class="tr-3">
+                            <button class="book-genre klasik button-tabela">Klasik</button>
+                         </div>
+
+                        <div class="tr-4">
+                            <p>1000</p>
+                         </div>
+
+                         <div class="tr-5">
+                            <span class="stars stars-tabela">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                            <p class="tabela-rejting">4.0</p>
+                         </div>
+
+                         <div class="tr-6">
+                            <p>12.12.2012.</p>
+                         </div>
+
+                         <div class="tr-7">
+                            <p>978-86-7543-001-2</p>
+                         </div>
+
+                         <div class="tr-8">
+                            <button class="action-buttons"><ion-icon name="trash"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="create-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="square-outline"></ion-icon></button>
+                            <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
+                         </div>
+                    </div>
+                </div>
+
+                <div class="knjige-admin-forma">
+                    <p>tekst</p>
+                </div>
+            </div>
+
+        </main>
     </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
