@@ -75,7 +75,6 @@
                          <div class="tr-7">
                             <p>ISBN</p>
                          </div>
-
                          
                     </div>
 
@@ -242,8 +241,6 @@
                             <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
                          </div>
                     </div>
-
-                    <!-- ovde -->
 
                     <div class="tabela-row">
                         <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
@@ -454,11 +451,6 @@
                          </div>
                     </div>
 
-
-                    
-
-
-
                     <div class="tabela-row">
                         <!-- naziv i slika knjige; pisac; zanr; broj recenzija; prosecna ocena; 
                          datum dodavanja; ISBN; action buttons-->
@@ -583,14 +575,79 @@
                             <button class="action-buttons"><ion-icon name="information-circle-outline"></ion-icon></button>
                          </div>
                     </div>
-                </div>
+               </div>
 
-                <div class="knjige-admin-forma">
-                    Forma
-                </div>
-            </div>
-
-        </main>
+               <div class="knjige-admin-forma">
+                     <div class="section-header section-header-knjige-admin">Izmena knjige</div>
+                     
+                     <div class="forma-placeholder">
+                        <form action="" method="post" enctype="multipart/form-data">
+                           <div class="forma-naziv-autor">
+                              <div class="forma-naziv">
+                                 <label for="naziv">Naziv</label>
+                                 <input type="text" id="naziv" placeholder="Ana Karenjina" required>
+                              </div>
+   
+                              <div class="forma-autor">
+                                 <label for="autor">Autor</label>
+                                 <input type="text" id="autor" placeholder="Lav Tolstoj" required>
+                              </div>
+                           </div>
+   
+                           <div class="forma-opis-knjige">
+                              <label for="opis">Opis knjige</label>
+                              <textarea name="opis" id="opis" placeholder="Ana Karenjina je roman ruskog pisca Lava Tolstoja, objavljen u nastavcima između 1875. i 1877. Smatra se jednim od vrhunskih dostignuća svetske književnosti. Roman prati tragičnu ljubavnu priču Ane Karenjine i grofa Alekseja Vronskog, isprepletenu sa srećnijim ljubavnim životom Konstantina Levina i Kiti Šerbatske." required></textarea>
+                           </div>
+   
+                           <div class="forma-datum-zanr">
+                              <div class="forma-datum">
+                                 <label for="datum">Datum objavljivanja</label>
+                                 <input type="date" id="datum" required>
+                              </div>
+   
+                              <div class="forma-zanr">
+                                 <label for="zanr">Zanr</label>
+                                 <select name="" id="zanr" required>
+                                    <option value="Roman">Roman</option>
+                                    <option value="Klasik">Klasik</option>
+                                    <option value="Distopija">Distopija</option>
+                                    <option value="Sci-fi">Sci-fi</option>
+                                    <option value="Triler">Triler</option>
+                                 </select>
+                              </div>
+                           </div>
+   
+                           <div class="forma-naziv-autor">
+                              <div class="forma-naziv">
+                                 <label for="godina-izdanja">Godina izdanja</label>
+                                 <input type="text" id="godina-izdanja" placeholder="2026" required>
+                              </div>
+   
+                              <div class="forma-autor">
+                                 <label for="izdanje">Izdanje</label>
+                                 <input type="text" id="izdanje" placeholder="8. doradjeno" required>
+                              </div>
+                           </div>
+   
+                           <div class="forma-izdavac">
+                              <label for="izdavac">Izdavacka kuca</label>
+                              <input type="text" placeholder="Laguna" id="izdavac" required>
+                           </div>
+   
+                           <div class="forma-isbn">
+                              <label for="isbn">ISBN</label>
+                              <input type="text" placeholder="978-86-7543-001-2" id="isbn" required>
+                           </div>
+   
+                           <div class="forma-actions">
+                              <input type="reset" value="Otkazi" class="admin-knjige-reset">
+                              <input type="submit" value="Sacuvaj promene" class="admin-knjige-submit">
+                           </div>
+                           
+                        </form>
+                     </div>
+               </div>
+         </main>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

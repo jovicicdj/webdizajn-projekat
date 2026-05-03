@@ -281,9 +281,8 @@ header a:hover{
 
 .section-header{
     font-size: 0.75em;
-    height: 20px;
     border-bottom: 1px solid #70707048;
-    padding-bottom: 25px;
+    padding-bottom: 6px;
 }
 
 .section-header p{
@@ -321,11 +320,11 @@ header a:hover{
     flex-direction: column;
 }
 
-.recenzija-forma label{
+form label{
     font-size: 0.7em;
 }
 
-.recenzija-forma input, textarea{
+form input, textarea{
     width: 100%;
     border-radius: 5px;
     height: 35px;
@@ -337,7 +336,7 @@ header a:hover{
     border: 1px solid #70707048;
 }
 
-.recenzija-forma textarea{
+form textarea{
     min-height: 75px;
     resize: none;
 }
@@ -376,6 +375,7 @@ form{
 .for-rating:hover ~ .for-rating:before{
     content: "\2605";
     color: #f5b301;
+    cursor: pointer;    
 }
 
 .lista-recenzija{
@@ -586,8 +586,6 @@ form{
     background-size: 115% 130%;
 
 }
-
-
     
 .search-filters{
     width: 100%;
@@ -852,13 +850,11 @@ form{
     display: flex;
     gap: 8px;
     border-bottom: 1px solid #70707048;
-
-
 }
 
 .pretraga-knjiga button{
     height: 35px;
-    width: 70px;
+    width: 100px;
     padding: 2px 4px;
     font-size: 0.65em;
     border-radius: 5px;
@@ -885,6 +881,7 @@ form{
     padding: 0px 16px;
     overflow-y: auto;
     flex: 0 0 auto;
+    /* border: 1px solid #70707048; */
     
 }
 
@@ -981,7 +978,130 @@ form{
 }
 
 .knjige-admin-forma{
-    padding: 6px 0;     
+    padding: 6px 16px;
+    padding-top: 0;
+    /* background-color: orange; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header-knjige-admin{
+    display: flex;
+    justify-content: center;
+    font-size: 0.70em;
+    padding: 6px;
+    font-weight: 700;
+}
+
+.forma-placeholder{
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    /* align-items: center; */
+    
+}
+
+.knjige-admin-forma form{
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    
+}
+
+.knjige-admin-forma form input, .knjige-admin-forma form select{
+    height: 25px;
+    background-color: #30302E;
+    font-size: 0.75em;
+}
+
+.knjige-admin-forma form select{
+    border-radius: 5px;
+    background-color: #30302E;
+    border: 1px solid #70707048;
+    color: #D6D5D1;
+}
+
+.knjige-admin-forma form select option{
+    color: #D6D5D1;
+} 
+
+.knjige-admin-forma form input::placeholder{
+    color: #D6D5D1;
+}
+
+.knjige-admin-forma form textarea::placeholder{
+    color: #D6D5D1;
+}
+
+.knjige-admin-forma form textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.knjige-admin-forma form textarea::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.knjige-admin-forma form textarea::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.knjige-admin-forma form textarea::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
+    cursor: pointer;
+}
+
+.forma-naziv-autor{
+    display: flex;
+    gap: 6px;
+}
+
+.forma-datum-zanr{
+    display: flex;
+    gap: 6px;
+
+}
+
+.forma-datum, .forma-zanr{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.knjige-admin-forma form label{
+    font-size: 0.6em;
+    color: #555555;
+}
+
+.forma-naziv, .forma-autor{
+    display: flex;
+    flex-direction:column;
+    width: 50%;
+    gap: 3px;
+}
+
+.forma-actions{
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.forma-actions input{
+    padding: 4px;
+}
+
+.admin-knjige-submit{
+    width: 40%;
+    background-color: #55489f !important;
+}
+
+.admin-knjige-reset{
+    width: 20%;
+
 }
 
 footer{
