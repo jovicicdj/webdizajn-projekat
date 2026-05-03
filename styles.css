@@ -352,6 +352,23 @@ form{
     gap: 8px;
 }
 
+.ostavi-rejting{
+    display: flex;
+    justify-content: center;
+    direction: rtl;
+}
+
+.for-rating:before{
+    content: "\2606";
+    font-size: 20px;
+}
+
+.for-rating:hover::before,
+.for-rating:hover ~ .for-rating:before{
+    content: "\2605";
+    color: #f5b301;
+}
+
 .lista-recenzija{
     background-color: #1F1F1F;
     flex: 1;
