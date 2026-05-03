@@ -1087,6 +1087,7 @@ form{
     margin-top: 5px;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-end;
     gap: 6px;
 }
 
@@ -1102,6 +1103,17 @@ form{
 .admin-knjige-reset{
     width: 20%;
 
+}
+
+#slika{
+    padding: 0;
+}
+
+#slika::file-selector-button{
+    background-color: #55489f;
+    color: white;
+    border: none;
+    height: 100%;
 }
 
 footer{
