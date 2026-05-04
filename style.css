@@ -546,6 +546,10 @@ footer{
     border-radius: 20px;
 }
 
+.book-cover img:hover{
+    animation: zoomAndGlow 1.5s ease forwards;
+}
+
 .pa-knjige-scroll .book-cover p{
     margin: 0;
     color: white;
@@ -971,6 +975,10 @@ footer{
 /*ADMIN KRAJ*/
 
 
+@keyframes zoomAndGlow{
+    50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+    100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+}
 
 
 
