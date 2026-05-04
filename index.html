@@ -40,7 +40,7 @@
                         <h2>Otkrij svoju sledecu omiljenu knjigu</h2>
                         <p>Zajednica citalaca gde mozes istrazivati ocenjivati i deliti ljubav prema knjigama.</p>
                         <div class="landing-buttons">
-                            <button class="button katalog">Istrazi katalog</button>
+                            <button class="button katalog" onclick=animacija()>Istrazi katalog</button>
                             <button class="button autori">Pogledaj autore</button>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="books">
+            <div class="books" id="galerija-knjiga">
                 <div class="books-header">
                     <h6>Katalog knjiga</h6>
                 </div>
@@ -69,7 +69,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <a href="pojedinacna.html"><img src="images/karenjina.jpg" alt="Ana Karenjina"></a>
-                            <p>Ana Karenjina</p>
+                            <p class="book-card-naslov">Ana Karenjina</p>
                         </div>
 
                         <div class="book-desc">
@@ -82,7 +82,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/1984.png" alt="1984">
-                            <p>1984</p>
+                            <p class="book-card-naslov">1984</p>
                         </div>
 
                         <div class="book-desc">
@@ -95,7 +95,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/majstor i margarita.png" alt="Majstor i Margarita">
-                            <p>Majstor i Margarita</p>
+                            <p class="book-card-naslov">Majstor i Margarita</p>
                         </div>
 
                         <div class="book-desc">
@@ -108,7 +108,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/hobiti.jpg" alt="Hobiti">
-                            <p>Hobiti</p>
+                            <p class="book-card-naslov">Hobiti</p>
                         </div>
 
                         <div class="book-desc">
@@ -121,7 +121,7 @@
                      <div class="book-card">
                         <div class="book-cover">
                             <img src="images/zlocin i kazna.webp" alt="Zlocin i kazna">
-                            <p>Zlocin i kazna</p>
+                            <p class="book-card-naslov">Zlocin i kazna</p>
                         </div>
 
                         <div class="book-desc">
@@ -134,7 +134,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/rat svetova.jpg" alt="Rat svetova">
-                            <p>Rat svetova</p>
+                            <p class="book-card-naslov">Rat svetova</p>
                         </div>
 
                         <div class="book-desc">
@@ -147,7 +147,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/da vincijev kod.jpg" alt="Da Vincijev kod">
-                            <p>Da Vincijev kod</p>
+                            <p class="book-card-naslov">Da Vincijev kod</p>
                         </div>
 
                         <div class="book-desc">
@@ -160,7 +160,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/zivotinjska farma.jpg" alt="Zivotinjska farma">
-                            <p>Zivotinjska farma</p>
+                            <p class="book-card-naslov">Zivotinjska farma</p>
                         </div>
 
                         <div class="book-desc">
@@ -173,7 +173,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/prokleta avlija.jpg" alt="Prokleta avlija">
-                            <p>Prokleta avlija</p>
+                            <p class="book-card-naslov">Prokleta avlija</p>
                         </div>
 
                         <div class="book-desc">
@@ -186,7 +186,7 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/metamorfoza.jpg" alt="Metamorfoza">
-                            <p>Metamorfoza</p>
+                            <p class="book-card-naslov">Metamorfoza</p>
                         </div>
 
                         <div class="book-desc">
@@ -222,6 +222,17 @@
         </footer>
     </div>
 
-    
+    <script>
+        function animacija(){
+            const kartice = document.getElementsByClassName("books");
+            for (let i = 0; i < kartice.length; i++) {
+                kartice[i].classList.remove("animate");
+                void kartice[i].offsetWidth;
+                kartice[i].classList.add("animate");
+            }
+
+            document.getElementById("galerija-knjiga").scrollIntoView({behavior:"smooth"});
+        }
+    </script>
 </body>
 </html>

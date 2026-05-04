@@ -634,6 +634,7 @@ form{
     overflow-x: auto;
     scroll-behavior: smooth;
     position: relative;
+    
 
 }
 
@@ -694,6 +695,30 @@ form{
     flex: 0 0 auto;
 }
 
+@keyframes glow{
+    50%{box-shadow: 0px 0px 50px white}
+    50%{box-shadow: 0px 0px 50px white}   
+}
+
+@keyframes backgroundColor{
+    50% { background-color: #796cf058;}
+    50% { background-color: #372a8a72;} 
+}
+
+@keyframes zoomAndGlow{
+    50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+    100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+}
+
+.animate{
+    animation: backgroundColor 1.5s ease;
+}
+
+.book-card img:hover{
+    animation: zoomAndGlow 1.25s ease forwards;
+
+}
+
 .book-cover{
     width: 150px;
     height: 225px;
@@ -713,10 +738,11 @@ form{
     inset: 0;
     display: block;
     width: 100%;
-    height: 100%;
-
+    height: 100%; 
+    color: white;
 }
-.book-cover p{
+
+.book-card-naslov{
     margin: 0;
     z-index: 100;
     color: white;
@@ -1102,7 +1128,6 @@ form{
 
 .admin-knjige-reset{
     width: 20%;
-
 }
 
 #slika{
@@ -1114,6 +1139,10 @@ form{
     color: white;
     border: none;
     height: 100%;
+}
+
+#datum::-webkit-calendar-picker-indicator{
+    filter: invert(1);
 }
 
 footer{
@@ -1149,3 +1178,4 @@ footer{
     color: white;
     font-size: 0.75em;
 }
+
