@@ -51,7 +51,7 @@ header{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 15px;
+    height: 60px;
     padding: 16px 20px;
     background-color: #121212;
     position: sticky;
@@ -902,7 +902,7 @@ form{
 
 .tabela-knjiga{
     width: 75%;
-    height: 585px;
+    height: 565px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -984,11 +984,16 @@ form{
 .tr-8{
     display: flex;
     justify-content: space-around;
+    margin-left: 10px;
 }
 
 .tr-2, .tr-3, .tr-4, .tr-5, .tr-6, .tr-7, .tr-8{
     width: 11%;
     
+}
+
+.tr-5 p{
+    font-size: 1em;
 }
 
 .button-tabela{
