@@ -756,45 +756,88 @@ footer{
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    padding-top: 0px;
 }
 
 .adm-header{
-    background-color: orange;
-    height: 45px;
-    color: black;
-    padding: 12px 20px;
+    background-color: #211C3F;
+    height: 40px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 0.8em;
+    border-bottom: 1px solid rgba(137, 43, 226, 0.559);
+}
+
+.admin-dugme{
+    height: 20px;
+    padding: 0 16px;
+    font-size: 12px;
+    border: 1px solid rgba(40, 223, 46, 0.1);
+    border-radius: 121px;
+    cursor: default !important;
+    background-color: #2A2350;
+    color: #A78BFA;
 }
 
 .adm-search-row{
-    background-color: yellow;
+    display: flex;
+    gap: 8px;
     height: 60px;
     color: black;
-    padding: 12px 20px;
+    padding: 12px 12px;
+    border-bottom: 1px solid #70707048;
+}
+
+.adm-search-row button{
+    height: 35px;
+    width: 100px;
+    padding: 2px 4px;
+    font-size: 0.65em;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 76%, 0.858);
+    background: transparent;
+    color: hsla(0, 0%, 76%, 0.858);
+}
+
+.adm-search-row input{
+    flex: 1;
 }
 
 .adm-content{
     flex: 1;
     display: flex;
     flex-direction: row;
-    gap: 16px;
-    padding: 16px;
-    min-height: 0;
+    gap: 8px;
 }
 
 .adm-levo{
-    flex: 1;
+    width: 75%;
+    height: 565px;
     display: flex;
     flex-direction: column;
-    background-color: blue;
-    min-height: 0;
+    gap: 8px;
+    padding: 4px 16px;
+    padding-right: 0px;
+    overflow-y: auto;
+    flex: 0 0 auto;
 }
 
 .adm-tabela-header{
     background-color: green;
-    height: 40px;
+    height: 30px;
     color: white;
-    padding: 8px;
+    padding: 6px 6px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+    font-size: 0.8em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 .adm-tabela-body{
@@ -802,17 +845,20 @@ footer{
     background-color: purple;
     overflow-y: auto;
     color: white;
-    min-height: 0;
+    padding-right: 12px;
 }
+
+
 
 /*ADMIN SCROLLBAR*/
 .adm-tabela-body::-webkit-scrollbar{
-    width: 8px;
+    width: 10px;
 }
  
 .adm-tabela-body::-webkit-scrollbar-track{
     background: #1f1f1f;
     border-radius: 999px;
+    margin: 0px 0;
 }
  
 .adm-tabela-body::-webkit-scrollbar-thumb{
@@ -826,16 +872,28 @@ footer{
 /*ADMIN SCROLLBAR KRAJ*/
 
 .adm-red{
+    display: flex;
+    align-items: center;
+    gap: 10px;
     background-color: rgb(100, 0, 100);
     color: white;
-    padding: 12px 8px;
+    padding: 6px 8px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+.adm-red-slika{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .adm-desno{
-    width: 300px;
+    width: 100%;
+    flex: 1;
     background-color: red;
     color: white;
     padding: 16px;
+    margin: 6px;
 }
 /*ADMIN KRAJ*/
