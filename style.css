@@ -5,8 +5,9 @@
     font-family: "Merriweather", sans-serif;
 }
 
-* h6,h4{
+* h6,h4,h5{
     margin: 0;
+    padding: 0;
 }
 
 * p{
@@ -142,9 +143,9 @@ header a{
     flex-direction: column;
     justify-content: center;
     font-size: 12px;
-    min-height: 65px; 
+
     width: 100%;
-    padding: 0px 20px;
+    padding: 8px 20px;
     border-bottom: 1px solid #70707048;
 }
 
@@ -349,7 +350,7 @@ footer{
 /*POJEDINACAN AUTOR*/
 .main-pojedinacan-autor{
     width: 100%;
-    flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -639,6 +640,7 @@ footer{
     position: sticky;
     top: 70px;
     align-self: flex-start;
+    height: 100%;
 }
 
 .pa-ocena-card{
@@ -723,6 +725,7 @@ footer{
     flex-direction: column;
     gap: 10px;
     color: aliceblue;
+    height: 100%;
 }
 
 .pa-kontakt-row{
@@ -889,7 +892,7 @@ footer{
     background-color: #1a1a1a;
 }
 
-.tabela-row div, .tabela-header div{
+.tabela-row div, .adm-tabela-header div{
     display: flex;
     align-items: center;
     font-size: 0.85em;
@@ -901,9 +904,11 @@ footer{
     width: 17%;
 }
 
-.ta-1 p{
-    font-size: 10px;
+.ta-1{
+    font-size: 0.85em;
 }
+
+
 
 .ta-2{
     width: 12%;
