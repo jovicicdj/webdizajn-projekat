@@ -82,6 +82,10 @@ header a{
     border-style:solid;
 }
 
+.login:hover{
+    background-color: rgb(40, 40, 40);
+}
+
 .register{
     background-color: #6153dd;
     color: white;
@@ -149,12 +153,22 @@ main{
     font-weight: bold;
 }
 
+.katalog:hover, .register:hover{
+    background-color: #4b4396;
+    cursor: pointer;
+}
+
 .autori{
     width: 125px;
     background-color: transparent;
     color: #5f53e2;
     border-color: #AFA9EC;
     border-style: solid;
+}
+
+.autori:hover{
+    background-color:rgb(219, 219, 219);
+    cursor: pointer;
 }
 
 .landing-image{
