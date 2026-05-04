@@ -709,20 +709,7 @@ form{
     flex: 0 0 auto;
 }
 
-@keyframes glow{
-    50%{box-shadow: 0px 0px 50px white}
-    50%{box-shadow: 0px 0px 50px white}   
-}
 
-@keyframes backgroundColor{
-    50% { background-color: #796cf058;}
-    50% { background-color: #372a8a72;} 
-}
-
-@keyframes zoomAndGlow{
-    50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
-    100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
-}
 
 .animate{
     animation: backgroundColor 1.5s ease;
@@ -951,6 +938,9 @@ form{
     gap: 8px;
     border-bottom: 1px solid #70707048;
     background-color: #1A1A1A;
+    position:sticky;
+    top: 0;
+    z-index: 5;
 }
 
 .tabela-row div, .tabela-header div{
@@ -1044,7 +1034,6 @@ admin-knjige-resetadmin-forma{
     /* background-color: red; */
     flex: 1;
     display: flex;
-    /* align-items: center; */
     
 }
 
@@ -1212,3 +1201,12 @@ footer{
     font-size: 0.75em;
 }
 
+@keyframes backgroundColor{
+    50% { background-color: #796cf058;}
+    50% { background-color: #372a8a72;} 
+}
+
+@keyframes zoomAndGlow{
+    50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+    100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+}
