@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Autori</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header-left">
+                <a href="#"><span class="naslov">Knjige</span>.rs</a>
+            </div>
+
+            <div class="header-center">
+                <ul>
+                    <li><a href="index.html" class="inactive-page">Knjige</a></li>
+                    <li><a href="#" class="active-page">Autori</a></li>
+                    <li><a href="#" class="inactive-page">Moj Profil</a></li>
+                    <li><a href="admin_autori.html" class="inactive-page">Admin Autori</a></li>
+                </ul>
+            </div>
+
+            <div class="header-right">
+                <button class="button login">Prijava</button>
+                <button class="button register">Registracija</button>
+            </div>
+        </header>
+
+
+
+        <main class="main-autori">
+            <div class="main-upper">
+                <div class="heading">
+                    <h5>Autori</h5>
+                    <p>upoznajte pisce ...</p>
+                </div>
+
+                <div class="search-filters">
+                    <input type="search" class="search-bar" placeholder="Pretrazite autore po imenu i statusu..." spellcheck="false">
+                    <button class="filter-card active-filter">Svi</button>
+                    <button class="filter-card">Aktivni</button>
+                    <button class="filter-card">U penziji</button>
+                    <button class="filter-card">Preminuli</button>
+                </div>
+            </div>
+
+
+
+            <div class="main-lower">
+                <div class="authors-header">
+                    <h6>Svi Autori</h6>
+                    <p>380 autora</p>
+                </div>
+
+                <div class="authors">
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/lavtolstoj.webp" alt="Lav Tolstoj"></a>
+                        <h6>Lav Tolstoj</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">12 knjiga ·</p>
+                            <p class="number-of-awards">1250+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/mihailbulgakov.webp" alt="Mihail Bulgakov"></a>
+                        <h6>Mihail Bulgakov</h6>
+                        <p class="stars">★★★★☆</p>
+                        <div class="author-info">
+                            <p class="number-of-books">8 knjiga ·</p>
+                            <p class="number-of-awards">340+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/dzordzorvel.avif" alt="Džordž Orvel"></a>
+                        <h6>Džordž Orvel</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">6 knjiga ·</p>
+                            <p class="number-of-awards">890+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/jrrtolkin.jpg" alt="J.R.R. Tolkin"></a>
+                        <h6>J.R.R. Tolkin</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">15 knjiga ·</p>
+                            <p class="number-of-awards">2000+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/harukimurakami.jpg" alt="Haruki Murakami"></a>
+                        <h6>Haruki Murakami</h6>
+                        <p class="stars">★★★★☆</p>
+                        <div class="author-info">
+                            <p class="number-of-books">22 knjiga ·</p>
+                            <p class="number-of-awards">1100+ nagrada</p>
+                        </div>
+                        <span class="status active">Aktivan</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/stivenking.avif" alt="Stiven King"></a>
+                        <h6>Stiven King</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">65 knjiga ·</p>
+                            <p class="number-of-awards">3200+ nagrada</p>
+                        </div>
+                        <span class="status active">Aktivan</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/fdostojevski.jpg" alt="F. Dostojevski"></a>
+                        <h6>F. Dostojevski</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">10 knjiga ·</p>
+                            <p class="number-of-awards">980+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/hgvels.jpg" alt="H.G. Vels"></a>
+                        <h6>H.G. Vels</h6>
+                        <p class="stars">★★★★☆</p>
+                        <div class="author-info">
+                            <p class="number-of-books">18 knjiga ·</p>
+                            <p class="number-of-awards">760+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/albertkamus.webp" alt="Alber Kami"></a>
+                        <h6>Alber Kami</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">9 knjiga ·</p>
+                            <p class="number-of-awards">1400+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/gabrielgarciamarkes.webp" alt="G.G. Markes"></a>
+                        <h6>G.G. Markes</h6>
+                        <p class="stars">★★★★★</p>
+                        <div class="author-info">
+                            <p class="number-of-books">11 knjiga ·</p>
+                            <p class="number-of-awards">1800+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/ernesthemingvej.jpg" alt="Ernest Hemingvej"></a>
+                        <h6>Ernest Hemingvej</h6>
+                        <p class="stars">★★★★☆</p>
+                        <div class="author-info">
+                            <p class="number-of-books">14 knjiga ·</p>
+                            <p class="number-of-awards">1100+ nagrada</p>
+                        </div>
+                        <span class="status deceased">Preminuo</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                    <div class="author-card">
+                        <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/paulokoeljo.jpeg" alt="Paulo Koeljo"></a>
+                        <h6>Paulo Koeljo</h6>
+                        <p class="stars">★★★★☆</p>
+                        <div class="author-info">
+                            <p class="number-of-books">30 knjiga ·</p>
+                            <p class="number-of-awards">950+ nagrada</p>
+                        </div>
+                        <span class="status retired">U penziji</span>
+                        <button class="view-profile">Pogledaj profil</button>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+
+
+        <footer>
+            <div class="footer-card">
+                <p class="footer-stat">1240</p>
+                <p class="footer-value">knjiga</p>
+            </div>
+
+            <div class="footer-card">
+                <p class="footer-stat">380</p>
+                <p class="footer-value">autora</p>
+            </div>
+
+            <div class="footer-card">
+                <p class="footer-stat">8500</p>
+                <p class="footer-value">recenzija</p>
+            </div>
+
+            <div class="footer-card">
+                <p class="footer-stat">2100</p>
+                <p class="footer-value">citalaca</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

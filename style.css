@@ -1,0 +1,984 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Merriweather", sans-serif;
+}
+
+* h6,h4{
+    margin: 0;
+}
+
+* p{
+    margin: 0;
+}
+
+.admin-body {
+    overflow: hidden;
+}
+
+/*DEFAULT SCROLLBAR*/
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
+}
+/*DEFAULT SCROLLBAR KRAJ*/
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #121212;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 15px;
+    padding: 16px 20px;
+    background-color: #121212;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid #70707048;
+    z-index: 1000;
+}
+
+header ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header ul li{
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 0.8em;
+}
+
+header a{
+    text-decoration: none;
+    color: #949494;
+}
+
+.naslov{
+    font-weight: bold;
+    color: #695ae9;
+}
+
+.header-right{
+    display: flex;
+    gap: 10px;
+}
+
+.button{
+    height: 28px;
+    font-size: 0.7em;
+    padding: 6px 16px;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    background-color: #121212;
+    color: #AFA9EC;
+    border-color: rgba(214, 214, 214, 0.222);
+    border-style: solid;
+}
+
+.register{
+    background-color: #6153dd;
+    color: white;
+    border-style: none;
+}
+
+.main-autori{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.active-page{
+    color: #695ae9;
+}   
+
+.inactive-page:hover{
+    color: #9b8ff5;
+}
+
+.main-upper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading{
+    background-color: #161616;
+    color: #646464;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 12px;
+    min-height: 65px; 
+    width: 100%;
+    padding: 0px 20px;
+    border-bottom: 1px solid #70707048;
+}
+
+.heading h5{
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 1px;
+}
+
+.search-filters{
+    background-color: #161616;
+    width: 100%;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid #70707048;
+}
+
+.search-bar{
+    width: 75%;
+    border-radius: 5px;
+    height: 35px;
+    color: rgb(255, 255, 255, 0.6);
+    background-color: #2f2e2e;
+    
+    border-style: none;
+    padding: 12px 20px;
+    font-size: 0.75em;
+}
+
+input {
+    font-size: 14px;
+    font-family: "Merriweather", sans-serif;
+}
+
+.filter-card{
+    height: 35px;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-size: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: transparent;
+    color: #ccc;
+}
+
+.active-filter{
+    color: #695ae9;
+    border: 2px solid rgba(255,255,255,0.1);
+
+}
+
+.main-lower{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex: 1;
+}
+
+.authors-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    color: aliceblue;
+    height: 40px;
+    padding: 12px 20px;
+}
+
+.authors-header h6{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.authors-header p{
+    color:#646464;
+    font-size: 11px;
+    margin: 0;
+    margin-top: 5px
+}
+
+footer{
+    width: 100%;
+    min-height: 60px;
+    background-color: #161616;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-card{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: solid 1px #6153dd5d;
+    gap: 3px;
+}
+
+.footer-stat{
+    color: #6153dd;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.footer-value{
+    color: white;
+    font-size: 0.75em;
+}
+
+.footer-card p {
+    margin: 0;
+    padding: 0;
+}
+
+.authors{
+    flex:1;
+    width: 100%;
+    color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 16px;
+    padding: 8px 20px 16px 20px;
+
+}
+
+.author-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 20px;
+    gap: 4px;
+}
+
+.author-avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.stars {
+    color: #f5c518;
+    font-size: 0.85em;
+    letter-spacing: 2px;
+}
+
+.author-info{
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-size: 0.75em;
+    color: #646464;
+}
+
+.status.deceased{
+    background-color: #5a1a1a;
+    color: #e06060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.status.active{
+    background-color: #1a3a1a;
+    color: #60e060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.status.retired{
+    background-color: #2a2a1a;
+    color: #e0c060;
+    padding: 2px 10px;
+    border-radius: 5px;
+    font-size: 0.7em;
+}
+
+.view-profile{
+    width: 100%;
+    height: 35px;
+    background:transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    color: #ccc;
+    font-size: 0.75em;
+    margin-top: 4px;
+}
+
+
+/*POJEDINACAN AUTOR*/
+/*POJEDINACAN AUTOR*/
+/*POJEDINACAN AUTOR*/
+.main-pojedinacan-autor{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*HERO ZA POJEDINACNE*/
+.pa-hero{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 120px;
+    color: white;
+    padding: 16px 20px;
+    border-bottom: 1px solid #70707048;
+}
+
+.pa-avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6153dd;
+    flex-shrink: 0;
+}
+
+.pa-hero-info{
+    flex: 1;
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pa-ime-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.pa-ime{
+    color: aliceblue;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.pa-opis{
+    color: #646464;
+    font-size: 0.7em;
+    max-width: 100%;
+}
+
+.pa-stats{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    padding-top: 10px;
+
+}
+
+.pa-stat-card{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pa-stat-broj{
+    color: aliceblue;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.pa-stat-naziv{
+    color: #646464;
+    font-size: 0.6em;
+}
+
+.pa-back-link{
+    margin-left: auto;
+    align-self: flex-start;
+    text-decoration: none;
+    color: #695ae9;
+    font-size: 0.75em;
+    white-space: nowrap;
+    padding-top: 4px;
+}
+/*KRAJ HERO ZA POJEDINACNE*/
+
+
+.pa-content{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 10px;
+    align-items: stretch;
+    padding: 16px 16px;
+}
+
+.pa-levo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.pa-sekcija{
+    padding: 16px;
+    color: white;
+    min-height: 100px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+/*Biografija*/
+.pa-biografija{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+}
+
+.pa-sekcija-naslov{
+    position: sticky;
+    left: 0;
+    color: aliceblue;
+    font-size: 0.85em;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #70707048;
+    margin-bottom: 4px;
+}
+
+.pa-bio-tekst{
+    color: #ABABAB;
+    font-size: 0.75em;
+    line-height: 2;
+}
+/*Biografija Kraj*/
+
+/*KNJIGE I SCROLLBAR*/
+.pa-knjige{
+    flex: 1;
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 10px 16px 0px 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.pa-knjige-scroll{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding-bottom: 12px;
+}
+
+.pa-knjige::-webkit-scrollbar{
+    height: 8px;
+}
+
+.pa-knjige::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.pa-knjige::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.pa-knjige::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+
+.pa-knjige-scroll .book-card{
+    flex: 0 0 auto;
+    width: 150px;
+    font-size: 12px;
+}
+
+.pa-knjige-scroll .book-cover{
+    width: 150px;
+    height: 225px;
+    position: relative;
+}
+
+.pa-knjige-scroll .book-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.book-cover img:hover{
+    animation: zoomAndGlow 1.5s ease forwards;
+}
+
+.pa-knjige-scroll .book-cover p{
+    margin: 0;
+    color: white;
+    position: absolute;
+    top: 90%;
+    left: 10px;
+    background-color: rgba(0,0,0,0.729);
+    border-radius: 6px;
+    padding: 0 2px;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pa-knjige-scroll .book-desc{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: center;
+}
+
+.pa-knjige-scroll .book-author{
+    color: white;
+}
+
+.pa-knjige-scroll .book-recom {
+    color: #6153DD;
+}
+/*KNJIGE I SCROLLBAR KRAJ*/
+
+
+/*ZANROVI*/
+.book-genre {
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid rgba(40,223,46,0.1);
+    cursor: default !important;
+}
+
+.roman{
+    background: #3b1f2b;
+    color: #f472b6;
+}
+
+.klasik{
+    background: #1b3a3a;
+    color: #2dd4bf;
+}
+
+.distopija{
+    background: #1e293b;
+    color: #60a5fa;
+}
+.fantazija{
+    background: #3b1f1f;
+    color: #f87171;
+}
+.sci-fi{
+    background: #3a321a;
+    color: #facc15;
+}
+.triler{
+    background: #2a1a2f;
+    color: #c084fc;
+}
+.novela{
+    color: #C89B6D;
+    background-color: #2F241A;
+}
+.horor{
+    background: #1a0a0a;
+    color: #f87171; border: 1px solid rgba(248,113,113,0.15);
+}
+/*ZANROVI KRAJ*/
+
+
+/*KARTICE DESNO*/
+.pa-desno {
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: sticky;
+    top: 70px;
+    align-self: flex-start;
+}
+
+.pa-ocena-card{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: aliceblue;
+}
+
+.pa-ocena-broj,
+.pa-ocena-card .stars,
+.pa-ocena-count {
+    align-self: center;
+}
+
+.pa-ocena-card .stars{
+    font-size: 1.2em;
+}
+
+.pa-ocena-broj{
+    color: #f5c518;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0;
+}
+
+.pa-ocena-count{
+    color: #646464;
+    font-size: 0.7em;
+}
+
+.pa-devider{
+    width: 100%;
+    height: 1px;
+    background-color: #70707048;
+    margin: 4px 0;
+}
+
+.pa-vasa-ocena-label {
+    color: #a2a2a2;
+    font-size: 0.8em;
+}
+
+/* INTERAKTIVNE ZVEZDICE */
+.pa-zvezdice{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 2px;
+}
+
+.pa-zvezdice span{
+    font-size: 1.4em;
+    color: #444;
+    cursor: pointer;
+}
+
+.pa-zvezdice span::before{
+    content: "★";
+}
+
+.pa-zvezdice span:hover,
+.pa-zvezdice span:hover ~ span {
+    color: #f5c518;
+}
+
+.pa-oceni-btn {
+    margin-top: 4px;
+}
+/* INTERAKTIVNE ZVEZDICE KRAJ */
+
+.pa-kontakt-card{
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: aliceblue;
+}
+
+.pa-kontakt-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.pa-kontakt-ime{
+    color: #646464;
+    font-size: 0.65em;
+}
+
+.pa-kontakt-vrednost{
+    color: #ABABAB;
+    font-size: 0.65em;
+    text-align: right;
+}
+
+.pa-kontakt-link{
+    color: #695ae9;
+    font-size: 0.65em;
+    text-decoration: none;
+    text-align: right;
+}
+/*KARTICE DESNO KRAJ*/
+
+/*POJEDINACAN AUTOR KRAJ*/
+
+
+
+/*ADMIN AUTORI*/
+.main-admin{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.adm-header{
+    background-color: #211C3F;
+    height: 40px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    font-size: 0.8em;
+    border-bottom: 1px solid rgba(137, 43, 226, 0.559);
+}
+
+.admin-dugme{
+    height: 20px;
+    padding: 0 16px;
+    font-size: 12px;
+    border: 1px solid rgba(40, 223, 46, 0.1);
+    border-radius: 121px;
+    cursor: default !important;
+    background-color: #2A2350;
+    color: #A78BFA;
+}
+
+.adm-search-row{
+    display: flex;
+    gap: 8px;
+    height: 60px;
+    color: black;
+    padding: 12px 12px;
+    border-bottom: 1px solid #70707048;
+}
+
+.adm-search-row button{
+    height: 35px;
+    width: 100px;
+    padding: 2px 4px;
+    font-size: 0.65em;
+    border-radius: 5px;
+    border: 1px solid hsla(0, 0%, 76%, 0.858);
+    background: transparent;
+    color: white;
+}
+
+.adm-search-row input{
+    flex: 1;
+}
+
+.adm-content{
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.adm-levo{
+    width: 75%;
+    height: 565px;
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 16px;
+    padding-right: 10px;
+    overflow-y: auto;
+    flex: 0 0 auto;
+}
+
+.adm-tabela-header{
+    background-color: #1A1A1A;
+    height: 30px;
+    color: white;
+    padding: 6px 6px;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+    font-size: 0.8em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+
+
+
+/*ADMIN SCROLLBAR*/
+.adm-levo::-webkit-scrollbar{
+    width: 10px;
+}
+ 
+.adm-levo::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+    margin: 0px 0;
+}
+ 
+.adm-levo::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+ 
+.adm-levo::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+/*ADMIN SCROLLBAR KRAJ*/
+
+/*TABELA */
+.tabela-autora{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.tabela-row{
+    padding: 6px 6px;
+    font-size: 0.8em;
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #70707048;
+    color: white;
+}
+
+.tabela-row:hover{
+    background-color: #1a1a1a;
+}
+
+.tabela-row div, .tabela-header div{
+    display: flex;
+    align-items: center;
+    font-size: 0.85em;
+    gap: 6px;
+}
+
+
+.ta-1{
+    width: 17%;
+}
+
+.ta-1 p{
+    font-size: 10px;
+}
+
+.ta-2{
+    width: 12%;
+}
+
+.ta-3 , .ta-4{
+    width: 9%;
+}
+
+.ta-5{
+    width: 10%;
+}
+
+.ta-6{
+    width: 13%;
+    gap: 4px;
+}
+
+.ta-7{
+    width: 15%;
+}
+
+.ta-8{
+    width: 12%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.stars-tabela{
+    font-size: 13px;
+    color: #f5c518;
+}
+
+.tabela-rejting{
+    font-size: 12px;
+    color: white;
+}
+
+
+.tabela-autor-slika{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.action-buttons{
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.action-buttons:hover{
+    color: #695ae9;
+}
+/*TABELA KRAJ*/
+
+.adm-desno{
+    flex: 1;
+    color: white;
+    padding: 8px 12px 8px 4px;
+}
+/*ADMIN KRAJ*/
+
+
+@keyframes zoomAndGlow{
+    50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+    100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
+}
+
+
+
