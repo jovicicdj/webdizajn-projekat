@@ -126,6 +126,12 @@ header a:hover{
     border-style: none;
 }
 
+.odjava{
+    color: #cc4444;
+    background-color: transparent;
+    border: 1px solid #cc444463; 
+}
+
 .main-index{
     width: 100%;
     flex: 1;
@@ -140,6 +146,97 @@ header a:hover{
     flex: 1;
     padding: 5px 0;
     margin-bottom: 8px;
+}
+
+.main-profil{
+    display: flex;
+    flex-direction: column;
+    /* background-color: orange; */
+    flex: 1;
+}
+
+.main-profil-top{
+    /* background-color: red; */
+    height: 105px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 20px;
+    justify-content: space-between;
+    gap: 10px;
+    
+}
+
+.profil-info{
+    /* background-color: orange; */
+    width: 30%;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    color: white;
+}
+
+.profil-statistika{
+    /* background-color: green; */
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    gap: 40px; 
+    align-items: center;
+
+}
+
+.profil-ime-email{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+   
+}
+
+.profil-ime{
+    font-size: 1.3em;
+}
+
+.profil-email{
+    font-size: 0.75em;
+    color: rgb(174, 174, 174);
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.statistika-card{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+}
+
+.statistika-vrednost{
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.statistika-ime{
+    font-size: 0.75em;
+    color: rgb(174, 174, 174);
+
+}
+
+
+
+.main-profil-top img{
+    width: 80px;
+    height: 80px;
+    border: 1px solid blueviolet;
+    border-radius: 50%;
+}
+
+.main-profil-bottom{
+    background-color: orange;
+    flex: 6;
 }
 
 .main-pojedinacna-content{
@@ -840,6 +937,7 @@ form{
     padding-bottom: 8px;
     padding-top: 0;
     gap: 4px;
+    min-height: 0;
 
 }
 
@@ -898,17 +996,18 @@ form{
     flex: 1;
     display: flex;
     gap: 8px;
+    min-height: 0;
 }
 
 .tabela-knjiga{
     width: 75%;
-    height: 565px;
     display: flex;
     flex-direction: column;
     gap: 8px;
     padding: 0px 16px;
     overflow-y: auto;
-    flex: 0 0 auto;
+    /* flex: 0 0 auto; */
+    min-height: 0;
     /* border: 1px solid #70707048; */
     
 }
