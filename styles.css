@@ -116,7 +116,7 @@ header a:hover{
     border-style:solid;
 }
 
-.login:hover{
+.login:hover, #submit-dugme:hover, .pretraga-knjiga button:hover{
     background-color: rgb(40, 40, 40);
 }
 
@@ -901,6 +901,7 @@ form{
     border: 1px solid hsla(0, 0%, 76%, 0.858);
 }
 
+
 .pretraga-knjiga input{
     flex: 1;
 }
@@ -960,6 +961,11 @@ form{
 
 }
 
+.tabela-row:hover{
+    background-color: rgb(28, 28, 28);
+    cursor: pointer;
+}
+
 .tabela-row{
     padding: 6px 6px;
     font-size: 0.8em;
@@ -1017,7 +1023,7 @@ form{
     align-items: center;
 }
 
-.knjige-admin-forma{
+admin-knjige-resetadmin-forma{
     padding: 6px 16px;
     padding-top: 0;
     /* background-color: orange; */
@@ -1144,6 +1150,14 @@ form{
     width: 20%;
 }
 
+.admin-knjige-reset:hover{
+    background-color: #3f3f3c;
+}
+
+.admin-knjige-submit:hover{
+    background-color: rgb(71, 59, 141) !important;
+}
+
 #slika{
     padding: 0;
 }
@@ -1153,6 +1167,11 @@ form{
     color: white;
     border: none;
     height: 100%;
+}
+
+#slika::file-selector-button:hover{
+    background-color: rgb(71, 59, 141);
+    cursor: pointer;
 }
 
 #datum::-webkit-calendar-picker-indicator{

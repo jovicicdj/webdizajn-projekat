@@ -224,12 +224,10 @@
 
     <script>
         function animacija(){
-            const kartice = document.getElementsByClassName("books");
-            for (let i = 0; i < kartice.length; i++) {
-                kartice[i].classList.remove("animate");
-                void kartice[i].offsetWidth;
-                kartice[i].classList.add("animate");
-            }
+            const knjige = document.getElementById("galerija-knjiga");
+            knjige.classList.remove('animate');
+            knjige.offsetWidth;
+            knjige.classList.add('animate');
 
             document.getElementById("galerija-knjiga").scrollIntoView({behavior:"smooth"});
         }
