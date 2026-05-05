@@ -1143,5 +1143,59 @@ footer{
 /*ADMIN KRAJ*/
 
 
+/*PROFIL CSS*/
+/*PROFIL CSS KRAJ*/
 
+.ocene-kartica{
+    display: flex;
+    background-color: orange;
+    border: 1px solid #70707048;
+    border-radius: 8px;
+    padding: 10px 12px;
+    justify-content: space-between;
+    background-color: #161625;
+}
 
+.ocena-autora-link{
+    text-decoration: none;
+    color: #5f56bc;
+    font-size: 0.75em;
+}
+
+.ocena-autora-ime{
+    font-size: 0.9em;
+    color: white;
+}
+
+.ocena-autora-zvezdice{
+    color: #f5B301;
+}
+
+.datum-ocenjivanja{
+    color: rgb(174, 174, 174);
+    font-size: 0.75em;
+}
+
+.ocena-kartica-desno{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.main-profil-right-content2::-webkit-scrollbar{
+    width: 10px;
+}
+ 
+.main-profil-right-content2::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+ 
+.main-profil-right-content2::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+ 
+.main-profil-right-content2::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}

@@ -503,6 +503,10 @@ header a:hover{
 .main-profil-right-content2{
     flex: 1;
     display: none;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 550px;
+    overflow: auto;
 }
 
 
