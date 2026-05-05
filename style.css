@@ -52,7 +52,7 @@ header{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 60px;
+    min-height: 15px;
     padding: 16px 20px;
     background-color: #121212;
     position: sticky;
@@ -165,11 +165,10 @@ header a{
     justify-content: space-between;
     padding: 12px 20px;
     border-bottom: 1px solid #70707048;
-    gap: 12px;
 }
 
 .search-bar{
-    flex: 1;
+    width: 75%;
     border-radius: 5px;
     height: 35px;
     color: rgb(255, 255, 255, 0.6);
@@ -771,14 +770,11 @@ footer{
     color: white;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     padding: 8px 16px;
     font-size: 0.8em;
+    font-weight: 700;
     border-bottom: 1px solid rgba(137, 43, 226, 0.559);
-    &.adm-header p{
-        font-weight: 700;
-    }
 }
 
 .admin-dugme{
@@ -879,7 +875,7 @@ footer{
 .tabela-autora{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
 }
 
 .tabela-row{
@@ -895,7 +891,7 @@ footer{
     background-color: #1a1a1a;
 }
 
-.tabela-row div, .adm-tabela-header div{
+.tabela-row div, .adm-tabela div{
     display: flex;
     align-items: center;
     font-size: 0.85em;
@@ -943,11 +939,10 @@ footer{
 .stars-tabela{
     font-size: 13px;
     color: #f5c518;
-
 }
 
 .tabela-rejting{
-    font-size: 1em;
+    font-size: 12px;
     color: white;
 }
 
@@ -979,15 +974,164 @@ footer{
 .adm-desno{
     flex: 1;
     color: white;
-    padding: 8px 12px 8px 4px;
-}
-/*ADMIN KRAJ*/
 
+}
 
 @keyframes zoomAndGlow{
     50%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
     100%{transform:scale(103%); box-shadow: 0px 0px 40px white;}
 }
+
+
+/*ADMIN FORMA*/
+.adm-forma-card{
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 0.75em;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+
+.adm-forma-naslov{
+    color: aliceblue;
+    font-size: 0.95em;
+    font-weight: 700;
+    padding-bottom: 8px;
+    text-align: center;
+    border-bottom: 1px solid #70707048;
+}
+
+.adm-forma-card form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.adm-forma-row{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.adm-forma-group{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.adm-label{
+    color: #646464;
+    font-size: 0.8em;
+}
+
+.adm-input{
+    background-color: #2f2e2e;
+    border: 1px solid #70707048;
+    border-radius: 5px;
+    color: #dededc;
+    padding: 6px 10px;
+    font-size: 1em;
+    width: 100%;
+}
+
+.adm-input:focus{
+    outline: none;
+    border-color: #6153dd;
+}
+
+.adm-textarea{
+    resize: none;
+    height: 80px;
+
+}
+
+.adm-textarea::-webkit-scrollbar{
+    width: 10px;
+}
+
+.adm-textarea::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.adm-textarea::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.adm-textarea::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+
+
+
+
+
+.adm-file-info{
+    color: #646464;
+    font-size: 0.9em;
+}
+
+#slika{
+    padding: 0px;
+    font-size: 1em;
+    
+}
+
+#slika::file-selector-button{
+    background-color: #55489f;
+    color: white;
+    border: none;
+    height: 100%;
+
+}
+
+#slika::file-selector-button:hover{
+    background-color: rgb(71, 59, 141);
+    cursor: pointer;
+}
+
+.adm-select{
+    cursor: pointer;
+}
+
+.adm-forma-buttons{
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.adm-btn-otkazi{
+    background-color: #30302E;
+    width: 20%;
+    padding: 0 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ccc;
+    cursor: pointer;
+}
+
+.adm-btn-sacuvaj{
+    width: 35%;
+    padding: 4px 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: #55489f;
+    color: #ccc;
+    cursor: pointer;
+}
+
+/*ADMIN FORMA KRAJ*/
+/*ADMIN KRAJ*/
+
 
 
 

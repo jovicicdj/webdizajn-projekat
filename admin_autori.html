@@ -325,10 +325,73 @@
                 </div>
 
                 <div class="adm-desno">
-                    forma
-                </div>
+                    <div class="adm-forma-card">
+                        <h6 class="adm-forma-naslov">Izmena autora</h6>
 
-            </div>
+                        <form action="" method="post" enctype="multipart/form-data">
+
+                            <div class="adm-forma-row">
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="ime">Ime</label>
+                                    <input type="text" id="ime" name="ime" class="adm-input" value="Stiven" required >
+                                </div>
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="prezime">Prezime</label>
+                                    <input type="text" id="prezime" name="prezime" class="adm-input" value="King" required >
+                                </div>
+                            </div>
+                            
+                            <div class="adm-forma-group">
+                                <label class="adm-label" for="slika">Slika</label>
+                                <input type="file" id="slika" name="slika" class="adm-input adm-file" accept=".jpg,.jpeg,.png,.webp,.avif">
+                            </div>
+                            
+                            <div class="adm-forma-group">
+                                <label class="adm-label" for="biografija">Biografija</label>
+                                <textarea id="biografija" name="biografija" class="adm-input adm-textarea" required>Stiven Edwin King je američki pisac horora, natprirodne fikcije, trilera i fantastike. Rodjen je 21. septembra 1947. u Portlandu, Mejn. Njegov prvi objavljeni roman, Keri (1974), bio je veliki uspeh i lansirao ga kao pisca. Od tada je objavio više od 65 romana i 200 kratkih priča.</textarea>
+                            </div>
+
+
+                            <div class="adm-forma-row">
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="datum">Datum rođenja</label>
+                                    <input type="date" id="datum" name="datum" class="adm-input" value="1947-09-21" required>
+                                </div>
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="status">Status</label>
+                                    <select id="status" name="status" class="adm-input adm-select" required>
+                                        <option value="aktivan" selected>Aktivan</option>
+                                        <option value="penzija">U penziji</option>
+                                        <option value="preminuo">Preminuo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="adm-forma-row">
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="nagrade">Broj nagrada</label>
+                                    <input type="text" id="nagrade" name="nagrade" class="adm-input" value="3200" required>
+                                </div>
+                                <div class="adm-forma-group">
+                                    <label class="adm-label" for="primerci">Prod. primeraka</label>
+                                    <input type="text" id="primerci" name="primerci" class="adm-input" value="350000000" required>
+                                </div>
+                            </div>
+
+                            <div class="adm-forma-group">
+                                <label class="adm-label" for="telefon">Kontakt telefon menadžera</label>
+                                <input type="text" id="telefon" name="telefon" class="adm-input" value="+381 64 123-4567" required pattern="^\+381 [0-9]{2} [0-9]{3}-[0-9]{3,4}$">
+                            </div>
+
+                            <div class="adm-forma-buttons">
+                                <button type="reset" class="adm-btn-otkazi">Otkaži</button>
+                                <button type="submit" class="adm-btn-sacuvaj">Sačuvaj izmene</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                    
 
 
         </main>
