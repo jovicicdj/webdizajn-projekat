@@ -183,6 +183,7 @@ header a:hover{
     gap: 12px;
     align-items: center;
     color: white;
+    
 }
 
 .profil-statistika{
@@ -238,7 +239,7 @@ header a:hover{
 .main-profil-top img{
     width: 80px;
     height: 80px;
-    border: 1px solid blueviolet;
+    border: 2px solid blueviolet;
     border-radius: 50%;
 }
 
