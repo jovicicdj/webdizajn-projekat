@@ -365,7 +365,7 @@ footer{
     width: 100%;
     min-height: 120px;
     color: white;
-    padding: 16px 20px;
+    padding: 12px 20px;
     border-bottom: 1px solid #70707048;
 }
 
@@ -448,7 +448,7 @@ footer{
     flex: 1;
     gap: 10px;
     align-items: stretch;
-    padding: 16px 16px;
+    padding: 14px 16px;
 }
 
 .pa-levo{
