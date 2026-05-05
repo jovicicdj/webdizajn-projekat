@@ -132,6 +132,10 @@ header a:hover{
     border: 1px solid #cc444463; 
 }
 
+.odjava:hover{
+    color: red !important;
+}
+
 .main-index{
     width: 100%;
     flex: 1;
@@ -165,6 +169,7 @@ header a:hover{
     justify-content: space-between;
     gap: 10px;
     border-bottom: 1px solid #70707048;
+    
 
     
 }
@@ -228,8 +233,6 @@ header a:hover{
 
 }
 
-
-
 .main-profil-top img{
     width: 80px;
     height: 80px;
@@ -240,8 +243,9 @@ header a:hover{
 .main-profil-bottom{
     /* background-color: orange; */
     flex: 1;
-    padding: 12px 20px;
+    padding-left: 20px;
     display: flex;
+    border-bottom: 1px solid #70707048;
 }
 
 .main-profil-left{
@@ -251,6 +255,9 @@ header a:hover{
     flex-direction: column;
     padding: 0 8px;
     gap: 12px;
+    padding-top: 12px;
+    
+    
     
 }
 
@@ -308,11 +315,8 @@ header a:hover{
 }
 
 #progress-bar{
-    appearance: none;
-    -webkit-appearance: none ;
     border-radius: 8px;
     overflow: hidden;
-    
 }
 
 #progress-bar::-webkit-progress-bar{
@@ -342,6 +346,10 @@ header a:hover{
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+#aktivnost-card-poslednja{
+    border-bottom: none;
 }
 
 .aktivnost-p{
@@ -382,8 +390,52 @@ header a:hover{
 
 .main-profil-right{
     flex: 3;
-    /* background-color: red; */
+    background-color: #1A1A2E;
+    padding: 16px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
+
+.main-profil-right-header{
+    /* background-color: orange; */
+    display: flex;
+    border-bottom: 1px solid #70707048;
+    padding-top: 4px;
+    color: #7B7B7E;
+
+    font-size: 0.75em;
+
+}
+
+#moje-recenzije-div p, #moje-ocene-div p{
+    cursor: pointer
+}
+
+#moje-recenzije-div{
+    width: 50%;
+    display: flex;
+    justify-content:center;
+}
+
+#moje-ocene-div{
+    width: 50%;
+    display: flex;
+    justify-content:center;
+}
+
+.main-profil-right-content1{
+    background-color: red;
+    flex: 1;
+    
+}
+
+.main-profil-right-content2{
+    background-color: palegoldenrod;
+    flex: 1;
+    display: none;
+}
+
 
 .main-pojedinacna-content{
     height: 100%;
@@ -1438,6 +1490,7 @@ footer{
     padding: 4px 20px;
     display: flex;
     gap: 12px;
+    margin-top: 12px;
 }
 
 .footer-card-profil{

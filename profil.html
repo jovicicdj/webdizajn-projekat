@@ -134,7 +134,7 @@
                                         <p class="info-ime">Procitane knjige</p>
                                         <p class="info-vrednost">143/200</p>
                                     </div>
-                                    <progress value="75" max="100" id="progress-bar">BRUH</progress>
+                                    <progress value="75" max="100" id="progress-bar"></progress>
                                     <p class="progress-feedback">71% - Odlican napredak</p>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                                     </div>
                                 </div>
 
-                                <div class="nedavna-aktivnost-card">
+                                <div class="nedavna-aktivnost-card" id="aktivnost-card-poslednja">
                                     <div class="aktivnost">
                                         <p class="elipse-ionic"><ion-icon name="ellipse" class="ellipse-icon cetvrta"></ion-icon></p>
                                         <p class="aktivnost-p">Ocenjeno: Stiven King</p>
@@ -189,7 +189,25 @@
                         </div>
                         
                         <div class="main-profil-right">
+                            <div class="main-profil-right-header">
 
+                                <div id="moje-recenzije-div">
+                                    <p onclick = prikaziRecenzije() id="p1" class="active-hyperlink">Moje recenzije (12)</p>
+                                </div>
+
+                                <div id="moje-ocene-div">
+                                    <p onclick = prikaziOcene() id="p2">Moje ocene (6)</p>
+                                </div>
+
+                            </div>
+
+                            <div class="main-profil-right-content1" id="recenzije-profil">
+                                <p>aaaaaaaaaaaaaaaaaa</p>
+                            </div>
+
+                            <div class="main-profil-right-content2" id="ocene-profil">
+                                <p>asd</p>
+                            </div>
                         </div>
                 </div>
         </main>
@@ -220,5 +238,48 @@
     
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        function prikaziRecenzije(){
+            const div1 = document.getElementById("recenzije-profil");
+            const div2 = document.getElementById("ocene-profil")
+            const p1 = document.getElementById('p1');
+            const p2 = document.getElementById('p2');
+
+            const border1 = document.getElementById('moje-recenzije-div')
+            const border2 = document.getElementById('moje-ocene-div')
+
+            div1.style.display = "block";
+            div2.style.display = "none";
+
+            p1.classList.add('active-hyperlink');
+            p2.classList.remove('active-hyperlink');
+            
+            border1.style.borderBottom = "1px solid #695ae9";
+            border2.style.borderBottom = "none";
+
+        }
+
+        function prikaziOcene(){
+            const div1 = document.getElementById("recenzije-profil");
+            const div2 = document.getElementById("ocene-profil")
+            
+            const p1 = document.getElementById('p1');
+            const p2 = document.getElementById('p2');
+
+            const border1 = document.getElementById('moje-recenzije-div')
+            const border2 = document.getElementById('moje-ocene-div')
+
+            div2.style.display = 'block';
+            div1.style.display = 'none';
+
+            p2.classList.add('active-hyperlink');
+            p1.classList.remove('active-hyperlink');  
+
+            border2.style.borderBottom = "1px solid #695ae9";
+            border1.style.borderBottom = "none";
+            
+        }
+        
+    </script>
 </body>
 </html>
