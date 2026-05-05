@@ -164,6 +164,8 @@ header a:hover{
     padding: 12px 20px;
     justify-content: space-between;
     gap: 10px;
+    border-bottom: 1px solid #70707048;
+
     
 }
 
@@ -215,6 +217,7 @@ header a:hover{
 }
 
 .statistika-vrednost{
+    color: white;
     font-size: 1em;
     font-weight: 700;
 }
@@ -235,8 +238,151 @@ header a:hover{
 }
 
 .main-profil-bottom{
-    background-color: orange;
-    flex: 6;
+    /* background-color: orange; */
+    flex: 1;
+    padding: 12px 20px;
+    display: flex;
+}
+
+.main-profil-left{
+    flex:1;
+    /* background-color: greenyellow; */
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+    gap: 12px;
+    
+}
+
+.info-ime{
+    color: rgb(174, 174, 174);
+    font-size: 0.7em;
+
+}
+
+.info-vrednost{
+    font-size: 0.75em;
+    color: white;
+}
+
+.profil-header{
+    font-size: 0.75em;
+    color: rgb(174, 174, 174);
+    border-bottom: 1px solid #70707048;
+    padding-bottom: 4px !important;
+    font-weight: 700;
+}
+
+.detaljne-info-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    padding-right: 4px;
+    border-bottom: 1px solid #70707048;
+
+}
+
+.omiljeni-zanrovi-buttons{
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 6px 0;
+}
+
+.procitane-knjige{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    padding-bottom: 0;
+}
+
+.godisnji-cilj-citanja-placeholder{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.godisnji-cilj-citanja-placeholder progress{
+    width: 100%;
+    height: 6px;
+}
+
+#progress-bar{
+    appearance: none;
+    -webkit-appearance: none ;
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+
+#progress-bar::-webkit-progress-bar{
+    background-color: rgb(174, 174, 174);
+
+}
+
+#progress-bar::-webkit-progress-value{
+    background-color: #1e00ff9e;
+    /* border-radius: 8px; */
+}
+
+.progress-feedback{
+    color: rgb(122, 122, 122);
+    font-size: 0.6em;
+}
+
+.nedavna-aktivnost-card{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #70707048;
+    padding: 8px 0;
+
+}
+
+.aktivnost{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.aktivnost-p{
+    font-size: 0.75em;
+    color: rgb(193, 193, 193);
+    padding-top: 5px !important;
+    
+}
+
+.ellipse-icon{
+    vertical-align: middle;
+    font-size: 0.7em;
+    
+}
+
+.prva{
+    color: #6153DD;
+}
+
+.druga{
+    color: #2ECC71;
+}
+
+.treca{
+    color: #F39C12;
+}
+
+.cetvrta{
+    color: #E74C3C;
+}
+
+.datum{
+    font-size: 0.7em;
+    color: rgb(174, 174, 174);
+    display: flex;
+    align-items: center;
+}
+
+.main-profil-right{
+    flex: 3;
+    /* background-color: red; */
 }
 
 .main-pojedinacna-content{
@@ -680,6 +826,7 @@ form{
     color: #5f53e2;
     border-color: #AFA9EC;
     border-style: solid;
+    text-decoration: none;
 }
 
 .autori:hover{
@@ -937,7 +1084,6 @@ form{
     padding-bottom: 8px;
     padding-top: 0;
     gap: 4px;
-    min-height: 0;
 
 }
 
@@ -996,18 +1142,17 @@ form{
     flex: 1;
     display: flex;
     gap: 8px;
-    min-height: 0;
 }
 
 .tabela-knjiga{
     width: 75%;
     display: flex;
+    height: 565px;
     flex-direction: column;
     gap: 8px;
     padding: 0px 16px;
     overflow-y: auto;
-    /* flex: 0 0 auto; */
-    min-height: 0;
+    flex: 0 0 auto;
     /* border: 1px solid #70707048; */
     
 }
@@ -1070,9 +1215,6 @@ form{
     border-radius: 50%;
 }
 
-.tr-1 p{
-    font-size: 10px;  
-}
 
 .tr-1{
     width: 14%;
