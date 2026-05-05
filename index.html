@@ -15,22 +15,22 @@
     <div class="wrapper">
         <header>
             <div class="header-left">
-                <a href="index.html"><span class="brend">Knjige</span>.rs</a>
+                <a href="index.html"><span class="brend">Књиге</span>.рс</a>
             </div>
 
             <div class="header-center">
                 <ul>
-                    <li><a href="#" class="active-hyperlink">Knjige</a></li>
-                    <li><a href="autori.html">Autori</a></li>
-                    <li><a href="knjige-admin.html">Knjige admin</a></li>
-                    <li><a href="admin_autori.html">Autori admin</a></li>
-                    <li><a href="profil.html">Moj profil</a></li>
+                    <li><a href="#" class="active-hyperlink">Књиге</a></li>
+                    <li><a href="autori.html">Аутори</a></li>
+                    <li><a href="knjige-admin.html">Књиге админ</a></li>
+                    <li><a href="admin_autori.html">Аутори админ</a></li>
+                    <li><a href="profil.html">Мој профил</a></li>
                 </ul>
             </div>
 
             <div class="header-right">
-                <button class="button login">Prijava</button>
-                <button class="button register">Registracija</button>
+                <button class="button login">Пријава</button>
+                <button class="button register">Регистрација</button>
             </div>
         </header>
 
@@ -38,11 +38,11 @@
             <div class="hero-section" id="hs">
                 <div class="landing">
                     <div class="landing-text">
-                        <h2>Otkrij svoju sledecu omiljenu knjigu</h2>
-                        <p>Zajednica citalaca gde mozes istrazivati ocenjivati i deliti ljubav prema knjigama.</p>
+                        <h2>Откриј своју следећу омиљену књигу</h2>
+                        <p> Заједница читалаца где можеш истраживати, оцењивати и делити љубав према књигама.</p>
                         <div class="landing-buttons">
-                            <button class="button katalog" onclick=animacija()>Istrazi katalog</button>
-                            <a class="button autori" href="autori.html">Pogledaj autore</a>
+                            <button class="button katalog" onclick=animacija()>Истражи каталог</button>
+                            <a class="button autori" href="autori.html">Погледај ауторе</a>
                         </div>
                     </div>
 
@@ -50,19 +50,19 @@
                 </div>
                     
                 <div class="search-filters">
-                    <input type="search" class="search-bar" placeholder="Pretrazite knjige po nazivu ili zanru...">
-                    <button class="filter-card">Sve</button>
-                    <button class="filter-card">Sci-fi</button>
-                    <button class="filter-card">Roman</button>
-                    <button class="filter-card">Triler</button>
-                    <button class="filter-card">Fantazija</button>
+                    <input type="search" class="search-bar" placeholder="Претражите књиге по називу или жанру...">
+                    <button class="filter-card">Све</button>
+                    <button class="filter-card" id="sci-fi">Научна фан.</button>
+                    <button class="filter-card">Роман</button>
+                    <button class="filter-card">Трилер</button>
+                    <button class="filter-card">Фантазија</button>
                     
                 </div>
             </div>
 
             <div class="books" id="galerija-knjiga">
                 <div class="books-header">
-                    <h6>Katalog knjiga</h6>
+                    <h6>Каталог књига</h6>
                 </div>
 
                 <div class="books-content">
@@ -70,13 +70,13 @@
                     <div class="book-card">
                         <div class="book-cover">
                             <a href="pojedinacna.html"><img src="images/karenjina.jpg" alt="Ana Karenjina"></a>
-                            <p class="book-card-naslov">Ana Karenjina</p>
+                            <p class="book-card-naslov">Ана Карењина</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Lav Tolstoj</p>
-                            <p class="book-recom">1000+ preporuka</p>
-                            <button class="book-genre roman">Roman</button>
+                            <p class="book-author">Аутор: Лав Толстој</p>
+                            <p class="book-recom">1000+ препорука</p>
+                            <button class="book-genre roman">Роман</button>
                         </div>
                         
                     </div>
@@ -88,113 +88,113 @@
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Dzordz Orvel</p>
-                            <p class="book-recom">540+ preporuka</p>
-                            <button class="book-genre distopija">Distopija</button>
+                            <p class="book-author">Аутор: Џорџ Орвел</p>
+                            <p class="book-recom">540+ препорука</p>
+                            <button class="book-genre distopija">Дистопија</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/majstor i margarita.png" alt="Majstor i Margarita">
-                            <p class="book-card-naslov">Majstor i Margarita</p>
+                            <p class="book-card-naslov">Мајстор и Маргарита</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Mihail Bulgakov</p>
-                            <p class="book-recom">330+ preporuka</p>
-                            <button class="book-genre klasik">Klasik</button>
+                            <p class="book-author">Аутор: Михаил Булгаков</p>
+                            <p class="book-recom">330+ препорука</p>
+                            <button class="book-genre klasik">Класик</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/hobiti.jpg" alt="Hobiti">
-                            <p class="book-card-naslov">Hobiti</p>
+                            <p class="book-card-naslov">Хобити</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: J. R. R. Tolkin</p>
-                            <p class="book-recom">2000+ preporuka</p>
-                            <button class="book-genre fantazija">Fantazija</button>
+                            <p class="book-author">Аутор: Ј. Ј. Р. Толкин</p>
+                            <p class="book-recom">2000+ препорука</p>
+                            <button class="book-genre fantazija">Фантазија</button>
                         </div>
                     </div>
 
                      <div class="book-card">
                         <div class="book-cover">
                             <img src="images/zlocin i kazna.webp" alt="Zlocin i kazna">
-                            <p class="book-card-naslov">Zlocin i kazna</p>
+                            <p class="book-card-naslov">Злочин и казна</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: F. Dostojevski</p>
-                            <p class="book-recom">1500+ preporuka</p>
-                            <button class="book-genre klasik">Klasik</button>
+                            <p class="book-author">Аутор: Ф. Достојевски</p>
+                            <p class="book-recom">1500+ препорука</p>
+                            <button class="book-genre klasik">Класик</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/rat svetova.jpg" alt="Rat svetova">
-                            <p class="book-card-naslov">Rat svetova</p>
+                            <p class="book-card-naslov">Рат светова</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: H. G. Vels</p>
-                            <p class="book-recom">1150+ preporuka</p>
-                            <button class="book-genre sci-fi">Sci-fi</button>
+                            <p class="book-author">Аутор: Х. Г. Велс</p>
+                            <p class="book-recom">1150+ препорука</p>
+                            <button class="book-genre sci-fi">Научна фан.</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/da vincijev kod.jpg" alt="Da Vincijev kod">
-                            <p class="book-card-naslov">Da Vincijev kod</p>
+                            <p class="book-card-naslov">Да Винчијев код</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Dan Braun</p>
-                            <p class="book-recom">1750+ preporuka</p>
-                            <button class="book-genre triler">Triler</button>
+                            <p class="book-author">Аутор: Дан Браун</p>
+                            <p class="book-recom">1750+ препорука</p>
+                            <button class="book-genre triler">Трилер</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/zivotinjska farma.jpg" alt="Zivotinjska farma">
-                            <p class="book-card-naslov">Zivotinjska farma</p>
+                            <p class="book-card-naslov">Животињска фарма</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Dzordz Orvel</p>
-                            <p class="book-recom">100+ preporuka</p>
-                            <button class="book-genre distopija">Distopija</button>
+                            <p class="book-author">Аутор: Џорџ Орвел</p>
+                            <p class="book-recom">100+ препорука</p>
+                            <button class="book-genre distopija">Дистопија</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/prokleta avlija.jpg" alt="Prokleta avlija">
-                            <p class="book-card-naslov">Prokleta avlija</p>
+                            <p class="book-card-naslov">Проклета авлија</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Ivo Andric </p>
-                            <p class="book-recom">1000+ preporuka</p>
-                            <button class="book-genre klasik">Klasik</button>
+                            <p class="book-author">Аутор: Иво Андрић</p>
+                            <p class="book-recom">1000+ препорука</p>
+                            <button class="book-genre klasik">Класик</button>
                         </div>
                     </div>
 
                     <div class="book-card">
                         <div class="book-cover">
                             <img src="images/metamorfoza.jpg" alt="Metamorfoza">
-                            <p class="book-card-naslov">Metamorfoza</p>
+                            <p class="book-card-naslov">Метаморфоза</p>
                         </div>
 
                         <div class="book-desc">
-                            <p class="book-author">Autor: Franc Kafka</p>
-                            <p class="book-recom">1000+ preporuka</p>
-                            <button class="book-genre novela">Novela</button>
+                            <p class="book-author">Аутор: Франц Кафка</p>
+                            <p class="book-recom">1000+ препорука</p>
+                            <button class="book-genre novela">Новела</button>
                         </div>
                     </div>
                 </div>
@@ -205,22 +205,22 @@
             
             <div class="footer-card">
                 <p class="footer-stat">1240</p>
-                <p class="footer-value">knjiga</p>
+                <p class="footer-value">књига</p>
             </div>
 
             <div class="footer-card">
                 <p class="footer-stat">380</p>
-                <p class="footer-value">autora</p>
+                <p class="footer-value">аутора</p>
             </div>
 
             <div class="footer-card">
                 <p class="footer-stat">8500</p>
-                <p class="footer-value">recenzija</p>
+                <p class="footer-value">рецензија</p>
             </div>
 
             <div class="footer-card">
                 <p class="footer-stat">2100</p>
-                <p class="footer-value">citalaca</p>
+                <p class="footer-value">Читалаца</p>
             </div>
 
         </footer>

@@ -898,13 +898,17 @@ footer{
     gap: 6px;
 }
 
+.adm-tabela-header div{
+    display:flex;
+    align-items: center;
+}
 
 .ta-1{
     width: 17%;
 }
 
 .ta-1{
-    font-size: 0.85em;
+    font-size: 0.95em;
 }
 
 
@@ -918,7 +922,9 @@ footer{
 }
 
 .ta-5{
-    width: 10%;
+    width: 11%;
+    font-size: 0.8em;
+    text-align: center;
 }
 
 .ta-6{
@@ -1038,6 +1044,7 @@ footer{
     padding: 6px 10px;
     font-size: 1em;
     width: 100%;
+    height: 25px;
 }
 
 .adm-input:focus{
@@ -1099,7 +1106,10 @@ footer{
 
 .adm-select{
     cursor: pointer;
+    padding: 0 10px;
 }
+
+
 
 .adm-forma-buttons{
     display: flex;
@@ -1109,7 +1119,7 @@ footer{
 
 .adm-btn-otkazi{
     background-color: #30302E;
-    width: 20%;
+    width: auto; 
     padding: 0 16px;
     font-size: 1em;
     border-radius: 5px;
@@ -1119,7 +1129,7 @@ footer{
 }
 
 .adm-btn-sacuvaj{
-    width: 35%;
+    width: auto;
     padding: 4px 16px;
     font-size: 1em;
     border-radius: 5px;

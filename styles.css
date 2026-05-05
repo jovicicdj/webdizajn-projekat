@@ -330,8 +330,6 @@ header a:hover{
     font-size: 0.6em;
 }
 
-
-
 .nedavna-aktivnost-card{
     display: flex;
     justify-content: space-between;
@@ -810,7 +808,7 @@ form{
 }
 
 .katalog{
-    width: 125px;
+    
     background-color: #6153dd;
     color: white;
     border-style: none;
@@ -823,7 +821,6 @@ form{
 }
 
 .autori{
-    width: 125px;
     background-color: transparent;
     color: #5f53e2;
     border-color: #AFA9EC;
@@ -881,7 +878,14 @@ form{
     background: transparent;
     color: #ccc;
     cursor: pointer;
+     
 
+}
+
+#sci-fi{
+     overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
 }
 
 .books{
@@ -1001,7 +1005,8 @@ form{
     padding: 0px 2px;
     max-width: 130px;
     overflow: hidden;
-    text-overflow: ellipsis;    
+    text-overflow: ellipsis; 
+    white-space: nowrap;   
 }
 
 
@@ -1020,6 +1025,9 @@ form{
 
 .book-author{
     color: white;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space: nowrap;    
 }
 
 .book-recom{
