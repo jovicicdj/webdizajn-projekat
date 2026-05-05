@@ -330,6 +330,8 @@ header a:hover{
     font-size: 0.6em;
 }
 
+
+
 .nedavna-aktivnost-card{
     display: flex;
     justify-content: space-between;
@@ -1413,6 +1415,8 @@ admin-knjige-resetadmin-forma{
     filter: invert(1);
 }
 
+
+
 footer{
     width: 100%;
     min-height: 60px;
@@ -1420,6 +1424,41 @@ footer{
     display: flex;
     justify-content: space-between;
     
+}
+
+.footer-profil{
+    padding: 4px 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.footer-card-profil{
+    color: white;
+    font-size: 0.75em;
+    border-radius: 8px;
+    border: 1px solid #5442e08e;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+
+}
+
+.footer-card-profil-stat{
+    color: rgb(122, 122, 122);
+}
+
+.footer-card-profil-value{
+    font-size: 1.5em;
+}
+
+
+.footer-card-profil-dodatak{
+    color: rgb(174, 174, 174);
+    font-size: 0.75em;
+
 }
 
 .footer-card{
