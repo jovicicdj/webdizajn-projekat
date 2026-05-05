@@ -23,6 +23,8 @@ p{
     margin: 0 !important;
 }
 
+
+
 body{
     overflow-y: auto;
 }
@@ -416,6 +418,7 @@ header a:hover{
     width: 50%;
     display: flex;
     justify-content:center;
+    border-bottom: 1px solid #695ae9;
 }
 
 #moje-ocene-div{
@@ -425,16 +428,84 @@ header a:hover{
 }
 
 .main-profil-right-content1{
-    background-color: red;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 550px;
+    overflow: auto;
+}
+
+.main-profil-right-content1::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main-profil-right-content1::-webkit-scrollbar-track {
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.main-profil-right-content1::-webkit-scrollbar-thumb {
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.main-profil-right-content1::-webkit-scrollbar-thumb:hover {
+    background: #7d6cff9e;
+}
+
+.recenzija-profil-kartica{
+    display: flex;
+    justify-content: space-between;
+    background-color: #161625;
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1px solid #70707048;
+}
+
+.recenzija-profil-kartica-right{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.recenzija-knjiga-ime{
+    font-size: 0.7em;
+    color: white;
+}
+
+.recenzija-knjiga-sadrzaj{
+    font-size: 0.7em;
+    color: #7672B5;
+    /* background-color: red; */
+    overflow-y: hidden;
+    width: 800px;
+    max-height: 50px;
     
 }
 
+.recenzija-knjiga-rejting{
+    font-size: 0.8em;
+    color: #f5b301;
+}
+
+.recenzija-knjiga-hiperlink{
+    font-size: 0.6em;
+    text-decoration: none;
+    color: #5F56BC;
+}
+
+.recenzije-knjiga-datum{
+    font-size: 0.75em;
+    color: #48484D;
+}
+
 .main-profil-right-content2{
-    background-color: palegoldenrod;
     flex: 1;
     display: none;
 }
+
+
 
 
 .main-pojedinacna-content{
@@ -1209,11 +1280,12 @@ form{
 .tabela-knjiga{
     width: 75%;
     display: flex;
-    height: 565px;
+    flex: 1;
+    height: 585px;
+    overflow: auto;
     flex-direction: column;
     gap: 8px;
     padding: 0px 16px;
-    overflow-y: auto;
     flex: 0 0 auto;
     /* border: 1px solid #70707048; */
     
