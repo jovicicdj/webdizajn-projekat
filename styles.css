@@ -425,15 +425,17 @@ header a:hover{
 }
 
 .main-profil-right-content1{
-    background-color: red;
     flex: 1;
     
 }
 
 .main-profil-right-content2{
-    background-color: palegoldenrod;
     flex: 1;
     display: none;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 550px;
+    overflow: auto;
 }
 
 
