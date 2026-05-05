@@ -974,6 +974,7 @@ form{
     background-color: #161616;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
     align-items: center;
     padding: 12px 20px;
     border-bottom: 1px solid #70707048;
@@ -1002,8 +1003,6 @@ form{
     background: transparent;
     color: #ccc;
     cursor: pointer;
-     
-
 }
 
 #sci-fi{
@@ -1026,21 +1025,21 @@ form{
 
 }
 
-.books::-webkit-scrollbar {
+.books-content::-webkit-scrollbar {
     height: 8px;
 }
 
-.books::-webkit-scrollbar-track {
+.books-content::-webkit-scrollbar-track {
     background: #1f1f1f;
     border-radius: 999px;
 }
 
-.books::-webkit-scrollbar-thumb {
+.books-content::-webkit-scrollbar-thumb {
     background: #5a4fd649;
     border-radius: 999px;
 }
 
-.books::-webkit-scrollbar-thumb:hover {
+.books-content::-webkit-scrollbar-thumb:hover {
     background: #7d6cff9e;
 }
 
@@ -1073,6 +1072,7 @@ form{
     display: flex;
     padding: 12px 0px;
     gap: 16px;
+    overflow: auto;
 }
 
 .book-card{
@@ -1282,7 +1282,7 @@ form{
     width: 75%;
     display: flex;
     flex: 1;
-    height: 585px;
+    height: 565px;
     overflow: auto;
     flex-direction: column;
     gap: 8px;
