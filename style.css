@@ -132,18 +132,12 @@ header a{
     display: flex;
     width: 100%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .heading{
     background-color: #161616;
-    color: #646464;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
     font-size: 12px;
-
     width: 100%;
     padding: 8px 20px;
     border-bottom: 1px solid #70707048;
@@ -153,7 +147,6 @@ header a{
     color: aliceblue;
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 1px;
 }
 
 .search-filters{
@@ -181,7 +174,6 @@ header a{
 
 input {
     font-size: 14px;
-    font-family: "Merriweather", sans-serif;
 }
 
 .filter-card{
