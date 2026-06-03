@@ -28,8 +28,8 @@ p{
 
 
 body{
-    overflow-y: auto;
     overflow: hidden;
+    overflow-y: auto;
 }
 
 body::-webkit-scrollbar {
