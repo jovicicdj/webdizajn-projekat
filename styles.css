@@ -1371,10 +1371,15 @@ form{
 
 .tr-1{
     width: 14%;
-    max-width: 150px;
-    text-overflow: elipsis;
-    white-space: wrap;
-    
+    max-width: 150px; 
+}
+
+.tr-1 p, .tr-2 p{
+    max-width: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    /* background-color: red; */
 }
 
 .tr-8{
