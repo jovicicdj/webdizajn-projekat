@@ -1372,6 +1372,8 @@ form{
 .tr-1{
     width: 14%;
     max-width: 150px;
+    text-overflow: elipsis;
+    white-space: wrap;
     
 }
 
