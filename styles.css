@@ -1299,7 +1299,7 @@ form{
     flex-direction: column;
     gap: 8px;
     padding: 0px 16px;
-    background-color: red;
+    /* background-color: red; */
     /* flex: 0 0 auto; */
     /* border: 1px solid #70707048; */
     
@@ -1333,6 +1333,7 @@ form{
     position:sticky;
     top: 0;
     z-index: 5;
+    min-width: 1100px;
 }
 
 .tabela-row div, .tabela-header div{
@@ -1340,6 +1341,8 @@ form{
     align-items: center;
     font-size: 0.85em;
     gap: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
 
 }
 
@@ -1354,6 +1357,8 @@ form{
     display: flex;
     gap: 8px;
     border-bottom: 1px solid #70707048;
+    min-width: 1100px;
+
 
 }
 
