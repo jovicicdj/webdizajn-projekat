@@ -1,3 +1,4 @@
+/*DJOLE*/
 *{
     box-sizing: border-box;
     margin: 0;
@@ -9,7 +10,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 0;
     /*padding: 0 8px;*/ 
     background-color: #121212;
 }
@@ -27,6 +29,7 @@ p{
 
 body{
     overflow-y: auto;
+    overflow: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -616,7 +619,9 @@ header a:hover{
     font-size: 0.62em;
     margin: 0;
     color: #ABABAB;
+   
 }
+
 
 .knjiga-rejting{
     display: flex;
@@ -938,6 +943,8 @@ form{
     color: white;
     border-style: none;
     font-weight: bold;
+
+
 }
 
 .katalog:hover, .register:hover{
@@ -1216,6 +1223,7 @@ form{
     display: flex;
     flex-direction: column;
     flex: 1;
+    min-height: 0;
     padding-bottom: 8px;
     padding-top: 0;
     gap: 4px;
@@ -1276,6 +1284,8 @@ form{
     color: white;
     flex: 1;
     display: flex;
+    min-height: 0;
+    /* overflow: hidden; */
     gap: 8px;
 }
 
@@ -1283,12 +1293,12 @@ form{
     width: 75%;
     display: flex;
     flex: 1;
-    height: 565px;
-    overflow: auto;
+    min-height: 0;
+    overflow-y: auto;
     flex-direction: column;
     gap: 8px;
     padding: 0px 16px;
-    flex: 0 0 auto;
+    /* flex: 0 0 auto; */
     /* border: 1px solid #70707048; */
     
 }
