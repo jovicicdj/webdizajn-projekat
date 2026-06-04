@@ -1336,12 +1336,23 @@ footer{
     .header-left {
         flex: 1;
     }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 
 
 
 @media (max-width: 600px) {
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
     header {
         flex-wrap: wrap;
         align-items: center;
