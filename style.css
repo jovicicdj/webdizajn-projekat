@@ -1242,6 +1242,10 @@ footer{
     display: none;
 }
 
+#Telefon-back {
+    display: none;
+}
+
 
 @media (max-width: 1024px) {
     .authors {
@@ -1263,7 +1267,79 @@ footer{
         width: 50%;
     }
 
+    
+    
+
 }
+
+@media (max-width: 800px) {
+    #PC-back {
+        display: none;
+    }
+
+    #Telefon-back {
+        display: inline;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .pa-back-link {
+        order: 0;
+        margin-left: auto;
+        align-self: flex-start;  
+        align-items: center;   
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .header-center {
+        display: none;
+        width: 100%;
+        order: 4;
+    }
+
+    .header-center.open {
+        display: block;
+    }
+
+    .header-center ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        border-top: 1px solid #70707048;
+    }
+
+    .header-center ul li {
+        display: block;
+        margin-left: 0;
+        font-size: 1em;
+        padding: 10px 4px;
+        border-bottom: 1px solid #70707048;
+    }
+
+    header {
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 0;
+        overflow: hidden;
+        padding-bottom: 10px;
+    }
+
+    .header-left {
+        flex: 1;
+    }
+}
+
+
+
 
 @media (max-width: 600px) {
     header {
@@ -1273,6 +1349,14 @@ footer{
         gap: 0;
         overflow: hidden;
         padding-bottom: 10px;
+    }
+
+    #PC-back {
+        display: none;
+    }
+
+    #Telefon-back {
+        display: inline;
     }
 
     .adm-tabela-header div {
@@ -1419,11 +1503,15 @@ footer{
     .pa-back-link {
         order: 0;
         margin-left: auto;
-        align-self: flex-start;     
+        align-self: flex-start;  
+        align-items: center;   
+        padding-top: 10px;
+        padding-right: 10px;
     }
 
     .pa-hero-info {
         max-width: 100%;
+        min-width: 300px;
         width: 100%;
         order: 1;
         flex-wrap: wrap;
@@ -1457,5 +1545,7 @@ footer{
     #footer-pojedinacni {
         display: none;
     }
+
+
     
 }
