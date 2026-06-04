@@ -19,13 +19,13 @@
                 <a href="#"><span class="naslov">Књиге</span>.рс</a>
             </div>
 
-            <button class="hamburger" id="hamburger">
+            <button class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <div class="header-center" id="nav-menu">
+            <div class="header-center nav-menu">
                 <ul>
                     <li><a href="index.html" class="inactive-page">Књиге</a></li>
                     <li><a href="#" class="active-page">Аутори</a></li>
@@ -246,8 +246,8 @@
 
 
     <script>
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('open');

@@ -47,6 +47,8 @@ html, body {
 
 .admin-body {
     overflow: hidden;
+    height: 100vh;
+    min-height: 0;
 }
 
 /*DEFAULT SCROLLBAR*/
@@ -787,6 +789,7 @@ footer{
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .adm-header{
@@ -815,7 +818,7 @@ footer{
 .adm-search-row{
     display: flex;
     gap: 8px;
-    height: 60px;
+    min-height: 60px;
     color: black;
     padding: 12px 12px;
     border-bottom: 1px solid #70707048;
@@ -823,17 +826,20 @@ footer{
 
 .adm-search-row button{
     height: 35px;
-    width: 100px;
+    width: auto;
     padding: 2px 4px;
     font-size: 0.65em;
     border-radius: 5px;
     border: 1px solid hsla(0, 0%, 76%, 0.858);
     background: transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
     color: white;
 }
 
 .adm-search-row input{
     flex: 1;
+    order: 0;
 }
 
 .adm-content{
@@ -841,19 +847,23 @@ footer{
     display: flex;
     flex-direction: row;
     gap: 8px;
-    margin-top: 4px;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .adm-levo{
-    width: 75%;
-    height: 565px;
+    width: 100%;
+    flex: 1;    
     display: flex;
     flex-direction: column;
 
     padding: 0px 16px;
     padding-right: 10px;
+    padding-top: 0;
     overflow-y: auto;
-    flex: 0 0 auto;
+    overflow-x: auto;
+    min-height: 0;
+    padding-bottom: 15px;
 }
 
 .adm-tabela-header{
@@ -867,7 +877,11 @@ footer{
     font-size: 0.8em;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 10;
+}
+
+.adm-tabela-header, .tabela-row {
+    min-width: 800px;
 }
 
 
@@ -877,6 +891,7 @@ footer{
 /*ADMIN SCROLLBAR*/
 .adm-levo::-webkit-scrollbar{
     width: 10px;
+    height: 10px;
 }
  
 .adm-levo::-webkit-scrollbar-track{
