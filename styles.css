@@ -1815,5 +1815,17 @@ footer{
         font-size: 1.25em;
         padding-top: 15px;
     }
+
+    .main-pojedinacna-right{
+        display: none;
+    }
+
+    .main-pojedinacna-left{
+        width: 100%;
+    }
+
+    .knjiga-rejting{
+        padding-top: 10px;
+    }
     
 }
