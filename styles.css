@@ -1682,6 +1682,9 @@ footer{
     }
 
 @media (max-width: 600px) {
+
+
+
     .hamburger {
         display: flex;
     }
@@ -1691,8 +1694,8 @@ footer{
         width: 100%;
         order: 4;
         background-color: #121212;
-        position: relative;
-        z-index: 999;
+        /* position: relative;
+        z-index: 999; */
     }
 
     .header-center.open {
