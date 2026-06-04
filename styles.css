@@ -1065,6 +1065,7 @@ form{
 
 .books-header h6{
     margin: 0;
+    font-size: 1em;
 }
 
 .books-content a{
@@ -1685,8 +1686,6 @@ footer{
 
 @media (max-width: 600px) {
 
-
-
     .hamburger {
         display: flex;
     }
@@ -1712,7 +1711,6 @@ footer{
         border-top: 1px solid #70707048;
     }
 
-    
 
     .header-center ul li {
         display: block;
@@ -1757,4 +1755,43 @@ footer{
     .header-left {
         flex: 1;
     }
+
+    .landing{
+        justify-content: center;    
+    }
+
+    .landing-image{
+        width: 40%;
+        /* background-color: red; */
+        /* display: none; */
+        background-repeat: no-repeat;
+        background-position: -125px 0px;
+        background-size: cover;
+        background-size: 210% 115%;
+    }
+
+    .landing-text{
+        width: 60%;
+        justify-content: center;
+
+    }
+
+    .button.katalog, .button.autori{
+        font-size: .6em;
+    }
+
+    .search-filters{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search-bar{
+        width: 100%;
+    }
+
+    .filter-card{
+        font-size: 0.7em;
+    }
+
+    
 }

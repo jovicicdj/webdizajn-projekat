@@ -5,13 +5,6 @@
     margin: 0;
     padding: 0;
     font-family: "Merriweather", sans-serif;
-<<<<<<< HEAD
-=======
-}
-
-html, body {
-    overflow-x: hidden;
->>>>>>> 745331803691e967f672ab12e31c5e6961450a4c
 }
 
 * h6,h4,h5{
@@ -83,12 +76,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 header{
+    min-height: 60px;   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 15px;
     padding: 16px 20px;
     background-color: #121212;
     position: sticky;
