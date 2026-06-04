@@ -1272,7 +1272,7 @@ footer{
         padding: 12px 16px;
         gap: 0;
         overflow: hidden;
-        /* padding-bottom: 0; */
+        padding-bottom: 10px;
     }
 
     .adm-tabela-header div {
@@ -1409,6 +1409,53 @@ footer{
 
     .footer-card:nth-child(odd) {
         border-right: 1px solid #6153dd5d;
+    }
+    
+    .pa-hero {
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    .pa-back-link {
+        order: 0;
+        margin-left: auto;
+        align-self: flex-start;     
+    }
+
+    .pa-hero-info {
+        max-width: 100%;
+        width: 100%;
+        order: 1;
+        flex-wrap: wrap;
+    }
+
+    .pa-stats {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .pa-content {
+        flex-direction: column;
+        padding: 10px 10px;
+    }
+
+    .pa-levo, .pa-biografija {
+        width: 100%;
+    }
+
+    .pa-bio-tekst {
+        white-space: normal;
+        overflow: visible;
+    }
+
+    .pa-desno {
+        width: 100%;
+        position: static;
+    }
+
+    #footer-pojedinacni {
+        display: none;
     }
     
 }
