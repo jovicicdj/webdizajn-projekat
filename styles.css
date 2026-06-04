@@ -149,19 +149,7 @@ header a:hover{
     flex: 1;
     display: flex;
     flex-direction: column;
-    
-}
 
-.main-pojedinacna{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 5px 0;
-    margin-bottom: 8px;
-}
-
-.main-profil{
-    display: flex;
     flex-direction: column;
     /* background-color: orange; */
     flex: 1;
@@ -1007,7 +995,7 @@ form{
 .filter-card{
    
     height: 30px;
-    padding: 0 16px;
+    padding: 0px 16px;
     border-radius: 999px;   
     font-size: 12px;
     border: 1px solid rgba(255,255,255,0.1);
@@ -1032,6 +1020,7 @@ form{
     overflow-x: auto;
     scroll-behavior: smooth;
     position: relative;
+    flex: 1;
     
 
 }
@@ -1586,6 +1575,7 @@ footer{
     min-height: 60px;
     background-color: #161616;
     display: flex;
+    flex: 1;
     justify-content: space-between;
     
 }
@@ -1690,6 +1680,8 @@ footer{
         display: flex;
     }
 
+    
+
     .header-center {
         display: none;
         width: 100%;
@@ -1745,6 +1737,7 @@ footer{
     header {
         flex-wrap: wrap;
         padding: 12px 16px;
+        padding-top: 0px;
         padding-bottom: 0;
         position: sticky;
         top: 0;
@@ -1761,13 +1754,10 @@ footer{
     }
 
     .landing-image{
-        width: 40%;
-        /* background-color: red; */
         /* display: none; */
-        background-repeat: no-repeat;
-        background-position: -125px 0px;
-        background-size: cover;
-        background-size: 210% 115%;
+        width: 40%;
+        background-position: -50px 0px;
+        background-size: 150% 115%;
     }
 
     .landing-text{
@@ -1777,7 +1767,21 @@ footer{
     }
 
     .button.katalog, .button.autori{
-        font-size: .6em;
+        font-size: .5em;
+    }
+
+    .button.katalog, .button.autori{
+        font-size: 0
+    }
+
+    .button.katalog::after{
+        content: "Све књиге";
+        font-size: 10px;
+    }
+
+    .button.autori::after{
+        content: "Сви аутори";
+        font-size: 10px;
     }
 
     .search-filters{
@@ -1790,8 +1794,26 @@ footer{
     }
 
     .filter-card{
-        font-size: 0.7em;
+        width: 17%;
+        font-size: 0.65em;
+        padding: 5px 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: wrap;
+    }
+    
+    .books-content{
+        /* background-color: red; */
+        padding: 0px;
     }
 
+    .book-card{
+        padding-top: 30px;
+    }
+
+    .books-header h6{
+        font-size: 1.25em;
+        padding-top: 15px;
+    }
     
 }
