@@ -7,10 +7,6 @@
     font-family: "Merriweather", sans-serif;
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
 * h6,h4,h5{
     margin: 0;
     padding: 0;
@@ -80,12 +76,12 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 header{
+    min-height: 60px;   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-height: 15px;
     padding: 16px 20px;
     background-color: #121212;
     position: sticky;
