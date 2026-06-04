@@ -1575,9 +1575,7 @@ footer{
     min-height: 60px;
     background-color: #161616;
     display: flex;
-    flex: 1;
     justify-content: space-between;
-    
 }
 
 .footer-profil{
@@ -1679,8 +1677,6 @@ footer{
     .hamburger {
         display: flex;
     }
-
-    
 
     .header-center {
         display: none;
