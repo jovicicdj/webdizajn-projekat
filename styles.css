@@ -1807,6 +1807,10 @@ footer{
         padding-top: 20px;
     }
 
+    .book-card img:hover{
+        animation:none;
+    }
+
     .books-header h6{
         font-size: 1.25em;
         padding-top: 15px;
