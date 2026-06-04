@@ -5,6 +5,13 @@
     margin: 0;
     padding: 0;
     font-family: "Merriweather", sans-serif;
+<<<<<<< HEAD
+=======
+}
+
+html, body {
+    overflow-x: hidden;
+>>>>>>> 745331803691e967f672ab12e31c5e6961450a4c
 }
 
 * h6,h4,h5{
@@ -16,8 +23,35 @@
     margin: 0;
 }
 
+.hamburger {
+    display: none;
+    flex-direction:  column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #ccc;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+
+
+
+
+
 .admin-body {
     overflow: hidden;
+    height: 100vh;
+    min-height: 0;
 }
 
 /*DEFAULT SCROLLBAR*/
@@ -758,6 +792,7 @@ footer{
     flex: 1;
     display: flex;
     flex-direction: column;
+    min-height: 0;
 }
 
 .adm-header{
@@ -786,7 +821,7 @@ footer{
 .adm-search-row{
     display: flex;
     gap: 8px;
-    height: 60px;
+    min-height: 60px;
     color: black;
     padding: 12px 12px;
     border-bottom: 1px solid #70707048;
@@ -794,17 +829,20 @@ footer{
 
 .adm-search-row button{
     height: 35px;
-    width: 100px;
+    width: auto;
     padding: 2px 4px;
     font-size: 0.65em;
     border-radius: 5px;
     border: 1px solid hsla(0, 0%, 76%, 0.858);
     background: transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
     color: white;
 }
 
 .adm-search-row input{
     flex: 1;
+    order: 0;
 }
 
 .adm-content{
@@ -812,19 +850,23 @@ footer{
     display: flex;
     flex-direction: row;
     gap: 8px;
-    margin-top: 4px;
+    min-height: 0;
+    overflow: hidden;
 }
 
 .adm-levo{
-    width: 75%;
-    height: 565px;
+    width: 100%;
+    flex: 1;    
     display: flex;
     flex-direction: column;
 
     padding: 0px 16px;
     padding-right: 10px;
+    padding-top: 0;
     overflow-y: auto;
-    flex: 0 0 auto;
+    overflow-x: auto;
+    min-height: 0;
+    padding-bottom: 15px;
 }
 
 .adm-tabela-header{
@@ -838,7 +880,11 @@ footer{
     font-size: 0.8em;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 10;
+}
+
+.adm-tabela-header, .tabela-row {
+    min-width: 800px;
 }
 
 
@@ -848,6 +894,7 @@ footer{
 /*ADMIN SCROLLBAR*/
 .adm-levo::-webkit-scrollbar{
     width: 10px;
+    height: 10px;
 }
  
 .adm-levo::-webkit-scrollbar-track{
@@ -1193,4 +1240,178 @@ footer{
  
 .main-profil-right-content2::-webkit-scrollbar-thumb:hover{
     background: #7d6cff9e;
+}
+
+
+
+
+.nav-buttons {
+    display: none;
+}
+
+
+@media (max-width: 1024px) {
+    .authors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .author-card {
+        padding: 16px;
+    }
+
+    .header ul li {
+        margin-left: 8px;
+        font-size: 0.7em;
+    }
+
+    .search-bar {
+        width: 50%;
+    }
+
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 0;
+        overflow: hidden;
+        padding-bottom: 0;
+    }
+
+    .wrapper {
+        overflow-x: hidden;
+    }
+
+    .header-left {
+        flex: 1;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .header-center {
+        display: none;
+        width: 100%;
+        order: 4;
+    }
+
+    .header-center.open {
+        display: block;
+    }
+
+    .header-center ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        border-top: 1px solid #70707048;
+    }
+
+    .header-center ul li {
+        display: block;
+        margin-left: 0;
+        font-size: 1em;
+        padding: 10px 4px;
+        border-bottom: 1px solid #70707048;
+    }
+
+    .nav-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 8px;
+        padding: 12px 4px;
+        border-bottom: none !important;
+    }
+
+    .nav-buttons .button {
+        flex: 1;
+        height: 36px;
+        font-size: 0.8em;
+    }
+
+    .header-center ul li:last-child {
+        border-bottom: none;
+        padding-bottom: 4px;
+    }
+
+    .search-filters {
+        flex-wrap: wrap;
+        gap: 8px;
+        height: auto;
+        padding: 10px 12px;
+    }
+
+    .search-bar {
+        width: 100%;
+        order: 1;
+    }
+
+    .filter-card {
+        flex: 1;
+        padding: 0 4px;
+        font-size: 11px;
+        order: 2;
+    }
+
+    /* KARTICE AUTORA */
+    .authors {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .author-card {
+        padding: 12px;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    .author-card h6 {
+        font-size: 0.85em;
+        text-align: center;
+        word-break: break-word;
+    }
+
+    .author-avatar {
+        width: 55px;
+        height: 55px;
+    }
+
+    .author-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        font-size: 0.65em;
+    }
+
+    .stars {
+        font-size: 0.75em;
+        letter-spacing: 1px;
+    }
+
+    /*FOOTER*/
+    footer {
+        flex-wrap: wrap;
+    }
+
+    .footer-card {
+        width: 50%;
+        padding: 12px 0;
+        border-right: none;
+        border-bottom: 1px solid #6153dd5d;
+    }
+
+    .footer-card:nth-child(odd) {
+        border-right: 1px solid #6153dd5d;
+    }
+    
 }

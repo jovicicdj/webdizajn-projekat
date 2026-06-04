@@ -13,19 +13,30 @@
 
 <body>
     
-    <div class="wrapper">
+    <div class="wrapper admin-body">
 
         <header>
             <div class="header-left">
                 <a href="#"><span class="naslov">Књиге</span>.рс</a>
             </div>
-            <div class="header-center">
+
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-center nav-menu">
                 <ul>
                     <li><a href="index.html" class="inactive-page">Књиге</a></li>
                     <li><a href="autori.html" class="inactive-page">Аутори</a></li>
                     <li><a href="knjige-admin.html" class="inactive-page">Књиге админ</a></li>
                     <li><a href="#" class="active-page">Аутори админ</a></li>
                     <li><a href="profil.html" class="inactive-page">Мој профил</a></li>
+                    <li class="nav-buttons">
+                        <button class="button login">Пријава</button>
+                        <button class="button register">Регистрација</button>
+                    </li>
                 </ul>
             </div>
             <div class="header-right">
@@ -324,7 +335,7 @@
                     </div>
                 </div>
 
-                <div class="adm-desno">
+                <!-- <div class="adm-desno">
                     <div class="adm-forma-card">
                         <h6 class="adm-forma-naslov">Измена аутора</h6>
 
@@ -390,7 +401,7 @@
 
                         </form>
                     </div>
-                </div>
+                </div> -->
                     
 
 
@@ -402,6 +413,15 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
 </body>
     
 </html>
