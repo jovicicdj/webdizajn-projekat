@@ -1838,16 +1838,21 @@ footer{
 
     .main-profil-right{
         flex: 1;
+        padding: 0;
     }
 
     .footer-profil{
         display: none;
     }
 
-    .recenzija-knjia-sadrzaj p{
-        max-width: 300px;
+    .recenzija-knjiga-sadrzaj{
+        max-width: 225px;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
     }
     
+    .main-profil-bottom, .main-profil-top{
+        padding-left: 0px;
+    }
 }
