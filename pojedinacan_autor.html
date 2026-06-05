@@ -19,13 +19,24 @@
                 <a href="#"><span class="naslov">Књиге</span>.рс</a>
             </div>
 
-            <div class="header-center">
+            <a href="autori.html" class="pa-back-link" id="Telefon-back">← Сви аутори</a>
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-center nav-menu">
                 <ul>
                     <li><a href="index.html" class="inactive-page">Књиге</a></li>
                     <li><a href="#" class="active-page">Аутори</a></li>
                     <li><a href="knjige-admin.html" class="inactive-page">Књиге админ</a></li>
                     <li><a href="admin_autori.html" class="inactive-page">Аутори админ</a></li>
                     <li><a href="profil.html" class="inactive-page">Мој профил</a></li>
+                    <li class="nav-buttons">
+                        <button class="button login">Пријава</button>
+                        <button class="button register">Регистрација</button>
+                    </li>
                 </ul>
             </div>
 
@@ -68,7 +79,7 @@
                     </div>
 
                 </div>
-                <a href="autori.html" class="pa-back-link">← Сви аутори</a>
+                <a href="autori.html" class="pa-back-link" id="PC-back">← Сви аутори</a>
             </div>
 
             <div class="pa-content">
@@ -266,7 +277,7 @@
         </main>
 
 
-        <footer>
+        <footer id="footer-pojedinacni">
              <div class="footer-card">
                 <p class="footer-stat">1240</p>
                 <p class="footer-value">књига</p>
@@ -286,5 +297,14 @@
         </footer>
 
     </div>
+
+    <script>
+      const hamburger = document.querySelector('.hamburger');
+      const navMenu = document.querySelector('.nav-menu');
+      hamburger.addEventListener('click', () => {
+         navMenu.classList.toggle('open');
+      });
+   </script>
+
 </body>
 </html>
