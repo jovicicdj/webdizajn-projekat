@@ -1772,12 +1772,12 @@ footer{
     }
 
     .button.katalog::after{
-        content: "Све књиге";
+        content: "Књиге";
         font-size: 10px;
     }
 
     .button.autori::after{
-        content: "Сви аутори";
+        content: "Аутори";
         font-size: 10px;
     }
 
