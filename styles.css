@@ -1751,13 +1751,14 @@ footer{
 
     .landing-image{
         /* display: none; */
-        width: 40%;
-        background-position: -45px 0px;
-        background-size: 150% 115%;
+        width: 45%;
+        background-position: -25px 0px;
+        background-size: 280% 115%;
+        /* background-color: red; */
     }
 
     .landing-text{
-        width: 60%;
+        width: 55%;
         justify-content: center;
 
     }
@@ -1803,8 +1804,6 @@ footer{
         padding: 0px;
     }
 
-    .book-card{
-    }
 
     .book-card img:hover{
         animation:none;
