@@ -1823,6 +1823,31 @@ footer{
 
     .knjiga-rejting{
         padding-top: 10px;
+        
+    }
+
+    .main-profil-bottom{
+        flex-shrink: 0;
+        white-space: nowrap;
+        overflow-x: auto;
+    }
+
+    .main-profil-left{
+        display: none;
+    }
+
+    .main-profil-right{
+        flex: 1;
+    }
+
+    .footer-profil{
+        display: none;
+    }
+
+    .recenzija-knjia-sadrzaj p{
+        max-width: 300px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     
 }
