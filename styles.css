@@ -165,6 +165,7 @@ header a:hover{
     justify-content: space-between;
     gap: 10px;
     border-bottom: 1px solid #70707048;
+    flex: 1;
     
 
     
@@ -456,6 +457,7 @@ header a:hover{
     border-radius: 8px;
     padding: 10px 12px;
     border: 1px solid #70707048;
+    flex: 1;
 }
 
 .recenzija-profil-kartica-right{
@@ -1852,7 +1854,25 @@ footer{
         white-space: nowrap;
     }
     
-    .main-profil-bottom, .main-profil-top{
+    .main-profil-bottom{
         padding-left: 0px;
+    }
+
+    .profil-statistika{
+        display: none;
+    }
+
+    .profil-ime{
+        font-size: 0.85em;
+    }
+
+    .profil-email{
+        font-size: 0.75em;
+        /* background-color: red; */
+    }
+
+    .profil-info img{
+        width: 60px;
+        height: 60px;
     }
 }
