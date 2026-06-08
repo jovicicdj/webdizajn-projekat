@@ -1678,6 +1678,14 @@ footer{
     display: none;
     }
 
+.aktivnost-komentari{
+    background-color: transparent;
+    color: #695ae9;
+    border: none;
+    display: none;
+    margin-right: 12px;
+}
+
 @media (max-width: 600px) {
 
     .hamburger {
@@ -1693,7 +1701,7 @@ footer{
         z-index: 999; */
     }
 
-    .header-center.open {
+    .header-center {
         display: block;
     }
 
@@ -1877,6 +1885,10 @@ footer{
         width: 60px;
         height: 60px;
     }
+
+    .aktivnost-komentari{
+        display: block;
+    }
     
 }
 
@@ -1906,6 +1918,10 @@ footer{
 
     .statistika-ime{
         font-size: 0.5em;
+    }
+
+    .aktivnost-komentari{
+        display: block;
     }
    
 }

@@ -19,11 +19,14 @@
                 <a href="index.html"><span class="brend">Књиге</span>.рс</a>
             </div>
 
+            <button class="aktivnost-komentari" onclick=aktivnostKomentari()>Aktivnost</button>
+
             <button class="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+
 
             <div class="header-center nav-menu">
                 <ul>
@@ -517,6 +520,35 @@
             border1.style.borderBottom = "none";
             
         }
+
+        function aktivnostKomentari(){
+            const aktivnost = document.querySelector(".main-profil-right");
+            const komentari = document.querySelector(".main-profil-left");
+
+            if(aktivnost.style.display == 'none'){
+                aktivnost.style.display = 'block';
+                komentari.style.display = 'none';
+            }
+
+            else{
+                aktivnost.style.display = 'none';
+                komentari.style.display = 'block';
+            }
+
+            
+
+            const btn = document.querySelector(".aktivnost-komentari");
+            // console.log("Sadrzaj je: " + btn.innerHTML)
+
+            if (btn.innerHTML == "Aktivnost"){
+                btn.innerHTML = "Recenzije";
+            }
+
+            else{
+                btn.innerHTML = "Aktivnost";
+            }
+        }
+
         
     </script>
 
