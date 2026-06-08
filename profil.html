@@ -19,6 +19,8 @@
                 <a href="index.html"><span class="brend">Књиге</span>.рс</a>
             </div>
 
+            
+
             <button class="hamburger">
                 <span></span>
                 <span></span>
@@ -27,11 +29,11 @@
 
             <div class="header-center nav-menu">
                 <ul>
-                    <li><a href="#" class="active-hyperlink">Књиге</a></li>
+                    <li><a href="index.html">Књиге</a></li>
                     <li><a href="autori.html">Аутори</a></li>
                     <li><a href="knjige-admin.html">Књиге админ</a></li>
                     <li><a href="admin_autori.html">Аутори админ</a></li>
-                    <li><a href="profil.html">Мој профил</a></li>
+                    <li><a href="#" class="active-hyperlink">Мој профил</a></li>
                     <li class="nav-buttons">
                         <button class="button login">Пријава</button>
                         <button class="button register">Регистрација</button>
@@ -51,6 +53,7 @@
                         <div class="profil-ime-email">
                             <p class="profil-ime">Ђорђе Јовичић</p>
                             <p class="profil-email">jovicic.sv7.2025@uns.ac.rs - Нови Сад, Србија</p>
+                            <button class="aktivnost-komentari" onclick=aktivnostKomentari()>Prikazi aktivnost</button>
                         </div>
                     </div>
 
@@ -517,6 +520,35 @@
             border1.style.borderBottom = "none";
             
         }
+
+        function aktivnostKomentari(){
+            const aktivnost = document.querySelector(".main-profil-right");
+            const komentari = document.querySelector(".main-profil-left");
+
+            if(aktivnost.style.display == 'none'){
+                aktivnost.style.display = 'block';
+                komentari.style.display = 'none';
+            }
+
+            else{
+                aktivnost.style.display = 'none';
+                komentari.style.display = 'block';
+            }
+
+            
+
+            const btn = document.querySelector(".aktivnost-komentari");
+            // console.log("Sadrzaj je: " + btn.innerHTML)
+
+            if (btn.innerHTML == "Prikazi aktivnost"){
+                btn.innerHTML = "Prikazi recenzije";
+            }
+
+            else{
+                btn.innerHTML = "Prikazi aktivnost";
+            }
+        }
+
         
     </script>
 
