@@ -15,4 +15,4 @@ function ajaxGet(url) {
     });
 }
 
-const firebaseUrl = "https://knjige-rs-default-rtdb.europe-west1.firebasedatabase.app/";    
+const firebaseUrl = "https://knjige-rs-default-rtdb.europe-west1.firebasedatabase.app";    
