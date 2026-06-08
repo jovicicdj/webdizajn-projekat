@@ -1701,7 +1701,7 @@ footer{
         z-index: 999; */
     }
 
-    .header-center {
+    .header-center.open {
         display: block;
     }
 
