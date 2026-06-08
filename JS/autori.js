@@ -1,4 +1,3 @@
-const firebaseUrl = "https://knjige-rs-default-rtdb.europe-west1.firebasedatabase.app/";
 
 const authorsGrid = document.querySelector(".authors")
 const authorsCount = document.querySelector(".authors-header p");
@@ -8,23 +7,6 @@ const filterButtons = document.querySelectorAll(".filter-card")
 let sviAutori = [];
 let aktivniFilter = "Сви";
 
-
-function ajaxGet(url) {
-    return new Promise((resolve) => {
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    resolve(JSON.parse(this.responseText));
-                } else {
-                    resolve(null);
-                }
-            }
-        };
-        xhttp.open("GET", url);
-        xhttp.send();
-    });
-}
 
 function statusKlasa(status) {
 
