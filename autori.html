@@ -54,11 +54,11 @@
                 </div>
 
                 <div class="search-filters">
-                    <input type="search" class="search-bar" placeholder="Претражите ауторе по имену и статусу..." spellcheck="false">
+                    <input type="search" class="search-bar" placeholder="Претражите ауторе по имену..." spellcheck="false">
                     <button class="filter-card active-filter">Сви</button>
-                    <button class="filter-card">Активни</button>
+                    <button class="filter-card">Активан</button>
                     <button class="filter-card">У пензији</button>
-                    <button class="filter-card">Преминули</button>
+                    <button class="filter-card">Преминуо</button>
                 </div>
             </div>
 
@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="authors">
-                    <div class="author-card">
+                    <!-- <div class="author-card">
                         <a href="pojedinacan_autor.html"><img class="author-avatar" src="images/lavtolstoj.webp" alt="Лав Толстој"></a>
                         <h6>Лав Толстој</h6>
                         <p class="stars">★★★★★</p>
@@ -213,7 +213,7 @@
                         </div>
                         <span class="status retired">У пензији</span>
                         <button class="view-profile">Погледај профил</button>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -245,14 +245,8 @@
     </div>
 
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('open');
-        });
-    </script>
+    <script type="module" src="autori.js"></script>
 
 </body>
 </html>

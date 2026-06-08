@@ -1,0 +1,124 @@
+import { db } from "./firebase-config.js";
+import { ref, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const authorsGrid = document.querySelector(".authors")
+const authorsCount = document.querySelector(".authors-header p");
+const searchBar = document.querySelector(".search-bar");
+const filterButtons = document.querySelectorAll(".filter-card")
+
+let sviAutori = [];
+let aktivniFilter = "Сви";
+
+function statusKlasa(status) {
+
+    if (status === "Активан") return "active";
+    if (status === "У пензији") return "retired";
+    if (status === "Преминуо") return "deceased";
+    return "";
+
+}
+
+function renderAutori(lista) {
+
+    
+    authorsGrid.innerHTML = "";
+    authorsCount.textContent = `${lista.length} аутора`;
+    
+    if (lista.length === 0) {
+        
+        authorsGrid.innerHTML = "<p style='color: #888'>Нема резултата.</p>";
+        return;
+        
+    }
+    
+    lista.forEach(({id, autor, prosek}) => {
+        
+        const pune = Math.round(prosek);
+        const zvezdice = "★".repeat(pune) + "☆".repeat(5 - pune);
+        
+        const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
+        const card = document.createElement("div");
+        card.className = "author-card";
+        card.innerHTML = `
+            <a href="pojedinacan_autor.html?id=${id}">
+                <img class="author-avatar" src="${slika}" alt="${autor.ime} ${autor.prezime}">
+            </a>
+            <h6>${autor.ime} ${autor.prezime}</h6>
+            <p class="stars">${zvezdice}</p>
+            <div class="author-info">
+                <p class="number-of-awards">${autor.brojOsvojenihNagrada} награда</p>
+            </div>
+            <span class="status ${statusKlasa(autor.status)}">${autor.status}</span>
+            <button class="view-profile" onclick="window.location='pojedinacan_autor.html?id=${id}'">Погледај профил</button>
+        `;
+        authorsGrid.appendChild(card);
+    });
+
+}
+
+function filtriraj() {
+    const pretraga = searchBar.value.toLowerCase();
+    let rezultat = sviAutori.filter(({ autor }) => {
+        const imeIPrezime = `${autor.ime} ${autor.prezime}`.toLowerCase();
+        const poklapa = imeIPrezime.includes(pretraga);
+        const filterPoklapa = aktivniFilter === "Сви" || autor.status === aktivniFilter;
+        return poklapa && filterPoklapa;
+    });
+    renderAutori(rezultat);
+}
+
+async function ucitajAutore() {
+
+    authorsGrid.innerHTML = "<p style='color: #888'>Учитавање...</p>";
+    const [snapshotAutori, snapshotOcene] = await Promise.all([
+        get(ref(db, "autori")),
+        get(ref(db, "ocene"))
+    ]);
+
+    if (snapshotAutori.exists()) {
+
+        const data = snapshotAutori.val();
+        const oceneData = snapshotOcene.exists() ? snapshotOcene.val() : {};
+
+        const ocenePoAutoru = {};
+
+        Object.values(oceneData).forEach(ocena => {
+            if (!ocenePoAutoru[ocena.idAutora]) {
+                ocenePoAutoru[ocena.idAutora] = { suma: 0, broj: 0 };
+            }
+            ocenePoAutoru[ocena.idAutora].suma += ocena.vrednost;
+            ocenePoAutoru[ocena.idAutora].broj += 1;
+        });
+
+        sviAutori = Object.entries(data).map(([id, autor]) => {
+
+            const o = ocenePoAutoru[id];
+            const prosek = o ? o.suma / o.broj : 0;
+            return { id, autor, prosek };
+
+        });
+
+        renderAutori(sviAutori)
+    }
+
+}
+
+filterButtons.forEach( btn => {
+    btn.addEventListener("click", () => {
+        filterButtons.forEach( b => b.classList.remove("active-filter"));
+        btn.classList.add("active-filter");
+        aktivniFilter = btn.textContent.trim();
+        filtriraj();
+    })
+})
+
+searchBar.addEventListener("input", filtriraj);
+
+ucitajAutore();
+
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+});
