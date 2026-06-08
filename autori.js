@@ -1,5 +1,4 @@
-import { db } from "./firebase-config.js";
-import { ref, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+const firebaseUrl = "https://knjige-rs-default-rtdb.europe-west1.firebasedatabase.app/";
 
 const authorsGrid = document.querySelector(".authors")
 const authorsCount = document.querySelector(".authors-header p");
@@ -8,6 +7,24 @@ const filterButtons = document.querySelectorAll(".filter-card")
 
 let sviAutori = [];
 let aktivniFilter = "Сви";
+
+
+function ajaxGet(url) {
+    return new Promise((resolve) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    resolve(JSON.parse(this.responseText));
+                } else {
+                    resolve(null);
+                }
+            }
+        };
+        xhttp.open("GET", url);
+        xhttp.send();
+    });
+}
 
 function statusKlasa(status) {
 
@@ -35,7 +52,7 @@ function renderAutori(lista) {
         
         const pune = Math.round(prosek);
         const zvezdice = "★".repeat(pune) + "☆".repeat(5 - pune);
-        
+
         const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
         const card = document.createElement("div");
         card.className = "author-card";
@@ -70,27 +87,30 @@ function filtriraj() {
 async function ucitajAutore() {
 
     authorsGrid.innerHTML = "<p style='color: #888'>Учитавање...</p>";
-    const [snapshotAutori, snapshotOcene] = await Promise.all([
-        get(ref(db, "autori")),
-        get(ref(db, "ocene"))
+
+    const [autoriData, oceneData] = await Promise.all([
+        ajaxGet(firebaseUrl + "/autori.json"),
+        ajaxGet(firebaseUrl + "/ocene.json")
     ]);
 
-    if (snapshotAutori.exists()) {
-
-        const data = snapshotAutori.val();
-        const oceneData = snapshotOcene.exists() ? snapshotOcene.val() : {};
+    if (autoriData) {
 
         const ocenePoAutoru = {};
 
-        Object.values(oceneData).forEach(ocena => {
-            if (!ocenePoAutoru[ocena.idAutora]) {
-                ocenePoAutoru[ocena.idAutora] = { suma: 0, broj: 0 };
-            }
-            ocenePoAutoru[ocena.idAutora].suma += ocena.vrednost;
-            ocenePoAutoru[ocena.idAutora].broj += 1;
-        });
+        if (oceneData) {
 
-        sviAutori = Object.entries(data).map(([id, autor]) => {
+            Object.values(oceneData).forEach(ocena => {
+                if (!ocenePoAutoru[ocena.idAutora]) {
+                    ocenePoAutoru[ocena.idAutora] = { suma: 0, broj: 0 };
+                }
+                ocenePoAutoru[ocena.idAutora].suma += ocena.vrednost;
+                ocenePoAutoru[ocena.idAutora].broj += 1;
+            });
+
+        }
+        
+
+        sviAutori = Object.entries(autoriData).map(([id, autor]) => {
 
             const o = ocenePoAutoru[id];
             const prosek = o ? o.suma / o.broj : 0;
