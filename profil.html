@@ -19,11 +19,23 @@
                 <a href="index.html"><span class="brend">Књиге</span>.рс</a>
             </div>
 
-            <div class="header-center">
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-center nav-menu">
                 <ul>
-                    <li><a href="index.html">Књиге</a></li>
+                    <li><a href="#" class="active-hyperlink">Књиге</a></li>
                     <li><a href="autori.html">Аутори</a></li>
-                    <li><a href="#" class="active-hyperlink">Мој профил</a></li>
+                    <li><a href="knjige-admin.html">Књиге админ</a></li>
+                    <li><a href="admin_autori.html">Аутори админ</a></li>
+                    <li><a href="profil.html">Мој профил</a></li>
+                    <li class="nav-buttons">
+                        <button class="button login">Пријава</button>
+                        <button class="button register">Регистрација</button>
+                    </li>
                 </ul>
             </div>
 
@@ -506,6 +518,15 @@
             
         }
         
+    </script>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
     </script>
 </body>
 </html>
