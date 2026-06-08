@@ -19,7 +19,7 @@
                 <a href="index.html"><span class="brend">Књиге</span>.рс</a>
             </div>
 
-            <button class="aktivnost-komentari" onclick=aktivnostKomentari()>Aktivnost</button>
+            
 
             <button class="hamburger">
                 <span></span>
@@ -53,6 +53,7 @@
                         <div class="profil-ime-email">
                             <p class="profil-ime">Ђорђе Јовичић</p>
                             <p class="profil-email">jovicic.sv7.2025@uns.ac.rs - Нови Сад, Србија</p>
+                            <button class="aktivnost-komentari" onclick=aktivnostKomentari()>Prikazi aktivnost</button>
                         </div>
                     </div>
 
@@ -539,12 +540,12 @@
             const btn = document.querySelector(".aktivnost-komentari");
             // console.log("Sadrzaj je: " + btn.innerHTML)
 
-            if (btn.innerHTML == "Aktivnost"){
-                btn.innerHTML = "Recenzije";
+            if (btn.innerHTML == "Prikazi aktivnost"){
+                btn.innerHTML = "Prikazi recenzije";
             }
 
             else{
-                btn.innerHTML = "Aktivnost";
+                btn.innerHTML = "Prikazi aktivnost";
             }
         }
 
