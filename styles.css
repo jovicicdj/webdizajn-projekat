@@ -1926,5 +1926,25 @@ footer{
     .aktivnost-komentari{
         display: block;
     }
+
+    .atribut-vrednost{
+        font-size: 0.55em;
+    }
+
+    .atribut-ime{
+        font-size: 0.45em;
+    }
+
+    .broj-recenzija{
+        font-size: 0.68em
+    }
+
+    .slicne-knjige-slika{
+        width: 60%;
+    }
+
+    .slicne-knjige-tekst{
+        width: 40%;
+    }
    
 }
