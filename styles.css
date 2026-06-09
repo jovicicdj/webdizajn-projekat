@@ -93,7 +93,7 @@ header a:hover{
 }
 
 .active-hyperlink{
-    color: #695ae9
+    color: #695ae9 !important;
 }
 
 .brend{
@@ -118,7 +118,7 @@ header a:hover{
     align-items: center;
 }
 
-.login{
+.login, .sign-up-reset{
     background-color: #121212;
     color: #AFA9EC;
     border-color: rgba(214, 214, 214, 0.222);
@@ -1679,7 +1679,7 @@ footer{
     z-index: 0;
     width: 100%;
     height: 100%;
-    filter: blur(2px);
+    filter: blur(4px);
 }
 
 .login-tekst{
@@ -1718,7 +1718,33 @@ footer{
     color: white;
 }
 
-#login-forma{
+.login-container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-hiperlink{
+    text-decoration: none;
+    color: #4B4396;
+}
+
+.registracija-prijava{
+    display: flex;
+    gap: 8px;
+}
+
+.registracija-prijava h3:hover{
+    cursor: pointer;
+}
+
+.registracija-prijava p{
+    color: white;
+    font-size: 1.25em;
+}
+
+#sign-up-forma, #login-forma{
     flex: 1;
     display: flex;
     gap: 16px;
@@ -1726,34 +1752,43 @@ footer{
     justify-content: center;
 }
 
-#login-forma input{
+#login-forma{
+    display: none;
+}
+
+#sign-up-forma input, #login-forma input{
     /* margin-bottom: 12px; */
     /* background-color: #4B4396; */
     border-radius: 12px;
 }
 
-#login-forma label{
+#datum-rodjenja::placeholder{
+    background-color: red;
+    color: red;
+}
+
+#sign-up-forma label, #login-forma label{
     color: white;
 }
 
-#login-forma input::placeholder{
+#sign-up-forma input::placeholder, #login-forma input::placeholder{
     color: rgba(255, 255, 255, 0.601);
 }
 
-.login-form-buttons{
+.sign-up-form-buttons{
     display: flex;
     gap: 15px;
 }
 
-.login-submit{
+.sign-up-submit{
     background-color: #4B4396;
     margin: 0px !important;  
 }
 
-.login-reset{
+/* .login-reset{
     background-color: rgb(155, 14, 14);
     margin: 0px !important;
-}
+} */
 
 @keyframes backgroundColor{
     50% { background-color: #796cf058;}

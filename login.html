@@ -15,37 +15,57 @@
             <div class="login-main-left">
                 <!-- adresa, datum rodjenja, email, ime, prezime, korisnicko ime, lozinka, zanimanje -->
                 <div class="login-container">
-                    <h3>Registracija</h3>
-                    <form action="" method="post" id="login-forma">
-                        <label for="ime"> Ime</label>
-                        <input type="text" id="ime" placeholder="Đorđe">
+                    <div class="login-container-header">
+                        <div class="registracija-prijava">
+                            <h3 class="active-hyperlink" id="register-text" onclick="registracija()">Registracija</h3>
+                            <p>|</p>
+                            <h3 onclick="prijava()" id="sign-up-text">Prijava</h3>
+                        </div>
+                        <a href="#" class="login-hiperlink">&larr;Nazad</a>
+                    </div>
+                    <form action="" method="post" id="sign-up-forma" class="suf">
+                        <label for="ime">Ime</label>
+                        <input type="text" id="ime" placeholder="Đorđe" required>
 
-                        <label for="prezime"> Prezime</label>
-                        <input type="text" id="prezime" placeholder="Jovičić">
+                        <label for="prezime">Prezime</label>
+                        <input type="text" id="prezime" placeholder="Jovičić" required>
 
-                        <label for="korisnicko-ime"> Korisnicko ime</label>
-                        <input type="text" id="korisnicko-ime" placeholder="djole1232">
+                        <label for="korisnicko-ime">Korisnicko ime</label>
+                        <input type="text" id="korisnicko-ime" placeholder="djole1232" required>
 
                         <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="jovicic.sv7.2025@uns.ac.rs">
+                        <input type="email" id="email" placeholder="jovicic.sv7.2025@uns.ac.rs" required>
 
-                        <label for="datum-rodjenja"> Datum rodjenja</label>
-                        <input type="date" id="datum-rodjenja">
+                        <label for="datum-rodjenja">Datum rodjenja</label>
+                        <input type="date" id="datum-rodjenja" required>
 
                         <label for="zanimanje">Zanimanje</label>
-                        <input type="text" id="zanimanje" placeholder="student">
+                        <input type="text" id="zanimanje" placeholder="student" required>
 
                         <label for="adresa">Adresa</label>
-                        <input type="text" id="ime" placeholder="Dr Sime Miloševića 8">
+                        <input type="text" id="adresa" placeholder="Dr Sime Miloševića 8" required
 
                         <label for="lozinka">Lozinka</label>
-                        <input type="text" id="lozinka" placeholder="Unesite lozinku...">
+                        <input type="password" id="lozinka" placeholder="Unesite lozinku..." required>
                         
-                        <div class="login-form-buttons">
-                            <input type="reset" value="Otkazi" class="login-reset">
-                            <input type="submit" value="Prijavi se" class="login-submit">
+                        <div class="sign-up-form-buttons">
+                            <input type="reset" value="Otkazi" class="sign-up-reset">
+                            <input type="submit" value="Prijavi se" class="sign-up-submit">
                         </div>
+                    </form>
 
+                    <form action="" method="post" id="login-forma" class="lf">
+                        
+                        <label for="korisnicko-ime-sign-up"> Korisnicko ime</label>
+                        <input type="text" id="korisnicko-ime-sign-up" placeholder="djole1232" required>
+
+                        <label for="lozinka-sign-up">Lozinka</label>
+                        <input type="password" id="lozinka-sign-up" placeholder="Unesite lozinku..." required>
+
+                        <div class="sign-up-form-buttons">
+                            <input type="reset" value="Otkazi" class="sign-up-reset">
+                            <input type="submit" value="Prijavi se" class="sign-up-submit">
+                        </div>
                     </form>
                 </div>
 
@@ -90,4 +110,35 @@
 </body>
 <script src="JS/ajax.js"></script>
 <script src="JS/footer.js"></script>
+
+<script>
+    function registracija(){
+        const register = document.getElementById("sign-up-forma");
+        const login = document.getElementById("login-forma");
+
+        const registerText = document.getElementById("register-text")
+        const signUpText = document.getElementById("sign-up-text")
+
+        register.style.display = "flex";
+        login.style.display = "none";
+
+        registerText.classList.add("active-hyperlink")
+        signUpText.classList.remove("active-hyperlink")
+    }
+
+    function prijava(){
+        const register = document.getElementById("sign-up-forma");
+        const login = document.getElementById("login-forma");
+
+        const registerText = document.getElementById("register-text")
+        const signUpText = document.getElementById("sign-up-text")
+
+        register.style.display = "none";
+        login.style.display = "flex";
+
+        registerText.classList.remove("active-hyperlink")
+        signUpText.classList.add("active-hyperlink")
+    }
+
+</script>
 </html>
