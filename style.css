@@ -1383,6 +1383,26 @@ footer{
 
 }
 
+@media (max-width: 850px) {
+
+    .hamburger {
+        display: flex;
+    }
+
+    #nepotreban {
+        display: none;
+    }
+
+    .header-right {
+        display: none;
+    }
+
+    .hamburger-odjava {
+        display: flex;
+    }
+
+}
+
 @media (max-width: 800px) {
     #PC-back {
         display: none;

@@ -27,7 +27,7 @@ function azurirajNav() {
         headerRight.innerHTML = `<button class="button login" onclick="odjava()">Одјава</button>`;
 
     } else {
-        navLinks.innerHTML = liKnjige + liAutori + liKnjigeAdmin + liAutoriAdmin + liProfil;
+        navLinks.innerHTML = liKnjige + liAutori + liProfil;
         headerRight.innerHTML = `<button class="button login" onclick="odjava()">Одјава</button>`;
         
     }

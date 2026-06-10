@@ -1882,6 +1882,10 @@ footer{
     font-size: 0.75em;
 }
 
+.hamburger-odjava {
+    display: none;
+}
+
 @media (max-width: 850px) {
 
     .hamburger {
