@@ -1230,8 +1230,8 @@ form{
 }
 
 .biznis{
-    background: #2f1b12;
-    color: #fb7185;
+    background: #3a1414;
+    color: #f87171;
 }
 
 .filozofija{
@@ -1833,6 +1833,10 @@ footer{
 .sign-up-submit{
     background-color: #4B4396;
     margin: 0px !important;  
+}
+
+.knjiga-slika::empty{
+    display: none;
 }
 
 /* .login-reset{
