@@ -1009,11 +1009,11 @@ form{
     cursor: pointer;
 }
 
-#sci-fi{
+/* #sci-fi{
      overflow: hidden;
     text-overflow: ellipsis; 
     white-space: nowrap; 
-}
+} */
 
 .books{
     width: 100%;
@@ -1679,7 +1679,7 @@ footer{
     z-index: 0;
     width: 100%;
     height: 100%;
-    filter: blur(4px);
+    filter: blur(2px);
 }
 
 .login-tekst{
