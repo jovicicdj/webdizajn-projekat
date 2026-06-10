@@ -1175,6 +1175,111 @@ footer{
     cursor: pointer;
 }
 
+.edit-row form {
+    display: none;
+}
+
+.edit-row {
+    background-color: #1a1a2e;
+    border-bottom: 1px solid #1e1e1e;
+    border-top: 2px solid #6153DD;
+    height: 52px;
+    align-items: center;
+    padding: 6px 6px;
+    gap: 8px;
+}
+
+.edit-row .edit-input {
+    height: 30px;
+    font-size: 0.85em;
+    padding: 2px 6px;
+    width: 60%;
+}
+
+.edit-row .edit-btn {
+    font-size: 0.75em;
+    padding: 0 12px;
+    height: 30px;
+}
+
+.edit-row .tabela-autor-slika {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-row .ta-1 {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.edit-row .ta-1 input[type="text"] {
+    width: 65%;
+    min-width: 0;
+}
+
+.edit-row .ta-1 input[type="file"] {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.edit-row .ta-1 input[type="file"]::file-selector-button {
+    display: none;
+}
+
+.edit-file-input {
+    display: none;
+}
+
+.edit-row input[type="number"]::-webkit-outer-spin-button,
+.edit-row input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.edit-row-bio {
+    min-width: 800px;
+    height: 52px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 6px;
+    background-color: #1a1a2e;
+    border-bottom: 2px solid #6153dd;
+    border-top: 1px solid #70707048;
+}
+
+.edit-row-bio textarea {
+    flex: 1;
+    height: 36px;
+    background-color: #2f2e2e;
+    border: 1px solid #70707048;
+    border-radius: 5px;
+    color: #dededc;
+    padding: 4px 10px;
+    font-size: 0.75em;
+    resize: none;
+}
+
+.edit-row-bio label {
+    color: #646464;
+    font-size: 0.75em;
+    white-space: nowrap;
+}
+
+
+
+
+
 /*ADMIN FORMA KRAJ*/
 /*ADMIN KRAJ*/
 
