@@ -17,9 +17,9 @@
                 <div class="login-container">
                     <div class="login-container-header">
                         <div class="registracija-prijava">
-                            <h3 class="active-hyperlink" id="register-text" onclick="registracija()">Registracija</h3>
+                            <h3 class="active-hyperlink" id="register-text" onclick="prikaziFormuRegistracija()">Registracija</h3>
                             <p>|</p>
-                            <h3 onclick="prijava()" id="sign-up-text">Prijava</h3>
+                            <h3 onclick="prikaziFormuPrijava()" id="sign-up-text">Prijava</h3>
                         </div>
                         <a href="#" class="login-hiperlink">&larr;Nazad</a>
                     </div>
@@ -61,6 +61,8 @@
 
                         <label for="lozinka-sign-up">Lozinka</label>
                         <input type="password" id="lozinka-sign-up" placeholder="Unesite lozinku..." required>
+                        
+                        <p id="login-greska" style="display:none; color:#e06060; font-size:0.8em;"></p>
 
                         <div class="sign-up-form-buttons">
                             <input type="reset" value="Otkazi" class="sign-up-reset">
@@ -110,35 +112,7 @@
 </body>
 <script src="JS/ajax.js"></script>
 <script src="JS/footer.js"></script>
+<script src="JS/login.js"></script>
 
-<script>
-    function registracija(){
-        const register = document.getElementById("sign-up-forma");
-        const login = document.getElementById("login-forma");
 
-        const registerText = document.getElementById("register-text")
-        const signUpText = document.getElementById("sign-up-text")
-
-        register.style.display = "flex";
-        login.style.display = "none";
-
-        registerText.classList.add("active-hyperlink")
-        signUpText.classList.remove("active-hyperlink")
-    }
-
-    function prijava(){
-        const register = document.getElementById("sign-up-forma");
-        const login = document.getElementById("login-forma");
-
-        const registerText = document.getElementById("register-text")
-        const signUpText = document.getElementById("sign-up-text")
-
-        register.style.display = "none";
-        login.style.display = "flex";
-
-        registerText.classList.remove("active-hyperlink")
-        signUpText.classList.add("active-hyperlink")
-    }
-
-</script>
 </html>

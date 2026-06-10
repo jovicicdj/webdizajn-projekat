@@ -259,6 +259,7 @@ footer{
     background-color: #161616;
     display: flex;
     justify-content: space-between;
+
 }
 
 .footer-card{
@@ -1353,6 +1354,10 @@ footer{
 }
 
 
+.hamburger-odjava {
+    display: none;
+}
+
 @media (max-width: 1024px) {
     .authors {
         grid-template-columns: repeat(2, 1fr);
@@ -1385,6 +1390,10 @@ footer{
 
     #Telefon-back {
         display: inline;
+    }
+
+    .hamburger-odjava {
+        display: flex;
     }
 
     /* .header-right {
@@ -1560,6 +1569,10 @@ footer{
         order: 2;
     }
 
+    .hamburger-odjava {
+        display: flex;
+    }
+
     /* KARTICE AUTORA */
     .authors {
         grid-template-columns: repeat(2, 1fr);
@@ -1671,3 +1684,20 @@ footer{
 
     
 }
+
+
+.profil-inicijal {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1A1A1A;
+    color: #6153dd;
+    border: 2px solid #6153dd;
+    font-size: 1.8em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+

@@ -49,10 +49,10 @@
          <main class="main-profil">
                 <div class="main-profil-top">
                     <div class="profil-info">
-                        <img src="images/profilna.jpeg" alt="1984">
+                        <img src="" alt="1984">
                         <div class="profil-ime-email">
                             <p class="profil-ime">Ђорђе Јовичић</p>
-                            <p class="profil-email">jovicic.sv7.2025@uns.ac.rs - Нови Сад, Србија</p>
+                            <p class="profil-email">jovicic.sv7.2025@uns.ac.rs</p>
                             <button class="aktivnost-komentari" onclick=aktivnostKomentari()>Prikazi aktivnost</button>
                         </div>
                     </div>
@@ -92,43 +92,43 @@
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Име</p>
-                                    <p class="info-vrednost">Ђорђе</p>
+                                    <p class="info-vrednost ime-vrednost">Ђорђе</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Презиме</p>
-                                    <p class="info-vrednost">Јовичић</p>
+                                    <p class="info-vrednost prezime-vrednost">Јовичић</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Корисничко име</p>
-                                    <p class="info-vrednost">djole1232</p>
+                                    <p class="info-vrednost username-vrednost">djole1232</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Имејл</p>
-                                    <p class="info-vrednost">jovicic.sv7.2025@uns.ac.rs</p>
+                                    <p class="info-vrednost email-vrednost">jovicic.sv7.2025@uns.ac.rs</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Адреса</p>
-                                    <p class="info-vrednost">Нови Сад</p>
+                                    <p class="info-vrednost adresa-vrednost">Нови Сад</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Датум рођења</p>
-                                    <p class="info-vrednost">25.08.2006.</p>
+                                    <p class="info-vrednost datum-vrednost">25.08.2006.</p>
                                 </div>
 
                                 <div class="detaljne-info-row">
                                     <p class="info-ime">Занимање</p>
-                                    <p class="info-vrednost">Студент</p>
+                                    <p class="info-vrednost zanimanje-vrednost">Студент</p>
                                 </div>
 
-                                <div class="detaljne-info-row">
+                                <!-- <div class="detaljne-info-row">
                                     <p class="info-ime">Члан од</p>
                                     <p class="info-vrednost">01.08.2024.</p>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="omiljeni-zanrovi">
@@ -219,7 +219,7 @@
 
 
                             <div class="main-profil-right-content1" id="recenzije-profil">
-                                <div class="recenzija-profil-kartica">
+                                <!-- <div class="recenzija-profil-kartica">
                                     <div class="recenzija-profil-kartica-right">
                                         <p class="recenzija-knjiga-ime">Ана Карењина</p>
                                         <p class="recenzija-knjiga-sadrzaj">Јако добра књига и сматрам да сваки средњошколац треба да је прочита. Врхунац руске књижевности и респект за Толстоја што је написао ово.</p>
@@ -297,7 +297,7 @@
                                     <div class="recenzija-profil-kartica-left">
                                         <p class="recenzije-knjiga-datum">28.04.2025.</p>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
 
@@ -457,7 +457,7 @@
             <div class="footer-card-profil">
                 <p class="footer-card-profil-stat">ПРОСЕЧНА ОЦЕНА</p>
                 <p class="footer-card-profil-value">4.2 &#9733;</p>
-                <p class="footer-card-profil-dodatak">Последњих 10 оцењених аутора</p>
+                <p class="footer-card-profil-dodatak">Оцењених аутора</p>
             </div>
 
             <div class="footer-card-profil">
@@ -560,5 +560,11 @@
             navMenu.classList.toggle('open');
         });
     </script>
+
+    <script src="JS/ajax.js"></script>
+    <script src="JS/nav.js"></script>
+    <script src="JS/profil.js"></script>
+    <script src="JS/ocene.js"></script>
+
 </body>
 </html>
