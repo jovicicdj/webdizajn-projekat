@@ -16,6 +16,7 @@
     background-color: #121212;
 }
 
+
 .admin-wrapper{
     height: 100vh;
     min-height: 0;
@@ -92,7 +93,7 @@ header a:hover{
 }
 
 .active-hyperlink{
-    color: #695ae9
+    color: #695ae9 !important;
 }
 
 .brend{
@@ -117,7 +118,7 @@ header a:hover{
     align-items: center;
 }
 
-.login{
+.login, .sign-up-reset{
     background-color: #121212;
     color: #AFA9EC;
     border-color: rgba(214, 214, 214, 0.222);
@@ -1645,6 +1646,150 @@ footer{
     font-size: 0.75em;
 }
 
+.login-main{
+    display: flex;
+    /* background-color: red; */
+    flex: 1;
+}
+
+.login-main-left{
+    display: flex;
+    flex: 5;
+    padding: 8px;
+    padding-right: 8px;
+    padding-left: 8px;
+    background-color: #1A1A2E;
+}
+
+.login-main-right{
+    display: flex;
+    flex: 11;
+    /* border-left: 1px solid hsla(0, 0%, 100%, 0.523); */
+    /* background-color: yellow; */
+    color: white;
+    flex-direction: column;
+    gap: 8px;
+    position: relative; 
+}
+
+.login-slika{
+    background-image: url(images/login-slika3.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(4px);
+}
+
+.login-tekst{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    z-index: 100;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-tekst h1{
+    white-space: nowrap;
+}
+
+
+.login-container{
+    /* background-color: #4B4396; */
+    border: 1px solid #4B4396;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    flex: 1;
+    padding: 24px;
+    border-radius: 20px;
+    gap: 12px;
+    background-color: #121212;
+}
+
+.login-container h3{
+    color: white;
+}
+
+.login-container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-hiperlink{
+    text-decoration: none;
+    color: #4B4396;
+}
+
+.registracija-prijava{
+    display: flex;
+    gap: 8px;
+}
+
+.registracija-prijava h3:hover{
+    cursor: pointer;
+}
+
+.registracija-prijava p{
+    color: white;
+    font-size: 1.25em;
+}
+
+#sign-up-forma, #login-forma{
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+#login-forma{
+    display: none;
+}
+
+#sign-up-forma input, #login-forma input{
+    /* margin-bottom: 12px; */
+    /* background-color: #4B4396; */
+    border-radius: 12px;
+}
+
+#datum-rodjenja::placeholder{
+    background-color: red;
+    color: red;
+}
+
+#sign-up-forma label, #login-forma label{
+    color: white;
+}
+
+#sign-up-forma input::placeholder, #login-forma input::placeholder{
+    color: rgba(255, 255, 255, 0.601);
+}
+
+.sign-up-form-buttons{
+    display: flex;
+    gap: 15px;
+}
+
+.sign-up-submit{
+    background-color: #4B4396;
+    margin: 0px !important;  
+}
+
+/* .login-reset{
+    background-color: rgb(155, 14, 14);
+    margin: 0px !important;
+} */
+
 @keyframes backgroundColor{
     50% { background-color: #796cf058;}
     50% { background-color: #372a8a72;} 
@@ -1687,7 +1832,7 @@ footer{
     font-size: 0.75em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 850px) {
 
     .hamburger {
         display: flex;
@@ -1875,7 +2020,7 @@ footer{
     }
 
     .profil-ime{
-        font-size: 0.85em;
+        font-size: 0.8em;
     }
 
     .profil-email{
@@ -1891,6 +2036,14 @@ footer{
     .aktivnost-komentari{
         display: block;
         
+    }
+
+    .login-main-right{
+        display: none;
+    }
+
+    .login-main-left{
+        flex: 1;
     }
     
 }
@@ -1925,6 +2078,42 @@ footer{
 
     .aktivnost-komentari{
         display: block;
+    }
+
+    .atribut-vrednost{
+        font-size: 0.55em;
+    }
+
+    .atribut-ime{
+        font-size: 0.45em;
+    }
+
+    .broj-recenzija{
+        font-size: 0.68em
+    }
+
+    .slicne-knjige-slika{
+        width: 60%;
+    }
+
+    .slicne-knjige-tekst{
+        width: 40%;
+    }
+
+    .login-main-right{
+        flex: 1;
+    }
+
+    .login-main-left{
+        flex: 1;
+    }
+
+    .login-tekst h1{
+        font-size: 1.5em;
+    }
+
+    .login-tekst p{
+        font-size: 1em;
     }
    
 }

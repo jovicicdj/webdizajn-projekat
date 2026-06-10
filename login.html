@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registracija / Prijava</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login-main">
+            <div class="login-main-left">
+                <!-- adresa, datum rodjenja, email, ime, prezime, korisnicko ime, lozinka, zanimanje -->
+                <div class="login-container">
+                    <div class="login-container-header">
+                        <div class="registracija-prijava">
+                            <h3 class="active-hyperlink" id="register-text" onclick="registracija()">Registracija</h3>
+                            <p>|</p>
+                            <h3 onclick="prijava()" id="sign-up-text">Prijava</h3>
+                        </div>
+                        <a href="#" class="login-hiperlink">&larr;Nazad</a>
+                    </div>
+                    <form action="" method="post" id="sign-up-forma" class="suf">
+                        <label for="ime">Ime</label>
+                        <input type="text" id="ime" placeholder="Đorđe" required>
+
+                        <label for="prezime">Prezime</label>
+                        <input type="text" id="prezime" placeholder="Jovičić" required>
+
+                        <label for="korisnicko-ime">Korisnicko ime</label>
+                        <input type="text" id="korisnicko-ime" placeholder="djole1232" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="jovicic.sv7.2025@uns.ac.rs" required>
+
+                        <label for="datum-rodjenja">Datum rodjenja</label>
+                        <input type="date" id="datum-rodjenja" required>
+
+                        <label for="zanimanje">Zanimanje</label>
+                        <input type="text" id="zanimanje" placeholder="student" required>
+
+                        <label for="adresa">Adresa</label>
+                        <input type="text" id="adresa" placeholder="Dr Sime Miloševića 8" required>
+
+                        <label for="lozinka">Lozinka</label>
+                        <input type="password" id="lozinka" placeholder="Unesite lozinku..." required>
+                        
+                        <div class="sign-up-form-buttons">
+                            <input type="reset" value="Otkazi" class="sign-up-reset">
+                            <input type="submit" value="Prijavi se" class="sign-up-submit">
+                        </div>
+                    </form>
+
+                    <form action="" method="post" id="login-forma" class="lf">
+                        
+                        <label for="korisnicko-ime-sign-up"> Korisnicko ime</label>
+                        <input type="text" id="korisnicko-ime-sign-up" placeholder="djole1232" required>
+
+                        <label for="lozinka-sign-up">Lozinka</label>
+                        <input type="password" id="lozinka-sign-up" placeholder="Unesite lozinku..." required>
+
+                        <div class="sign-up-form-buttons">
+                            <input type="reset" value="Otkazi" class="sign-up-reset">
+                            <input type="submit" value="Prijavi se" class="sign-up-submit">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="signup">
+                    <!-- korisnicko ime, sifra -->
+                </div>
+            </div>
+
+            <div class="login-main-right">
+                <div class="login-tekst">
+                    <h1>Najveca stranica za ljubitelje knjiga</h1>
+                    <p>Registruj se danas.</p>
+                </div>
+
+                <div class="login-slika"></div>
+
+                <footer>
+                    <div class="footer-card">
+                        <p class="footer-stat">1240</p>
+                        <p class="footer-value">књига</p>
+                    </div>
+
+                    <div class="footer-card">
+                        <p class="footer-stat">380</p>
+                        <p class="footer-value">аутора</p>
+                    </div>
+
+                    <div class="footer-card">
+                        <p class="footer-stat">8500</p>
+                        <p class="footer-value">рецензија</p>
+                    </div>
+
+                    <div class="footer-card">
+                        <p class="footer-stat">2100</p>
+                        <p class="footer-value">Читалаца</p>
+                    </div>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="JS/ajax.js"></script>
+<script src="JS/footer.js"></script>
+
+<script>
+    function registracija(){
+        const register = document.getElementById("sign-up-forma");
+        const login = document.getElementById("login-forma");
+
+        const registerText = document.getElementById("register-text")
+        const signUpText = document.getElementById("sign-up-text")
+
+        register.style.display = "flex";
+        login.style.display = "none";
+
+        registerText.classList.add("active-hyperlink")
+        signUpText.classList.remove("active-hyperlink")
+    }
+
+    function prijava(){
+        const register = document.getElementById("sign-up-forma");
+        const login = document.getElementById("login-forma");
+
+        const registerText = document.getElementById("register-text")
+        const signUpText = document.getElementById("sign-up-text")
+
+        register.style.display = "none";
+        login.style.display = "flex";
+
+        registerText.classList.remove("active-hyperlink")
+        signUpText.classList.add("active-hyperlink")
+    }
+
+</script>
+</html>
