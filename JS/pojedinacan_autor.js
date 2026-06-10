@@ -1,4 +1,7 @@
 
+let trenutniId = null;
+let izabranaOcena = 0;
+
 async function ucitajAutora() {
 
     const params = new URLSearchParams(window.location.search)
@@ -14,6 +17,13 @@ async function ucitajAutora() {
     ]);
 
     if (!autor) return;
+
+    trenutniId = id;
+
+    const zvezdice = document.querySelectorAll(".pa-zvezdice span");
+    zvezdice.forEach((span, i) => {
+        span.dataset.vrednost = 5 - i;
+    });
 
     const slika = Array.isArray(autor.slike) ? autor.slike[0] : (autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg");
     document.querySelector(".pa-avatar").src = slika;
@@ -135,4 +145,103 @@ const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('open');
+});
+
+
+
+
+const modalLogin = document.getElementById("modal-login");
+const modalVecOcenio = document.getElementById("modal-vec-ocenio");
+const modalBezOcene = document.getElementById("modal-bez-ocene");
+
+
+
+document.querySelector(".pa-zvezdice").addEventListener("click", (e) => {
+    const span = e.target.closest("span");
+    if (!span) return;
+
+    izabranaOcena = Number(span.dataset.vrednost);
+
+    document.querySelectorAll(".pa-zvezdice span").forEach(s => {
+        s.classList.toggle("vasa-ocena", Number(s.dataset.vrednost) <= izabranaOcena);
+    });
+});
+
+document.querySelector(".pa-oceni-btn").addEventListener("click", async () => {
+
+    const korisnikId = localStorage.getItem("korisnikId");
+
+    if (!korisnikId) {
+        modalLogin.classList.add("open");
+        return;
+    }
+
+    if (izabranaOcena === 0) {
+        modalBezOcene.classList.add("open");
+        return;
+    }
+
+    const oceneData = await ajaxGet(`${firebaseUrl}/ocene.json`);
+    const vecOcenio = oceneData && Object.values(oceneData).some(
+        o => o.idAutora === trenutniId && o.idKorisnika === korisnikId
+    );
+
+    if (vecOcenio) {
+        modalVecOcenio.classList.add("open");
+        return;
+    }
+
+    const sveOcene = await ajaxGet(`${firebaseUrl}/ocene.json`);
+    const brojevi = sveOcene 
+        ? Object.keys(sveOcene)
+            .filter(k => k.startsWith("oce"))
+            .map(k => parseInt(k.slice(3)))
+            .filter(n => !isNaN(n))
+        : [];
+
+    const sledeciBroj = brojevi.length ? Math.max(...brojevi) + 1 : 1;
+    const noviId = "oce" + String(sledeciBroj).padStart(3, "0");
+
+    const rezultat = await ajaxPut(`${firebaseUrl}/ocene/${noviId}.json`, {
+        idAutora: trenutniId,
+        idKorisnika: korisnikId,
+        vrednost: izabranaOcena
+    });
+
+    if (!rezultat) {
+        alert("Грешка при оцењивању.");
+        return;
+    }
+
+    const noviPodaci = await ajaxGet(`${firebaseUrl}/ocene.json`);
+    const prosek = izracunajProsek(noviPodaci, trenutniId);
+
+    document.querySelector(".pa-ocena-broj").textContent = formatProsek(prosek);
+    document.querySelector(".pa-ocena-card .stars").textContent = formatZvezdice(prosek);
+    document.querySelector(".pa-ocena-count").textContent = brojOcena(noviPodaci, trenutniId) + " оцена";
+});
+
+document.getElementById("modal-login-otkazi").addEventListener("click", () => {
+    modalLogin.classList.remove("open");
+});
+
+document.getElementById("modal-login-close").addEventListener("click", () => {
+    modalLogin.classList.remove("open");
+});
+
+
+document.getElementById("modal-vec-ocenio-ok").addEventListener("click", () => {
+    modalVecOcenio.classList.remove("open");
+});
+
+document.getElementById("modal-vec-ocenio-close").addEventListener("click", () => {
+    modalVecOcenio.classList.remove("open");
+});
+
+document.getElementById("modal-bez-ocene-ok").addEventListener("click", () => {
+    modalBezOcene.classList.remove("open");
+});
+
+document.getElementById("modal-bez-ocene-close").addEventListener("click", () => {
+    modalBezOcene.classList.remove("open");
 });

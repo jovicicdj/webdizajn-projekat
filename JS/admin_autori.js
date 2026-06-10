@@ -1,6 +1,9 @@
 const tabela = document.querySelector(".tabela-autora");
 const dodajBtn = document.querySelector(".adm-search-row button");
 
+const searchBar = document.querySelector(".adm-search-row .search-bar");
+let sviAutori = [];
+
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 hamburger.addEventListener('click', () =>  {
@@ -19,8 +22,82 @@ function statusKlasa(status) {
 
 
 
+async function ucitajAutore() {
+    
+    const [autoriData, oceneData] = await Promise.all([
+        ajaxGet(`${firebaseUrl}/autori.json`),
+        ajaxGet(`${firebaseUrl}/ocene.json`)
+    ]);
 
-function napraviFormu({ naslov, btnTekst, podaci = {}, onSubmit }) {
+    if (!autoriData) return;
+
+    sviAutori = Object.entries(autoriData).map(([id, autor]) => {
+        const prosek = izracunajProsek(oceneData, id);
+        return { id, autor, prosek };
+    });
+
+    renderAutore(sviAutori);
+}
+
+
+
+
+function renderAutore(lista) {
+
+    document.querySelectorAll(".tabela-row").forEach(r => r.remove());
+
+    lista.forEach(({ id, autor, prosek }) => {
+
+        const row = document.createElement("div");
+        row.className = "tabela-row";
+        row.dataset.id = id;
+        row.dataset.autor = JSON.stringify(autor)
+        const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
+        const prodatihPrimeraka = formatPrimerci(autor.brojProdatihPrimeraka);
+
+        row.innerHTML = `
+
+            <div class="ta-1">
+                <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
+                <p>${autor.ime} ${autor.prezime}</p>
+            </div>
+            <div class="ta-2"><p>${autor.datumRodjenja || '-'}</p></div>
+            <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${autor.status}</span></div>
+            <div class="ta-4"><p>${autor.brojOsvojenihNagrada || '-'}</p></div>
+            <div class="ta-5"><p>${prodatihPrimeraka}</p></div>
+            <div class="ta-6">
+                <span class="stars-tabela">${formatZvezdice(prosek)}</span>
+                <p class="tabela-rejting">${formatProsek(prosek)}</p>
+            </div>
+            <div class="ta-7"><p>${autor.kontaktTelefonMenadzera || '-'}</p></div>
+            <div class="ta-8">
+                <button class="action-buttons btn-obrisi"><ion-icon name="trash"></ion-icon></button>
+                <button class="action-buttons btn-izmena"><ion-icon name="create-outline"></ion-icon></button>
+            </div>
+
+        `
+        tabela.appendChild(row);
+
+    });
+}
+
+
+
+
+function filtriraj() {
+    const pretraga = searchBar.value.toLowerCase();
+    const rezultat = sviAutori.filter(({ autor }) => {
+        const imeIPrezime = `${autor.ime} ${autor.prezime}`.toLowerCase();
+        return imeIPrezime.includes(pretraga);
+    });
+    renderAutore(rezultat);
+}
+
+searchBar.addEventListener("input", filtriraj);
+
+
+
+function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }) {
     const red = document.createElement("div");
     red.className = "tabela-row edit-row";
 
@@ -59,8 +136,8 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, onSubmit }) {
         </div>
 
         <div class="ta-6">
-            <span class="stars-tabela">★★★★★</span>
-            <p class="tabela-rejting">-</p>
+            <span class="stars-tabela">${formatZvezdice(prosek)}</span>
+            <p class="tabela-rejting">${formatProsek(prosek)}</p>
         </div>
 
         <div class="ta-7">
@@ -136,90 +213,8 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, onSubmit }) {
     return { red, biored };
 }
 
-async function ucitajAutore() {
-    
-    const [autoriData, oceneData] = await Promise.all([
-        ajaxGet(`${firebaseUrl}/autori.json`),
-        ajaxGet(`${firebaseUrl}/ocene.json`)
-    ]);
-
-    if (!autoriData) return;
-
-    document.querySelectorAll(".tabela-row").forEach(r => r.remove());
-
-    Object.entries(autoriData).forEach( ([id, autor]) => {
-
-        const prosek = izracunajProsek(oceneData, id);
-
-        const row = document.createElement("div");
-        row.className = "tabela-row";
-        row.dataset.id = id;
-        row.dataset.autor = JSON.stringify(autor)
-        const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
-        const prodatihPrimeraka = formatPrimerci(autor.brojProdatihPrimeraka);
-
-        row.innerHTML = `
-
-            <div class="ta-1">
-                <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
-                <p>${autor.ime} ${autor.prezime}</p>
-            </div>
-            <div class="ta-2"><p>${autor.datumRodjenja || '-'}</p></div>
-            <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${autor.status}</span></div>
-            <div class="ta-4"><p>${autor.brojOsvojenihNagrada || '-'}</p></div>
-            <div class="ta-5"><p>${prodatihPrimeraka}</p></div>
-            <div class="ta-6">
-                <span class="stars-tabela">${formatZvezdice(prosek)}</span>
-                <p class="tabela-rejting">${formatProsek(prosek)}</p>
-            </div>
-            <div class="ta-7"><p>${autor.kontaktTelefonMenadzera || '-'}</p></div>
-            <div class="ta-8">
-                <button class="action-buttons btn-obrisi"><ion-icon name="trash"></ion-icon></button>
-                <button class="action-buttons btn-izmena"><ion-icon name="create-outline"></ion-icon></button>
-            </div>
-
-        `
-        tabela.appendChild(row);
-
-    });
-}
 
 
-tabela.addEventListener("click", (e) => {
-
-    const izmenaBtn = e.target.closest(".btn-izmena");
-    if (!izmenaBtn) return;
-
-    document.querySelector(".edit-row")?.remove();
-    document.querySelector(".edit-row-bio")?.remove();
-
-    const row = izmenaBtn.closest(".tabela-row");
-    const id = row.dataset.id;
-    const podaci = JSON.parse(row.dataset.autor);
-
-
-    const { red, biored } = napraviFormu({
-        btnTekst: "Сачувај",
-        podaci,
-        onSubmit: async (noviPodaci, r, b) => {
-            const rezultat = await ajaxPut(
-                `${firebaseUrl}/autori/${id}.json`,
-                noviPodaci
-            );
-            if (rezultat) {
-                r.remove();
-                b.remove();
-                ucitajAutore();
-            } else {
-                alert("Грешка при чувању.");
-            }
-        }
-    });
-
-    row.insertAdjacentElement("afterend", biored);
-    row.insertAdjacentElement("afterend", red);
-    red.scrollIntoView({ behavior: "smooth", block: "center" });
-});
 
 
 
@@ -250,6 +245,46 @@ dodajBtn.addEventListener("click", () => {
 });
 
 
+tabela.addEventListener("click", async (e) => {
+
+    const izmenaBtn = e.target.closest(".btn-izmena");
+    if (!izmenaBtn) return;
+
+    document.querySelector(".edit-row")?.remove();
+    document.querySelector(".edit-row-bio")?.remove();
+
+    const row = izmenaBtn.closest(".tabela-row");
+    const id = row.dataset.id;
+    const podaci = JSON.parse(row.dataset.autor);
+
+    const oceneData = await ajaxGet(`${firebaseUrl}/ocene.json`);
+    const prosek = izracunajProsek(oceneData, id);
+
+    const { red, biored } = napraviFormu({
+        btnTekst: "Сачувај",
+        podaci,
+        prosek,
+        onSubmit: async (noviPodaci, r, b) => {
+            const rezultat = await ajaxPut(
+                `${firebaseUrl}/autori/${id}.json`,
+                noviPodaci
+            );
+            if (rezultat) {
+                r.remove();
+                b.remove();
+                ucitajAutore();
+            } else {
+                alert("Грешка при чувању.");
+            }
+        }
+    });
+
+    row.insertAdjacentElement("afterend", biored);
+    row.insertAdjacentElement("afterend", red);
+    red.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+
 
 function formatPrimerci(broj) {
 
@@ -261,8 +296,44 @@ function formatPrimerci(broj) {
 
 
 
+const modalBrisanje = document.getElementById("modal-brisanje");
+let idZaBrisanje = null;
+
+tabela.addEventListener("click", (e) => {
+    const obrisiBtn = e.target.closest(".btn-obrisi");
+    if (!obrisiBtn) return;
+
+    idZaBrisanje = obrisiBtn.closest(".tabela-row").dataset.id;
+    modalBrisanje.classList.add("open");
+});
 
 
+document.getElementById("modal-brisanje-potvrdi").addEventListener("click", async () => {
+
+    if (!idZaBrisanje) return;
+
+    const rezultat = await ajaxDelete(`${firebaseUrl}/autori/${idZaBrisanje}.json`);
+
+    if (rezultat !== false) {
+        modalBrisanje.classList.remove("open");
+        sviAutori = sviAutori.filter(a => a.id !== idZaBrisanje);
+        idZaBrisanje = null;
+        filtriraj()
+    } else {
+        alert("Грешка при брисању.");
+    }
+});
+
+
+document.getElementById("modal-brisanje-otkazi").addEventListener("click", () => {
+    modalBrisanje.classList.remove("open");
+    idZaBrisanje = null;
+});
+
+document.getElementById("modal-brisanje-close").addEventListener("click", () => {
+    modalBrisanje.classList.remove("open");
+    idZaBrisanje = null;
+});
 
 
 ucitajAutore();

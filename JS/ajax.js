@@ -52,3 +52,21 @@ function ajaxPut(url, podaci) {
         xhttp.send(JSON.stringify(podaci));
     });
 }
+
+
+function ajaxDelete(url) {
+    return new Promise((resolve) => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            }
+        };
+        xhttp.open("DELETE", url);
+        xhttp.send();
+    });
+}

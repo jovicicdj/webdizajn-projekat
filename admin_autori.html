@@ -28,7 +28,7 @@
 
             <div class="header-center nav-menu">
                 <ul>
-                    <li><a href="index.html" class="inactive-page">Књиге</a></li>
+                    <!-- <li><a href="index.html" class="inactive-page">Књиге</a></li>
                     <li><a href="autori.html" class="inactive-page">Аутори</a></li>
                     <li><a href="knjige-admin.html" class="inactive-page">Књиге админ</a></li>
                     <li><a href="#" class="active-page">Аутори админ</a></li>
@@ -36,7 +36,7 @@
                     <li class="nav-buttons">
                         <button class="button login">Пријава</button>
                         <button class="button register">Регистрација</button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="header-right">
@@ -158,6 +158,19 @@
         </main>
 
 
+        <!-- Custom dialog -->
+        <div class="modal-overlay" id="modal-brisanje">
+            <div class="modal-card">
+                <button class="modal-close" id="modal-brisanje-close">✕</button>
+                <h6 class="modal-naslov">Брисање аутора</h6>
+                <p class="modal-tekst">Да ли сте сигурни да желите да обришете овог аутора? Ова акција је трајна.</p>
+                <div class="modal-buttons">
+                    <button class="adm-btn-otkazi" id="modal-brisanje-otkazi">Откажи</button>
+                    <button class="adm-btn-sacuvaj" id="modal-brisanje-potvrdi">Обриши</button>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
@@ -166,6 +179,7 @@
 
     <script src="JS/ocene.js"></script>
     <script src="JS/ajax.js"></script>
+    <script src="JS/nav.js"></script>
     <script src="JS/admin_autori.js"></script>
 
 

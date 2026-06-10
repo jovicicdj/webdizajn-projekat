@@ -28,7 +28,7 @@
 
             <div class="header-center nav-menu">
                 <ul>
-                    <li><a href="index.html" class="inactive-page">Књиге</a></li>
+                    <!-- <li><a href="index.html" class="inactive-page">Књиге</a></li>
                     <li><a href="#" class="active-page">Аутори</a></li>
                     <li><a href="knjige-admin.html" class="inactive-page">Књиге админ</a></li>
                     <li><a href="admin_autori.html" class="inactive-page">Аутори админ</a></li>
@@ -36,7 +36,7 @@
                     <li class="nav-buttons">
                         <button class="button login">Пријава</button>
                         <button class="button register">Регистрација</button>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 
@@ -295,6 +295,42 @@
                 <p class="footer-value">читалаца</p>
             </div>
         </footer>
+
+        <!-- Dijalozi umesto alert -->
+        <div class="modal-overlay" id="modal-login">
+            <div class="modal-card">
+                <button class="modal-close" id="modal-login-close">✕</button>
+                <h6 class="modal-naslov">Потребна пријава</h6>
+                <p class="modal-tekst">Морате бити улоговани да бисте оценили аутора.</p>
+                <div class="modal-buttons">
+                    <button class="adm-btn-otkazi" id="modal-login-otkazi">Откажи</button>
+                    <a class="adm-btn-sacuvaj modal-link" href="login.html">Пријави се</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-vec-ocenio">
+            <div class="modal-card">
+                <button class="modal-close" id="modal-vec-ocenio-close">✕</button>
+                <h6 class="modal-naslov">Већ оцењено</h6>
+                <p class="modal-tekst">Већ сте оценили овог аутора.</p>
+                <div class="modal-buttons">
+                    <button class="adm-btn-sacuvaj" id="modal-vec-ocenio-ok" style="flex: none; padding: 0 24px;">У реду</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modal-bez-ocene">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-bez-ocene-close">✕</button>
+            <h6 class="modal-naslov">Изаберите оцену</h6>
+            <p class="modal-tekst">Кликните на звездице да бисте изабрали оцену пре потврде.</p>
+            <div class="modal-buttons">
+                <button class="adm-btn-sacuvaj" id="modal-bez-ocene-ok" style="flex: none; padding: 0 24px;">У реду</button>
+            </div>
+        </div>
+    </div>
+
 
     </div>
 
