@@ -3,23 +3,29 @@ const searchBar = document.querySelector(".search-bar");
 const filterButtons = document.querySelectorAll(".filter-card");
 
 let sveKnjige = [];
+let sviAutori = [];
 let aktivniFilter = "Све";
 
 function zanrKlasa(zanr) {
     const mapa = {
+        "Роман": "roman",
         "Класика": "klasik",
-        "Наука": "klasik",
         "Дистопија": "distopija",
-        "Фантастика": "sci-fi",
-        "Научна фан.": "naucna",
         "Фантазија": "fantazija",
+        "Научна фантастика": "naucna-fantastika",
         "Трилер": "triler",
         "Новела": "novela",
-        "Хорор": "horor",
-        "Роман": "roman",
+        "Бајка": "bajka",
         "Наука": "nauka",
+        "Биографија": "biografija",
+        "Бизнис": "biznis",
         "Филозофија": "filozofija",
-
+        "Историја": "istorija",
+        "Технологија": "tehnologija",
+        "Психологија": "psihologija",
+        "Књижевност": "knjizevnost",
+        "Поезија": "poezija",
+        "Бизнис" : "biznis"
     };
 
     return mapa[zanr] || "";
@@ -45,6 +51,10 @@ function renderKnjige(lista) {
         const card = document.createElement("div");
         card.className = "book-card";
         const autorId = knjiga.idAutora
+        const autor = sviAutori?.[autorId];
+        const imeAutora = autor
+            ? `${autor.ime} ${autor.prezime}`
+            : "-";
 
         card.innerHTML = `
             <div class="book-cover">
@@ -55,7 +65,7 @@ function renderKnjige(lista) {
             </div>
 
             <div class="book-desc">
-                <p class="book-author">Аутор: ${knjiga.autor || knjiga.imeAutora || "-"}</p>
+                <p class="book-author">Аутор: ${imeAutora}</p>
                 <p class="book-recom">${knjiga.cena || 0} РСД</p>
                 <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${knjiga.zanr}</button>
             </div>
@@ -93,6 +103,8 @@ async function ucitajKnjige() {
 
     const knjigeData = await ajaxGet(firebaseUrl + "/knjige.json");
 
+    sviAutori = await ajaxGet(firebaseUrl + "/autori.json");
+
     if (!knjigeData) {
         booksGrid.innerHTML = "<p style='color:#888'>Грешка при учитавању.</p>";
         return;
@@ -107,8 +119,8 @@ async function ucitajKnjige() {
 
 filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-        filterButtons.forEach(b => b.classList.remove("active-filter"));
-        btn.classList.add("active-filter");
+        filterButtons.forEach(b => b.classList.remove("active-hyperlink"));
+        btn.classList.add("active-hyperlink");
 
         aktivniFilter = btn.textContent.trim();
         filtriraj();

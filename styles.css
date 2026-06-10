@@ -1219,6 +1219,56 @@ form{
     background-color: #3A1F2F;
 }
 
+.nauka{
+    background: #102c3c;
+    color: #22d3ee;
+}
+
+.biografija{
+    background: #2f2f2f;
+    color: #e5e7eb;
+}
+
+.biznis{
+    background: #2f1b12;
+    color: #fb7185;
+}
+
+.filozofija{
+    background: #33291b;
+    color: #eab308;
+}
+
+.istorija{
+    background: #3a2315;
+    color: #fb923c;
+}
+
+.tehnologija{
+    background: #0f172a;
+    color: #a78bfa;
+}
+
+.psihologija{
+    background: #1f2a44;
+    color: #93c5fd;
+}
+
+.knjizevnost{
+    background: #3a1818;
+    color: #fca5a5;
+}
+
+.poezija{
+    background: #2e1637;
+    color: #f0abfc;
+}
+
+.naucna-fantastika{
+    background: #20153a;
+    color: #818cf8;
+}
+
 .main-knjige-admin{
     display: flex;
     flex-direction: column;
