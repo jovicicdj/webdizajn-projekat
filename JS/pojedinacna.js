@@ -29,7 +29,6 @@ function zanrKlasa(zanr) {
 }
 
 function getSlika(objekat) {
-    if (Array.isArray(objekat.slike)) return objekat.slike[0];
     if (objekat.slike) return Object.values(objekat.slike)[0];
     return "images/default.jpg";
 }
@@ -43,40 +42,12 @@ function formatDatum(datum) {
     return `${delovi[2]}.${delovi[1]}.${delovi[0]}.`;
 }
 
-function zaokruziNaPola(broj) {
-    return Math.round(broj * 2) / 2;
-}
-
 function getRecenzijeKnjige(idKnjige) {
     if (!sveOcene) return [];
 
     return Object.values(sveOcene).filter(recenzija => {
         return recenzija.idKnjige === idKnjige;
     });
-}
-
-function izracunajProsekKnjige(idKnjige) {
-    const recenzije = getRecenzijeKnjige(idKnjige);
-
-    if (recenzije.length === 0) return 0;
-
-    const suma = recenzije.reduce((acc, recenzija) => {
-        return acc + Number(recenzija.vrednost || 0);
-    }, 0);
-
-    return zaokruziNaPola(suma / recenzije.length);
-}
-
-function formatProsek(prosek) {
-    return prosek > 0 ? prosek.toFixed(1) : "—";
-}
-
-function formatZvezdice(prosek) {
-    const pune = Math.floor(prosek);
-    const imaPola = prosek % 1 !== 0;
-    const prazne = 5 - pune - (imaPola ? 1 : 0);
-
-    return "★".repeat(pune) + (imaPola ? "⯨" : "") + "☆".repeat(prazne);
 }
 
 function ucitajOsnovnePodatke(id, knjiga, autor) {
@@ -103,15 +74,11 @@ function ucitajOsnovnePodatke(id, knjiga, autor) {
     const atributi = document.querySelectorAll(".knjiga-atributi .atribut-card .atribut-vrednost");
 
     atributi[0].textContent = knjiga.zanr || "—";
-    atributi[1].textContent = knjiga.brojStrana || knjiga.brStrana || "—";
+    atributi[1].textContent = knjiga.brojStrana || "—";
     atributi[2].textContent = knjiga.format || "—";
     atributi[3].textContent = knjiga.cena ? `${knjiga.cena} РСД` : "—";
 
-    // const prosek = izracunajProsekKnjige(id);
     const brojRecenzija = getRecenzijeKnjige(id).length;
-
-    // document.querySelector(".knjiga-rejting .stars").textContent = formatZvezdice(prosek);
-    // document.querySelector(".knjiga-rejting .score").textContent = formatProsek(prosek);
     document.querySelector(".knjiga-rejting .broj-recenzija").textContent = `· ${brojRecenzija} рецензија`;
 
     document.querySelector(".knjiga-opis-content p").textContent =
@@ -124,11 +91,6 @@ function ucitajDetaljeKnjige(knjiga) {
     if (kartice.length < 1) return;
 
     kartice[0].querySelector(".atribut-vrednost").textContent = knjiga.isbn || "—";
-    // kartice[1].querySelector(".atribut-vrednost").textContent = knjiga.izdavac || "—";
-    // kartice[2].querySelector(".atribut-vrednost").textContent = knjiga.godina || knjiga.godinaPrvogIzdanja || "—";
-    // kartice[3].querySelector(".atribut-vrednost").textContent = knjiga.jezik || "—";
-    // kartice[4].querySelector(".atribut-vrednost").textContent = knjiga.godinaIzdanja || "—";
-    // kartice[5].querySelector(".atribut-vrednost").textContent = knjiga.izdanje || "—";
 }
 
 function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
@@ -144,11 +106,9 @@ function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
             return {
                 id,
                 knjiga,
-                prosek: izracunajProsekKnjige(id),
                 brojRecenzija: getRecenzijeKnjige(id).length
             };
         })
-        .sort((a, b) => b.prosek - a.prosek)
         .slice(0, 3);
 
     if (slicne.length === 0) {

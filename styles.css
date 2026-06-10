@@ -829,7 +829,7 @@ form{
     flex-direction: column;
     gap: 6px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 
@@ -1437,6 +1437,7 @@ form{
 .tr-8{
     display: flex;
     justify-content: space-around;
+    flex: 1;
     margin-left: 10px;
 }
 
