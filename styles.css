@@ -1446,6 +1446,11 @@ form{
     
 }
 
+.tr-4{
+    display: flex;
+    
+}
+
 .tr-5 p{
     font-size: 1em;
 }

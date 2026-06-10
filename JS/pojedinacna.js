@@ -33,6 +33,8 @@ function getSlika(objekat) {
     return "images/default.jpg";
 }
 
+
+
 function formatDatum(datum) {
     if (!datum) return "—";
 
@@ -51,13 +53,17 @@ function getRecenzijeKnjige(idKnjige) {
 }
 
 function ucitajOsnovnePodatke(id, knjiga, autor) {
-    // const slika = getSlika(knjiga);
+    const slika = getSlika(knjiga);
     const imeAutora = autor ? `${autor.ime} ${autor.prezime}` : "Непознат аутор";
 
     document.title = knjiga.naziv || "Појединачна књига";
 
     document.querySelector(".knjiga-slika").innerHTML =
     `<img src="${getSlika(knjiga)}" alt="${knjiga.naziv}">`;
+
+    slikeKnjige = getSlika(knjiga);
+    trenutnaSlikaIndex = 0;
+    // prikaziSliku();
 
     const zanrBtn = document.querySelector(".knjiga-info-top .book-genre");
     zanrBtn.textContent = knjiga.zanr || "—";
