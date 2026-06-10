@@ -104,15 +104,24 @@ function statusKlasa(status) {
 function zanrKlasa(zanr) {
 
     const mapa = {
+        "Роман": "roman",
         "Класика": "klasik",
-        "Наука": "klasik",
         "Дистопија": "distopija",
-        "Фантастика": "sci-fi",
         "Фантазија": "fantazija",
+        "Научна фантастика": "naucna-fantastika",
         "Трилер": "triler",
         "Новела": "novela",
-        "Хорор": "horor",
-        "Роман": "roman"
+        "Бајка": "bajka",
+        "Наука": "nauka",
+        "Биографија": "biografija",
+        "Бизнис": "biznis",
+        "Филозофија": "filozofija",
+        "Историја": "istorija",
+        "Технологија": "tehnologija",
+        "Психологија": "psihologija",
+        "Књижевност": "knjizevnost",
+        "Поезија": "poezija",
+        "Бизнис" : "biznis"
     };
 
     return mapa[zanr] || "";

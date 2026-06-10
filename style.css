@@ -609,15 +609,6 @@ footer{
 
 
 /*ZANROVI*/
-.book-genre {
-    height: 30px;
-    padding: 0 16px;
-    border-radius: 999px;
-    font-size: 12px;
-    border: 1px solid rgba(40,223,46,0.1);
-    cursor: default !important;
-}
-
 .roman{
     background: #3b1f2b;
     color: #f472b6;
@@ -632,25 +623,89 @@ footer{
     background: #1e293b;
     color: #60a5fa;
 }
+
 .fantazija{
     background: #3b1f1f;
     color: #f87171;
 }
+
 .sci-fi{
     background: #3a321a;
     color: #facc15;
 }
+
 .triler{
     background: #2a1a2f;
     color: #c084fc;
 }
+
 .novela{
     color: #C89B6D;
     background-color: #2F241A;
 }
-.horor{
-    background: #1a0a0a;
-    color: #f87171; border: 1px solid rgba(248,113,113,0.15);
+
+.bajka{
+    color: #ff01ff;
+    background-color: #3A1F2F;
+}
+
+.nauka{
+    background: #102c3c;
+    color: #22d3ee;
+}
+
+.biografija{
+    background: #2f2f2f;
+    color: #e5e7eb;
+}
+
+.biznis{
+    background: #3a1414;
+    color: #f87171;
+}
+
+.filozofija{
+    background: #33291b;
+    color: #eab308;
+}
+
+.istorija{
+    background: #3a2315;
+    color: #fb923c;
+}
+
+.tehnologija{
+    background: #0f172a;
+    color: #a78bfa;
+}
+
+.psihologija{
+    background: #1f2a44;
+    color: #93c5fd;
+}
+
+.knjizevnost{
+    background: #3a1818;
+    color: #fca5a5;
+}
+
+.poezija{
+    background: #2e1637;
+    color: #f0abfc;
+}
+
+.naucna-fantastika{
+    background: #20153a;
+    color: #818cf8;
+}
+
+.book-genre{
+    height: 30px;
+    padding: 0 16px;
+    border-radius: 999px;   
+    font-size: 12px;
+    border: 1px solid rgba(40, 223, 46, 0.1);
+    cursor: default !important;
 }
 /*ZANROVI KRAJ*/
 
