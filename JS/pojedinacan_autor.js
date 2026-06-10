@@ -57,6 +57,11 @@ async function ucitajAutora() {
         const slika = Array.isArray(knjiga.slike) ? knjiga.slike[0] : "images/default.jpg";
         const card = document.createElement("div");
         card.className = "book-card";
+        card.style.cursor = "pointer";
+
+        card.addEventListener("click", () => {
+        window.location.href = `pojedinacna.html?id=${knjigaId}`;
+        });
 
         card.innerHTML = `
             <div class="book-cover">

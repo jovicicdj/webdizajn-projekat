@@ -1835,6 +1835,10 @@ footer{
     margin: 0px !important;  
 }
 
+.knjiga-slika::empty{
+    display: none;
+}
+
 /* .login-reset{
     background-color: rgb(155, 14, 14);
     margin: 0px !important;

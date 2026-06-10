@@ -80,13 +80,13 @@ function formatZvezdice(prosek) {
 }
 
 function ucitajOsnovnePodatke(id, knjiga, autor) {
-    const slika = getSlika(knjiga);
+    // const slika = getSlika(knjiga);
     const imeAutora = autor ? `${autor.ime} ${autor.prezime}` : "Непознат аутор";
 
     document.title = knjiga.naziv || "Појединачна књига";
 
-    document.querySelector(".knjiga-slika img").src = slika;
-    document.querySelector(".knjiga-slika img").alt = knjiga.naziv || "";
+    document.querySelector(".knjiga-slika").innerHTML =
+    `<img src="${getSlika(knjiga)}" alt="${knjiga.naziv}">`;
 
     const zanrBtn = document.querySelector(".knjiga-info-top .book-genre");
     zanrBtn.textContent = knjiga.zanr || "—";
