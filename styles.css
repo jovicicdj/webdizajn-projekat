@@ -96,6 +96,10 @@ header a:hover{
     color: #695ae9 !important;
 }
 
+.active-page{
+    color: #695ae9;
+} 
+
 .brend{
     font-weight: bold;
     color: #695ae9;
@@ -1444,6 +1448,16 @@ form{
 .tr-2, .tr-3, .tr-4, .tr-5, .tr-6, .tr-7, .tr-8{
     width: 11%;
     
+}
+
+.tr-3{
+   margin-right: 3px;
+}
+
+.tr-3 button{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .tr-4{
