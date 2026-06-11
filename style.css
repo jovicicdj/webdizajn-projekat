@@ -1411,7 +1411,9 @@ footer{
 
 .hamburger-odjava {
     display: none;
+    order: 3;
 }
+
 
 @media (max-width: 1024px) {
     .authors {
@@ -1433,7 +1435,21 @@ footer{
         width: 50%;
     }
 
-    
+    .header-left {
+        order: 1;
+    }
+
+    .header-center {
+        order: 2;
+    }
+
+    .header-right {
+        order: 3;
+    }
+
+    .hamburger {
+        order: 4;
+    }
 
 }
 
@@ -1453,6 +1469,22 @@ footer{
 
     .hamburger-odjava {
         display: flex;
+    }
+
+    .header-left {
+        order: 1;
+    }
+
+    .header-center {
+        order: 2;
+    }
+
+    .header-right {
+        order: 3;
+    }
+
+    .hamburger {
+        order: 4;
     }
 
 }
