@@ -31,7 +31,7 @@
                         <input type="text" id="prezime" placeholder="Jovičić" required>
 
                         <label for="korisnicko-ime">Korisnicko ime</label>
-                        <input type="text" id="korisnicko-ime" placeholder="djole1232" required>
+                        <input type="text" id="korisnicko-ime" placeholder="djole_j" required>
 
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="jovicic.sv7.2025@uns.ac.rs" required>
@@ -43,7 +43,7 @@
                         <input type="text" id="zanimanje" placeholder="student" required>
 
                         <label for="adresa">Adresa</label>
-                        <input type="text" id="adresa" placeholder="Dr Sime Miloševića 8" required>
+                        <input type="text" id="adresa" placeholder="Dr Sime Miloševića 8, Novi Sad" required>
 
                         <label for="lozinka">Lozinka</label>
                         <input type="password" id="lozinka" placeholder="Unesite lozinku..." required>
@@ -57,10 +57,10 @@
                     <form action="" method="post" id="login-forma" class="lf">
                         
                         <label for="korisnicko-ime-sign-up"> Korisnicko ime</label>
-                        <input type="text" id="korisnicko-ime-sign-up" placeholder="djole1232" required>
+                        <input type="text" id="korisnicko-ime-sign-up" placeholder="djole_j" required maxlength="30">
 
                         <label for="lozinka-sign-up">Lozinka</label>
-                        <input type="password" id="lozinka-sign-up" placeholder="Unesite lozinku..." required>
+                        <input type="password" id="lozinka-sign-up" placeholder="Unesite lozinku..." required minlength="8">
                         
                         <p id="login-greska" style="display:none; color:#e06060; font-size:0.8em;"></p>
 
@@ -112,7 +112,7 @@
 </body>
 <script src="JS/ajax.js"></script>
 <script src="JS/footer.js"></script>
+<script src="JS/regExLogin.js"></script>
 <script src="JS/login.js"></script>
-
 
 </html>

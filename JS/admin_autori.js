@@ -177,16 +177,42 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
         const imeIPrezime = red.querySelector(".f-ime").value.trim().split(" ");
         const ime = imeIPrezime[0] || "";
         const prezime = imeIPrezime.slice(1).join(" ") || "";
-        const datum = red.querySelector(".f-datum").value;
-        const status = red.querySelector(".f-status").value;
-        const nagrade = red.querySelector(".f-nagrade").value;
-        const primerci = red.querySelector(".f-primerci").value;
-        const telefon = red.querySelector(".f-telefon").value;
-        const bio = biored.querySelector(".f-bio").value;
-
+        const datum = red.querySelector(".f-datum").value.trim();
+        const status = red.querySelector(".f-status").value.trim();
+        const nagrade = red.querySelector(".f-nagrade").value.trim();
+        const primerci = red.querySelector(".f-primerci").value.trim();
+        const telefon = red.querySelector(".f-telefon").value.trim();
+        const bio = biored.querySelector(".f-bio").value.trim();
+    
         if (!ime || !datum || !status || !nagrade || !primerci || !telefon || !bio) {
             // TODO
             alert("Попуните сва поља."); 
+            return;
+        }
+
+
+        const imeAutoraRegEx = /^[A-ZČĆŽŠĐ][A-Za-zČĆŽŠĐčćžšđ -]{1,59}$/;
+        const nagradePrimerciRegEx = /^[1-9]{1}[0-9]*$/;
+        //+381 64 222-3333
+        const brojTelefonaRegEx = /^\+381\s6[0-9]{1}\s[0-9]{3}-[0-9]{4}$/;
+
+        if(!imeAutoraRegEx.test(ime)){
+            alert("Ime autora mora poceti velikim slovom")
+            return;
+        }
+
+        if(!nagradePrimerciRegEx.test(nagrade)){
+            alert("Nagrade se unose samo u brojevima");
+            return;
+        }
+
+        if(!nagradePrimerciRegEx.test(primerci)){
+            alert("Primerci se unose samo u brojevima");
+            return;
+        }
+
+        if(!brojTelefonaRegEx.test(telefon)){
+            alert("Broj telefona je u formatu +381658467823.")
             return;
         }
 

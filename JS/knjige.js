@@ -2,8 +2,8 @@ const booksGrid = document.querySelector(".books-content");
 const searchBar = document.querySelector(".search-bar");
 const filterButtons = document.querySelectorAll(".filter-card");
 
-let sveKnjige = [];
-let sviAutori = [];
+let sveKnjige = {};
+let sviAutori = {};
 let aktivniFilter = "Све";
 
 function zanrKlasa(zanr) {
@@ -32,7 +32,6 @@ function zanrKlasa(zanr) {
 }
 
 function getSlika(knjiga) {
-    if (Array.isArray(knjiga.slike)) return knjiga.slike[0];
     if (knjiga.slike) return Object.values(knjiga.slike)[0];
     return "images/default.jpg";
 }
@@ -50,7 +49,7 @@ function renderKnjige(lista) {
 
         const card = document.createElement("div");
         card.className = "book-card";
-        const autorId = knjiga.idAutora
+        const autorId = knjiga.idAutora;
         const autor = sviAutori?.[autorId];
         const imeAutora = autor
             ? `${autor.ime} ${autor.prezime}`
@@ -81,12 +80,15 @@ function filtriraj() {
     const rezultat = sveKnjige.filter(({ knjiga }) => {
         const naziv = (knjiga.naziv || "").toLowerCase();
         const zanr = (knjiga.zanr || "").toLowerCase();
-        const autor = (knjiga.autor || knjiga.imeAutora || "").toLowerCase();
+        const idAutora = (knjiga.idAutora || "");
+        console.log(idAutora);
+        const autor = sviAutori?.[idAutora];
+        const imeAutora = autor ? (`${autor.ime} ${autor.prezime}`).toLowerCase() : "";
 
         const poklapaPretraga =
             naziv.includes(pretraga) ||
             zanr.includes(pretraga) ||
-            autor.includes(pretraga);
+            imeAutora.includes(pretraga);
 
         const poklapaFilter =
             aktivniFilter === "Све" ||

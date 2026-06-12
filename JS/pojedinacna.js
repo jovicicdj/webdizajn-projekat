@@ -88,7 +88,7 @@ function ucitajOsnovnePodatke(id, knjiga, autor) {
     document.querySelector(".knjiga-rejting .broj-recenzija").textContent = `· ${brojRecenzija} рецензија`;
 
     document.querySelector(".knjiga-opis-content p").textContent =
-        knjiga.kratakOpis || knjiga.opis || "Опис није доступан.";
+        knjiga.opis || "Опис није доступан.";
 }
 
 function ucitajDetaljeKnjige(knjiga) {
@@ -174,8 +174,6 @@ function ucitajRecenzije(idKnjige) {
         if (korisnik) {
             imeKorisnika =
                 korisnik.korisnickoIme ||
-                korisnik.username ||
-                korisnik.ime ||
                 "Корисник";
         }
 

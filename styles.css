@@ -496,7 +496,8 @@ header a:hover{
 .recenzija-knjiga-hiperlink{
     font-size: 0.6em;
     text-decoration: none;
-    color: #5F56BC;
+    color: #887dff;
+    font-weight: bold;
 }
 
 .recenzije-knjiga-datum{
