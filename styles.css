@@ -2270,6 +2270,10 @@ footer{
         display: flex;
     }
 
+    .hamburger-odjava {
+        display: flex;
+    }
+
     .header-center {
         display: none;
         width: 100%;
@@ -2519,6 +2523,10 @@ footer{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    .hamburger-odjava {
+        display: flex;
     }
 
     .main-profil-left{
