@@ -1470,6 +1470,130 @@ form{
     font-size: 1em;
 }
 
+.tabela-knjiga .tabela-header,
+.tabela-knjiga .tabela-row,
+.tabela-knjiga .edit-row-bio{
+    min-width: 980px;
+}
+
+.tabela-knjiga .tabela-row{
+    color: white;
+}
+
+.tabela-knjiga .tabela-row div,
+.tabela-knjiga .tabela-header div{
+    min-width: 0;
+}
+
+.tabela-knjiga .tabela-knjiga-slika{
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.tabela-knjiga .tr-1{
+    width: 17%;
+    max-width: none;
+}
+
+.tabela-knjiga .tr-2{
+    width: 15%;
+}
+
+.tabela-knjiga .tr-3{
+    width: 12%;
+}
+
+.tabela-knjiga .tr-4{
+    width: 12%;
+}
+
+.tabela-knjiga .tr-5,
+.tabela-knjiga .tr-6{
+    width: 9%;
+}
+
+.tabela-knjiga .tr-7{
+    width: 15%;
+}
+
+.tabela-knjiga .tr-8{
+    width: 11%;
+    flex: 0 0 auto;
+}
+
+.tabela-knjiga .tr-1 p,
+.tabela-knjiga .tr-2 p,
+.tabela-knjiga .tr-4 p,
+.tabela-knjiga .tr-7 p{
+    max-width: 100%;
+    min-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tabela-knjiga .edit-row{
+    background-color: #1a1a2e;
+    border-top: 2px solid #6153DD;
+    align-items: center;
+}
+
+.tabela-knjiga .edit-row form,
+.tabela-knjiga .edit-file-input{
+    display: none;
+}
+
+.tabela-knjiga .edit-row .edit-input{
+    height: 30px;
+    font-size: 0.85em;
+    padding: 2px 6px;
+    width: 100%;
+}
+
+.tabela-knjiga .edit-row .edit-btn{
+    height: 30px;
+    font-size: 0.75em;
+    padding: 0 10px;
+}
+
+.tabela-knjiga .edit-row .tr-1{
+    overflow: hidden;
+}
+
+.tabela-knjiga .edit-row .tr-8{
+    gap: 6px;
+    justify-content: flex-end;
+}
+
+.tabela-knjiga .edit-row-bio{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px;
+    background-color: #1a1a2e;
+    border-bottom: 2px solid #6153dd;
+    border-top: 1px solid #70707048;
+    color: white;
+}
+
+.tabela-knjiga .edit-row-bio label{
+    color: #646464;
+    font-size: 0.75em;
+    white-space: nowrap;
+}
+
+.tabela-knjiga .edit-row-bio textarea{
+    flex: 1;
+    height: 36px;
+    background-color: #2f2e2e;
+    border: 1px solid #70707048;
+    border-radius: 5px;
+    color: #dededc;
+    padding: 4px 10px;
+    font-size: 0.75em;
+    resize: none;
+}
+
 .button-tabela{
     height: 25px;
 }
@@ -2201,4 +2325,120 @@ footer{
         font-size: 1em;
     }
    
+}
+
+@media (max-width: 1024px){
+    .main-knjige-admin-bottom{
+        overflow: hidden;
+    }
+
+    .tabela-knjiga{
+        width: 100%;
+        padding: 0 16px 15px;
+    }
+
+    .tabela-knjiga .tabela-header,
+    .tabela-knjiga .tabela-row,
+    .tabela-knjiga .edit-row-bio{
+        min-width: 900px;
+    }
+}
+
+@media (max-width: 850px){
+    .admin-panel{
+        align-items: center;
+        gap: 8px;
+    }
+
+    .pretraga-knjiga{
+        min-height: 60px;
+    }
+
+    .pretraga-knjiga button{
+        width: auto;
+        min-width: max-content;
+        flex-shrink: 0;
+        white-space: nowrap;
+        color: white;
+        background: transparent;
+    }
+
+    .pretraga-knjiga .search-bar{
+        min-width: 0;
+        width: auto;
+    }
+
+    .tabela-knjiga{
+        padding: 0 12px 15px;
+    }
+}
+
+@media (max-width: 600px){
+    .main-knjige-admin{
+        min-width: 0;
+    }
+
+    .admin-panel{
+        padding: 8px 12px;
+    }
+
+    .admin-panel p{
+        margin-bottom: 0;
+    }
+
+    .role{
+        flex-shrink: 0;
+    }
+
+    .pretraga-knjiga{
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .pretraga-knjiga .search-bar{
+        flex: 1;
+        order: 1;
+    }
+
+    .pretraga-knjiga button{
+        order: 2;
+        height: 35px;
+        font-size: 11px;
+        padding: 0 8px;
+    }
+
+    .tabela-knjiga .tabela-header,
+    .tabela-knjiga .tabela-row,
+    .tabela-knjiga .edit-row-bio{
+        min-width: 800px;
+    }
+
+    .tabela-knjiga .tabela-header div{
+        white-space: nowrap;
+    }
+
+    .tabela-knjiga .edit-row .edit-input{
+        width: 100%;
+    }
+
+    .tabela-knjiga .edit-row .adm-btn-sacuvaj,
+    .tabela-knjiga .edit-row .adm-btn-otkazi{
+        font-size: 0 !important;
+        padding: 0 8px !important;
+        overflow: visible !important;
+        color: #ccc !important;
+        line-height: 30px !important;
+        display: inline-block;
+        min-width: 30px;
+    }
+
+    .tabela-knjiga .edit-row .adm-btn-sacuvaj::before{
+        content: "S";
+        font-size: 14px !important;
+    }
+
+    .tabela-knjiga .edit-row .adm-btn-otkazi::before{
+        content: "X";
+        font-size: 14px !important;
+    }
 }
