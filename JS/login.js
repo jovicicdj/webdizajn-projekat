@@ -1,33 +1,39 @@
 async function handlePrijava(e) {
     e.preventDefault();
 
-    const korisnickoIme = document.getElementById("korisnicko-ime-sign-up").value.trim();
-    const lozinka = document.getElementById("lozinka-sign-up").value;
-
-    const korisnici = await ajaxGet(`${firebaseUrl}/korisnici.json`);
-    if (!korisnici) {
-        prikaziGresku("Greška pri povezivanju sa bazom.");
+    if(correct){
+        const korisnickoIme = document.getElementById("korisnicko-ime-sign-up").value.trim();
+        const lozinka = document.getElementById("lozinka-sign-up").value;
+    
+        const korisnici = await ajaxGet(`${firebaseUrl}/korisnici.json`);
+        if (!korisnici) {
+            prikaziGresku("Greška pri povezivanju sa bazom.");
+            return;
+        }
+    
+        const pronadjen = Object.entries(korisnici).find(([id, k]) =>
+            k.korisnickoIme === korisnickoIme && k.lozinka === lozinka
+        );
+    
+        if (!pronadjen) {
+            prikaziGresku("Pogrešno korisničko ime ili lozinka.");
+            return;
+        }
+    
+        const [id, korisnik] = pronadjen;
+        localStorage.setItem("korisnikId", id);
+        localStorage.setItem("jeAdmin", korisnik.jeAdmin ? "true" : "false");
+    
+        if (korisnik.jeAdmin) {
+            window.location.href = "autori.html";
+        } else {
+            window.location.href = "profil.html";
+        }
+    }
+    else{
         return;
     }
 
-    const pronadjen = Object.entries(korisnici).find(([id, k]) =>
-        k.korisnickoIme === korisnickoIme && k.lozinka === lozinka
-    );
-
-    if (!pronadjen) {
-        prikaziGresku("Pogrešno korisničko ime ili lozinka.");
-        return;
-    }
-
-    const [id, korisnik] = pronadjen;
-    localStorage.setItem("korisnikId", id);
-    localStorage.setItem("jeAdmin", korisnik.jeAdmin ? "true" : "false");
-
-    if (korisnik.jeAdmin) {
-        window.location.href = "autori.html";
-    } else {
-        window.location.href = "profil.html";
-    }
 }
 
 function prikaziGresku(tekst) {

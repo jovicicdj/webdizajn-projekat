@@ -16,7 +16,7 @@ function azurirajNav() {
     const liNavButtons = `<li class="nav-buttons"><button class="button login" onclick="window.location='login.html?forma=prijava'">Пријава</button><button class="button register" onclick="window.location='login.html?forma=registracija'">Регистрација</button></li>`;
 
     if (!korisnikId) {
-        navLinks.innerHTML = liKnjige + liAutori + liProfilLogin + liNavButtons;
+        navLinks.innerHTML = liKnjige + liAutori + liProfilLogin + liNavButtons
         headerRight.innerHTML = `
             <button class="button login" onclick="window.location='login.html?forma=prijava'">Пријава</button>
             <button class="button register" onclick="window.location='login.html?forma=registracija'">Регистрација</button>

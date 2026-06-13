@@ -96,6 +96,10 @@ header a:hover{
     color: #695ae9 !important;
 }
 
+.active-page{
+    color: #695ae9;
+} 
+
 .brend{
     font-weight: bold;
     color: #695ae9;
@@ -492,7 +496,8 @@ header a:hover{
 .recenzija-knjiga-hiperlink{
     font-size: 0.6em;
     text-decoration: none;
-    color: #5F56BC;
+    color: #887dff;
+    font-weight: bold;
 }
 
 .recenzije-knjiga-datum{
@@ -1446,6 +1451,16 @@ form{
     
 }
 
+.tr-3{
+   margin-right: 3px;
+}
+
+.tr-3 button{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .tr-4{
     display: flex;
     
@@ -1798,6 +1813,12 @@ footer{
 .registracija-prijava p{
     color: white;
     font-size: 1.25em;
+}
+
+.login-nevalidan-unos{
+    color: red;
+    font-size: 0.7em;
+    display: none;
 }
 
 #sign-up-forma, #login-forma{
