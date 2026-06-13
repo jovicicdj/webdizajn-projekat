@@ -6,7 +6,7 @@ let sveKnjige = [];
 let sviAutori = {};
 let idZaBrisanje = null;
 
-const modalBrisanje = document.getElementById("modal-brisanje") || napraviModalBrisanje();
+const modalBrisanje = document.getElementById("modal-brisanje");
 
 const zanrovi = [
     "Роман",
@@ -58,27 +58,6 @@ function zanrKlasa(zanr) {
     };
 
     return mapa[zanr] || "";
-}
-
-function napraviModalBrisanje() {
-    const modal = document.createElement("div");
-    modal.className = "modal-overlay";
-    modal.id = "modal-brisanje";
-
-    modal.innerHTML = `
-        <div class="modal-card">
-            <button class="modal-close" id="modal-brisanje-close">x</button>
-            <h6 class="modal-naslov">Брисање књиге</h6>
-            <p class="modal-tekst">Да ли сте сигурни да желите да обришете ову књигу? Ова акција је трајна.</p>
-            <div class="modal-buttons">
-                <button class="adm-btn-otkazi" id="modal-brisanje-otkazi">Откажи</button>
-                <button class="adm-btn-sacuvaj" id="modal-brisanje-potvrdi">Обриши</button>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-    return modal;
 }
 
 function zatvoriModalBrisanje() {
@@ -242,7 +221,7 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     red.innerHTML = `
         <form class="edit-forma" onsubmit="return false;"></form>
 
-        <div class="tr-1 ta-1">
+        <div class="tr-1">
             <input type="file" class="edit-file-input" accept=".jpg,.jpeg,.png,.webp,.avif">
             <img src="${slika}" class="tabela-knjiga-slika edit-slika-preview" style="cursor:pointer;" title="Кликни да промениш слику">
             <input type="text" class="adm-input edit-input f-naziv" placeholder="Назив књиге" value="${podaci.naziv || ""}" pattern="^[А-ЯЂЈЉЊЋЏ]">

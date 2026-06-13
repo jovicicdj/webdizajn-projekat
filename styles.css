@@ -1279,6 +1279,7 @@ form{
     flex-direction: column;
     flex: 1;
     min-height: 0;
+    min-width: 0;
     padding-bottom: 8px;
     padding-top: 0;
     gap: 4px;
@@ -1340,7 +1341,8 @@ form{
     flex: 1;
     display: flex;
     min-height: 0;
-    /* overflow: hidden; */
+    min-width: 0;
+    overflow: hidden;
     gap: 8px;
 }
 
@@ -1349,6 +1351,7 @@ form{
     display: flex;
     flex: 1;
     min-height: 0;
+    min-width: 0;
     overflow-y: auto;
     overflow-x: auto;
     flex-direction: column;
@@ -1415,6 +1418,7 @@ form{
     gap: 8px;
     border-bottom: 1px solid #70707048;
     min-width: 1100px;
+    flex: 1;
 
 
 }
@@ -1917,9 +1921,356 @@ footer{
     display: none;
 }
 
+/*LUKIN CSS ZA FORMU*/
+.adm-forma-card{
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 0.75em;
+    display: flex;
+    flex-direction: column;
+    color: rgba(255,255,255,0.7);
+}
+
+
+
+
+.adm-forma-naslov{
+    color: aliceblue;
+    font-size: 0.95em;
+    font-weight: 700;
+    padding-bottom: 8px;
+    text-align: center;
+    border-bottom: 1px solid #70707048;
+}
+
+.adm-forma-card form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.adm-forma-row{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.adm-forma-group{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.adm-label{
+    color: #646464;
+    font-size: 0.8em;
+}
+
+.adm-input{
+    background-color: #2f2e2e;
+    border: 1px solid #70707048;
+    border-radius: 5px;
+    color: #dededc;
+    padding: 6px 10px;
+    font-size: 1em;
+    width: 100%;
+    height: 25px;
+}
+
+.adm-input:focus{
+    outline: none;
+    border-color: #6153dd;
+}
+
+.adm-textarea{
+    resize: none;
+    height: 80px;
+}
+
+.adm-textarea::-webkit-scrollbar{
+    width: 10px;
+}
+
+.adm-textarea::-webkit-scrollbar-track{
+    background: #1f1f1f;
+    border-radius: 999px;
+}
+
+.adm-textarea::-webkit-scrollbar-thumb{
+    background: #5a4fd649;
+    border-radius: 999px;
+}
+
+.adm-textarea::-webkit-scrollbar-thumb:hover{
+    background: #7d6cff9e;
+}
+
+
+
+
+
+.adm-file-info{
+    color: #646464;
+    font-size: 0.9em;
+}
+
+#slika{
+    padding: 0px;
+    font-size: 1em;
+    
+}
+
+#slika::file-selector-button{
+    background-color: #55489f;
+    color: white;
+    border: none;
+    height: 100%;
+
+}
+
+#slika::file-selector-button:hover{
+    background-color: rgb(71, 59, 141);
+    cursor: pointer;
+}
+
+.adm-select{
+    cursor: pointer;
+    padding: 0 10px;
+}
+
+
+
+.adm-forma-buttons{
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.adm-btn-otkazi{
+    background-color: #30302E;
+    width: auto; 
+    padding: 0 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #ccc;
+    cursor: pointer;
+}
+
+.adm-btn-sacuvaj{
+    width: auto;
+    padding: 4px 16px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: #55489f;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.edit-row form {
+    display: none;
+}
+
+.edit-row {
+    background-color: #1a1a2e;
+    border-bottom: 1px solid #1e1e1e;
+    border-top: 2px solid #6153DD;
+    height: 52px;
+    align-items: center;
+    padding: 6px 6px;
+    gap: 8px;
+}
+
+.edit-row .edit-input {
+    height: 30px;
+    font-size: 0.85em;
+    padding: 2px 6px;
+    width: 60%;
+}
+
+.edit-row .edit-btn {
+    font-size: 0.75em;
+    padding: 0 12px;
+    height: 30px;
+}
+
+.edit-row .tabela-autor-slika {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-row .ta-1 {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.edit-row .ta-1 input[type="text"] {
+    width: 65%;
+    min-width: 0;
+}
+
+.edit-row .ta-1 input[type="file"] {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.edit-row .ta-1 input[type="file"]::file-selector-button {
+    display: none;
+}
+
+.edit-file-input {
+    display: none;
+}
+
+.edit-row input[type="number"]::-webkit-outer-spin-button,
+.edit-row input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.edit-row-bio {
+    /* min-width: 800px; */
+    height: 52px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 6px 6px;
+    background-color: #1a1a2e;
+    border-bottom: 2px solid #6153dd;
+    border-top: 1px solid #70707048;
+    flex: 1;
+}
+
+.edit-row-bio textarea {
+    flex: 1;
+    height: 36px;
+    background-color: #2f2e2e;
+    border: 1px solid #70707048;
+    border-radius: 5px;
+    color: #dededc;
+    padding: 4px 10px;
+    font-size: 0.75em;
+    resize: none;
+}
+
+.edit-row-bio label {
+    color: #646464;
+    font-size: 0.75em;
+    white-space: nowrap;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.65);
+    backdrop-filter: blur(2px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+/*LUKIN CSS ZA MODAL*/
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-card {
+    position: relative;
+    background-color: #1e1e1e;
+    border: 1px solid #70707048;
+    border-radius: 14px;
+    padding: 28px;
+    width: 90%;
+    max-width: 340px;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: #646464;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: none;
+}
+
+.modal-close:hover {
+    color: #ccc;
+    background-color: rgba(255,255,255,0.08);
+}
+
+.modal-naslov {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: aliceblue;
+    border-bottom: 1px solid #70707048;
+    padding-bottom: 12px;
+    padding-right: 20px;
+}
+
+.modal-tekst {
+    font-size: 0.85em;
+    color: #ABABAB;
+    line-height: 1.6;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 4px;
+}
+
+.modal-buttons .adm-btn-otkazi,
+.modal-buttons .adm-btn-sacuvaj {
+    flex: 1;
+    height: 38px;
+    font-size: 0.85em;
+    font-weight: 600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-link {
+    text-decoration: none;
+}
+
 @media (max-width: 850px) {
 
     .hamburger {
+        display: flex;
+    }
+
+    .hamburger-odjava {
         display: flex;
     }
 
@@ -2131,6 +2482,39 @@ footer{
         flex: 1;
     }
     
+
+    .edit-row .edit-input {
+        width: 80%;
+    }
+
+    .edit-row  .ta-3 .edit-input {
+        width: 100%;
+    }
+
+    .edit-row  .ta-4 .edit-input {
+        width: 70%;
+    }
+
+    .edit-row .adm-btn-sacuvaj,
+    .edit-row .adm-btn-otkazi {
+        font-size: 0 !important;
+        padding: 0 8px !important;
+        overflow: visible !important;
+        color: #ccc !important;
+        line-height: 30px !important;
+         display: inline-block;
+        min-width: 30px;
+    }
+
+    .edit-row .adm-btn-sacuvaj::before {
+        content: "💾";
+        font-size: 14px !important;
+    }
+
+    .edit-row .adm-btn-otkazi::before {
+        content: "✕";
+        font-size: 14px !important;
+    }
 }
 
 @media (max-width: 1024px){
@@ -2139,6 +2523,10 @@ footer{
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+
+    .hamburger-odjava {
+        display: flex;
     }
 
     .main-profil-left{
