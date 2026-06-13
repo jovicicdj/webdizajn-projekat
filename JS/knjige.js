@@ -69,7 +69,7 @@ function renderKnjige(lista) {
                 <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${knjiga.zanr}</button>
             </div>
         `;
-
+        
         booksGrid.appendChild(card);
     });
 }
