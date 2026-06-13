@@ -1815,6 +1815,12 @@ footer{
     font-size: 1.25em;
 }
 
+.login-nevalidan-unos{
+    color: red;
+    font-size: 0.7em;
+    display: none;
+}
+
 #sign-up-forma, #login-forma{
     flex: 1;
     display: flex;
