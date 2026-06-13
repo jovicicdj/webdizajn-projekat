@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
     <div class="wrapper admin-wrapper">
@@ -282,6 +282,17 @@
                      </div> -->
                <!-- </div> -->
          </main>
+         <div class="modal-overlay" id="modal-brisanje">
+            <div class="modal-card">
+                <button class="modal-close" id="modal-brisanje-close">✕</button>
+                <h6 class="modal-naslov">Брисање аутора</h6>
+                <p class="modal-tekst">Да ли сте сигурни да желите да обришете овог аутора? Ова акција је трајна.</p>
+                <div class="modal-buttons">
+                    <button class="adm-btn-otkazi" id="modal-brisanje-otkazi">Откажи</button>
+                    <button class="adm-btn-sacuvaj" id="modal-brisanje-potvrdi">Обриши</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
