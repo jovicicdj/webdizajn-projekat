@@ -103,7 +103,7 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
 
     const biored = document.createElement("div");
     biored.className = "tabela-row edit-row-bio"
-    const slika = podaci.slike ? Object.values(podaci.slike)[0] : "images/placeholder.jpg";
+    const slika = podaci.slike ? Object.values(podaci.slike)[0] : "images/placeholder.png";
 
 
     red.innerHTML = `
