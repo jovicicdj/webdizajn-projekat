@@ -191,8 +191,8 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
         }
 
 
-        const imeAutoraRegEx = /^[A-ZČĆŽŠĐ][A-Za-zČĆŽŠĐčćžšđ -]{1,59}$/;
-        const nagradePrimerciRegEx = /^[1-9]{1}[0-9]*$/;
+        const imeAutoraRegEx = /^[А-ЯЂЈЉЊЋЏ][А-ЯЂЈЉЊЋЏа-яђјљњћџ -]{1,59}$/;
+        const nagradePrimerciRegEx = /^[1-9]{1}[0-9]*$/;    
         //+381 64 222-3333
         const brojTelefonaRegEx = /^\+381\s6[0-9]{1}\s[0-9]{3}-[0-9]{4}$/;
 
@@ -214,7 +214,7 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
         if(!brojTelefonaRegEx.test(telefon)){
             alert("Broj telefona je u formatu +381658467823.")
             return;
-        }
+        }   
 
         const noviPodaci = {
             ime,
@@ -238,9 +238,6 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
 
     return { red, biored };
 }
-
-
-
 
 
 
@@ -295,7 +292,7 @@ tabela.addEventListener("click", async (e) => {
                 `${firebaseUrl}/autori/${id}.json`,
                 noviPodaci
             );
-            if (rezultat) {
+            if (rezultat) { 
                 r.remove();
                 b.remove();
                 ucitajAutore();

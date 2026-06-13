@@ -4,6 +4,9 @@ const searchBar = document.querySelector(".pretraga-knjiga .search-bar");
 
 let sveKnjige = [];
 let sviAutori = {};
+let idZaBrisanje = null;
+
+const modalBrisanje = document.getElementById("modal-brisanje") || napraviModalBrisanje();
 
 const zanrovi = [
     "Роман",
@@ -55,6 +58,32 @@ function zanrKlasa(zanr) {
     };
 
     return mapa[zanr] || "";
+}
+
+function napraviModalBrisanje() {
+    const modal = document.createElement("div");
+    modal.className = "modal-overlay";
+    modal.id = "modal-brisanje";
+
+    modal.innerHTML = `
+        <div class="modal-card">
+            <button class="modal-close" id="modal-brisanje-close">x</button>
+            <h6 class="modal-naslov">Брисање књиге</h6>
+            <p class="modal-tekst">Да ли сте сигурни да желите да обришете ову књигу? Ова акција је трајна.</p>
+            <div class="modal-buttons">
+                <button class="adm-btn-otkazi" id="modal-brisanje-otkazi">Откажи</button>
+                <button class="adm-btn-sacuvaj" id="modal-brisanje-potvrdi">Обриши</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function zatvoriModalBrisanje() {
+    modalBrisanje.classList.remove("open");
+    idZaBrisanje = null;
 }
 
 function getSlika(knjiga) {
@@ -216,25 +245,25 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
         <div class="tr-1 ta-1">
             <input type="file" class="edit-file-input" accept=".jpg,.jpeg,.png,.webp,.avif">
             <img src="${slika}" class="tabela-knjiga-slika edit-slika-preview" style="cursor:pointer;" title="Кликни да промениш слику">
-            <input type="text" class="adm-input edit-input f-naziv" placeholder="Назив књиге" value="${podaci.naziv || ""}">
+            <input type="text" class="adm-input edit-input f-naziv" placeholder="Назив књиге" value="${podaci.naziv || ""}" pattern="^[А-ЯЂЈЉЊЋЏ]">
         </div>
 
         <div class="tr-2">
-            <select class="adm-input adm-select edit-input f-autor">
+            <select class="adm-input adm-select edit-input f-autor" required>
                 <option value="">Изабери аутора</option>
                 ${optioniAutora(podaci.idAutora)}
             </select>
         </div>
 
         <div class="tr-3">
-            <select class="adm-input adm-select edit-input f-zanr">
+            <select class="adm-input adm-select edit-input f-zanr" required>
                 <option value="">Жанр</option>
                 ${optioniListe(zanrovi, podaci.zanr)}
             </select>
         </div>
 
         <div class="tr-4">
-            <select class="adm-input adm-select edit-input f-format">
+            <select class="adm-input adm-select edit-input f-format" required>
                 <option value="">Формат</option>
                 ${optioniListe(formati, podaci.format)}
             </select>
@@ -245,11 +274,11 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
         </div>
 
         <div class="tr-6">
-            <input type="number" class="adm-input edit-input f-broj-strana" placeholder="Број страна" value="${podaci.brojStrana || ""}">
+            <input type="number" class="adm-input edit-input f-broj-strana" placeholder="Број страна" value="${podaci.brojStrana || ""}" required>
         </div>
 
         <div class="tr-7">
-            <input type="text" class="adm-input edit-input f-isbn" placeholder="ISBN" value="${podaci.isbn || ""}">
+            <input type="text" class="adm-input edit-input f-isbn" placeholder="ISBN" value="${podaci.isbn || ""}" pattern = "^[0-9]{3}-[0-9]{10}$" required>
         </div>
 
         <div class="tr-8">
@@ -303,6 +332,18 @@ dodajBtn.addEventListener("click", () => {
     tabela.appendChild(opisRed);
     red.scrollIntoView({ behavior: "smooth", block: "center" });
 });
+
+tabela.addEventListener("click", (e) => {
+    const obrisiBtn = e.target.closest(".btn-obrisi");
+    if (!obrisiBtn) return;
+
+    idZaBrisanje = obrisiBtn.closest(".tabela-row").dataset.id;
+    modalBrisanje.classList.add("open");
+});
+
+document.getElementById("modal-brisanje-potvrdi").addEventListener("click", zatvoriModalBrisanje);
+document.getElementById("modal-brisanje-otkazi").addEventListener("click", zatvoriModalBrisanje);
+document.getElementById("modal-brisanje-close").addEventListener("click", zatvoriModalBrisanje);
 
 tabela.addEventListener("click", (e) => {
     const izmenaBtn = e.target.closest(".btn-izmena");
