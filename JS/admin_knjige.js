@@ -221,6 +221,7 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     red.innerHTML = `
         <form class="edit-forma" onsubmit="return false;"></form>
 
+        <h1 style="font-size: 0.8em">${podaci.naziv || ""}</h1>
         <div class="tr-1">
             <input type="file" class="edit-file-input" accept=".jpg,.jpeg,.png,.webp,.avif">
             <img src="${slika}" class="tabela-knjiga-slika edit-slika-preview" style="cursor:pointer;" title="Кликни да промениш слику">
