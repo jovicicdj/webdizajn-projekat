@@ -36,7 +36,7 @@ function getSlika(objekat) {
 
 
 function formatDatum(datum) {
-    if (!datum) return "—";
+    if (!datum) return "-";
 
     const delovi = datum.split("-");
     if (delovi.length !== 3) return datum;
@@ -62,14 +62,13 @@ function ucitajOsnovnePodatke(id, knjiga, autor) {
     `<img src="${getSlika(knjiga)}" alt="${knjiga.naziv}">`;
 
     slikeKnjige = getSlika(knjiga);
-    trenutnaSlikaIndex = 0;
     // prikaziSliku();
 
     const zanrBtn = document.querySelector(".knjiga-info-top .book-genre");
-    zanrBtn.textContent = knjiga.zanr || "—";
+    zanrBtn.textContent = knjiga.zanr || "-";
     zanrBtn.className = `book-genre ${zanrKlasa(knjiga.zanr)} button-pojedinacna-info`;
 
-    document.querySelector(".knjiga-info-top p").textContent = knjiga.naziv || "—";
+    document.querySelector(".knjiga-info-top p").textContent = knjiga.naziv || "-";
 
     const autorLink = document.querySelector(".knjiga-info-top .pojedinacna-hiperlink");
     autorLink.textContent = `Аутор: ${imeAutora} →`;
@@ -79,10 +78,10 @@ function ucitajOsnovnePodatke(id, knjiga, autor) {
 
     const atributi = document.querySelectorAll(".knjiga-atributi .atribut-card .atribut-vrednost");
 
-    atributi[0].textContent = knjiga.zanr || "—";
-    atributi[1].textContent = knjiga.brojStrana || "—";
-    atributi[2].textContent = knjiga.format || "—";
-    atributi[3].textContent = knjiga.cena ? `${knjiga.cena} РСД` : "—";
+    atributi[0].textContent = knjiga.zanr || "-";
+    atributi[1].textContent = knjiga.brojStrana || "-";
+    atributi[2].textContent = knjiga.format || "-";
+    atributi[3].textContent = knjiga.cena ? `${knjiga.cena} РСД` : "-";
 
     const brojRecenzija = getRecenzijeKnjige(id).length;
     document.querySelector(".knjiga-rejting .broj-recenzija").textContent = `· ${brojRecenzija} рецензија`;
@@ -96,7 +95,7 @@ function ucitajDetaljeKnjige(knjiga) {
 
     if (kartice.length < 1) return;
 
-    kartice[0].querySelector(".atribut-vrednost").textContent = knjiga.isbn || "—";
+    kartice[0].querySelector(".atribut-vrednost").textContent = knjiga.isbn || "-";
 }
 
 function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
@@ -141,7 +140,7 @@ function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
             </div>
 
             <div class="slicne-knjige-tekst">
-                <p class="atribut-vrednost">${knjiga.naziv || "—"}</p>
+                <p class="atribut-vrednost">${knjiga.naziv || "-"}</p>
                 <p class="atribut-ime">${imeAutora}</p>
                 <span class="broj-recenzija">${brojRecenzija} рецензија</span>
             </div>
