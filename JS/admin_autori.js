@@ -98,6 +98,7 @@ searchBar.addEventListener("input", filtriraj);
 
 
 function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }) {
+    
     const red = document.createElement("div");
     red.className = "tabela-row edit-row";
 
