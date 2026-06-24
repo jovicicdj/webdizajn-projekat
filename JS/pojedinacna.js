@@ -2,6 +2,7 @@ let sveKnjige = {};
 let sviAutori = {};
 let sveOcene = {};
 let sviKorisnici = {};
+let trenutnaKnjigaId = null;
 
 function zanrKlasa(zanr) {
     const mapa = {
@@ -201,6 +202,7 @@ function ucitajRecenzije(idKnjige) {
 async function ucitajKnjigu() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+    trenutnaKnjigaId = id;
 
     if (!id) {
         document.querySelector(".main-pojedinacna-content").innerHTML =
@@ -234,4 +236,65 @@ async function ucitajKnjigu() {
     ucitajRecenzije(id);
 }
 
+async function objaviRecenziju(e) {
+    e.preventDefault();
+
+    const korisnikId = localStorage.getItem("korisnikId");
+
+    if (!korisnikId) {
+        window.location.href = "login.html";
+        return;
+    }
+
+    if (!trenutnaKnjigaId) {
+        alert("Није пронађен ID књиге.");
+        return;
+    }
+
+    const tekstInput = document.getElementById("sadrzaj");
+    const tekst = tekstInput.value.trim();
+
+    if (!tekst) {
+        alert("Унесите текст рецензије.");
+        return;
+    }
+
+    const datum = new Date().toISOString().split("T")[0];
+
+    const novaRecenzija = {
+        datum,
+        idKnjige: trenutnaKnjigaId,
+        idKorisnika: korisnikId,
+        tekst
+    };
+
+    const rezultat = await ajaxPost(`${firebaseUrl}/recenzije.json`, novaRecenzija);
+
+    if (!rezultat) {
+        alert("Грешка при објављивању рецензије.");
+        return;
+    }
+
+    tekstInput.value = "";
+    sveOcene = await ajaxGet(firebaseUrl + "/recenzije.json");
+
+    if (!sveOcene) sveOcene = {};
+
+    ucitajRecenzije(trenutnaKnjigaId);
+
+    const brojRecenzija = getRecenzijeKnjige(trenutnaKnjigaId).length;
+    document.querySelector(".knjiga-rejting .broj-recenzija").textContent = `· ${brojRecenzija} рецензија`;
+}
+
 ucitajKnjigu();
+
+const formaRecenzije = document.querySelector(".recenzija-forma form");
+
+if (formaRecenzije) {
+    formaRecenzije.addEventListener("submit", objaviRecenziju);
+}
+
+const tekstRecenzijeInput = document.getElementById("sadrzaj");
+if (tekstRecenzijeInput){
+    tekstRecenzijeInput.value = "";
+}

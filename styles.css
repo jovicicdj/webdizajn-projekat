@@ -402,6 +402,15 @@ header a:hover{
     gap: 16px;
 }
 
+#sadrzaj{
+    flex: 1;
+}
+
+.recenzija-forma{
+    /* background-color: red; */
+    display: flex;
+}
+
 .main-profil-right-header{
     /* background-color: orange; */
     display: flex;
@@ -2170,6 +2179,28 @@ footer{
     color: #646464;
     font-size: 0.75em;
     white-space: nowrap;
+}
+
+.edit-row-bio .edit-cena-box {
+    flex: 0 0 8%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-row-bio .edit-cena-box input {
+    width: 100%;
+}
+
+.edit-row-bio .edit-opis-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-row-bio .edit-opis-box textarea {
+    flex: 1;
 }
 
 .modal-overlay {

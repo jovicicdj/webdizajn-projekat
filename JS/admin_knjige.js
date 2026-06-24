@@ -221,7 +221,6 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     red.innerHTML = `
         <form class="edit-forma" onsubmit="return false;"></form>
 
-        <h1 style="font-size: 0.8em">${podaci.naziv || ""}</h1>
         <div class="tr-1">
             <input type="file" class="edit-file-input" accept=".jpg,.jpeg,.png,.webp,.avif">
             <img src="${slika}" class="tabela-knjiga-slika edit-slika-preview" style="cursor:pointer;" title="Кликни да промениш слику">
@@ -268,8 +267,15 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     `;
 
     opisRed.innerHTML = `
-        <label>Опис књиге</label>
-        <textarea class="adm-textarea f-opis" placeholder="Опис књиге...">${podaci.opis || ""}</textarea>
+        <div class="edit-cena-box">
+            <label>Цена</label>
+            <input type="number" class="adm-input edit-input f-cena" placeholder="Цена" value="${podaci.cena || ""}">
+        </div>
+
+        <div class="edit-opis-box">
+            <label>Опис књиге</label>
+            <textarea class="adm-textarea f-opis" placeholder="Опис књиге...">${podaci.opis || ""}</textarea>
+        </div>
     `;
 
     const fileInput = red.querySelector(".edit-file-input");
@@ -287,7 +293,47 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     });
 
     red.querySelector(".btn-sacuvaj").addEventListener("click", () => {
-        if (onSubmit) onSubmit(red, opisRed);
+        const naziv = red.querySelector(".f-naziv").value.trim();
+        const idAutora = red.querySelector(".f-autor").value.trim();
+        const zanr = red.querySelector(".f-zanr").value.trim();
+        const format = red.querySelector(".f-format").value.trim();
+        const brojStrana = red.querySelector(".f-broj-strana").value.trim();
+        const isbn = red.querySelector(".f-isbn").value.trim();
+        const cena = opisRed.querySelector(".f-cena").value.trim();
+        const opis = opisRed.querySelector(".f-opis").value.trim();
+        const slika = red.querySelector(".edit-slika-preview").src;
+
+        if (!naziv || !idAutora || !zanr || !format || !brojStrana || !isbn || !cena || !opis) {
+            alert("Попуните сва поља.");
+            return;
+        }
+
+        const brojStranaRegEx = /^[1-9][0-9]*$/;
+        const isbnRegEx = /^[0-9]{3}-[0-9]{10}$/;
+
+        if (!brojStranaRegEx.test(brojStrana) || !brojStranaRegEx.test(cena)) {
+            alert("Број страна и цена морају бити позитивни бројеви.");
+            return;
+        }
+
+        if (!isbnRegEx.test(isbn)) {
+            alert("ISBN мора бити у формату 978-1234567890.");
+            return;
+        }
+
+        const noviPodaci = {
+            brojStrana: Number(brojStrana),
+            cena: Number(cena),
+            format,
+            idAutora,
+            isbn,
+            naziv,
+            opis,
+            slike: [slika],
+            zanr
+        };
+
+        if (onSubmit) onSubmit(noviPodaci, red, opisRed);
     });
 
     red.querySelector(".btn-otkazi").addEventListener("click", () => {
@@ -305,7 +351,18 @@ dodajBtn.addEventListener("click", () => {
     document.querySelector(".edit-row-bio")?.remove();
 
     const { red, opisRed } = napraviFormu({
-        btnTekst: "Додај"
+        btnTekst: "Додај",
+        onSubmit: async (podaci, r, o) => {
+            const rezultat = await ajaxPost(`${firebaseUrl}/knjige.json`, podaci);
+
+            if (rezultat) {
+                r.remove();
+                o.remove();
+                ucitajKnjigeUTabelu();
+            } else {
+                alert("Грешка при додавању књиге.");
+            }
+        }
     });
 
     tabela.appendChild(red);
@@ -321,7 +378,18 @@ tabela.addEventListener("click", (e) => {
     modalBrisanje.classList.add("open");
 });
 
-document.getElementById("modal-brisanje-potvrdi").addEventListener("click", zatvoriModalBrisanje);
+document.getElementById("modal-brisanje-potvrdi").addEventListener("click", async () => {
+    if (!idZaBrisanje) return;
+
+    const rezultat = await ajaxDelete(`${firebaseUrl}/knjige/${idZaBrisanje}.json`);
+
+    if (rezultat !== false) {
+        zatvoriModalBrisanje();
+        ucitajKnjigeUTabelu();
+    } else {
+        alert("Грешка при брисању књиге.");
+    }
+});
 document.getElementById("modal-brisanje-otkazi").addEventListener("click", zatvoriModalBrisanje);
 document.getElementById("modal-brisanje-close").addEventListener("click", zatvoriModalBrisanje);
 
@@ -340,7 +408,18 @@ tabela.addEventListener("click", (e) => {
     const { red, opisRed } = napraviFormu({
         btnTekst: "Сачувај",
         podaci,
-        brojRecenzija: knjigaIzListe ? knjigaIzListe.brojRecenzija : 0
+        brojRecenzija: knjigaIzListe ? knjigaIzListe.brojRecenzija : 0,
+        onSubmit: async (noviPodaci, r, o) => {
+            const rezultat = await ajaxPut(`${firebaseUrl}/knjige/${id}.json`, noviPodaci);
+
+            if (rezultat) {
+                r.remove();
+                o.remove();
+                ucitajKnjigeUTabelu();
+            } else {
+                alert("Грешка при чувању књиге.");
+            }
+        }
     });
 
     row.insertAdjacentElement("afterend", opisRed);
