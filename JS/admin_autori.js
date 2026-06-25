@@ -25,11 +25,45 @@ function srcSlike(slike) {
 
 
 
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    return "data:image/png;base64," + v;
+}
+
 function statusKlasa(status) {
     if (status === "Активан") return "active";
     if (status === "У пензији") return "retired";
     if (status === "Преминуо") return "deceased";
     return "";
+}
+
+function escapeHTML(vrednost) {
+    return String(vrednost ?? "").replace(/[&<>"']/g, znak => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[znak]));
+}
+
+function escapeRegExp(vrednost) {
+    return vrednost.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function oznaciPretragu(tekst) {
+    const pretraga = searchBar.value.trim();
+    const bezbedanTekst = escapeHTML(tekst || "-");
+
+    if (!pretraga) return bezbedanTekst;
+
+    const regex = new RegExp(`(${escapeRegExp(pretraga)})`, "gi");
+    return bezbedanTekst.replace(regex, '<mark class="search-highlight">$1</mark>');
 }
 
 
@@ -47,21 +81,21 @@ async function ucitajAutore() {
         return { id, autor, prosek };
     });
 
-    renderAutore(sviAutori, false);
+    renderAutore(sviAutori);
 }
 
 
 
 
-function renderAutore(lista, filterNagrade = false) {
+function renderAutore(lista) {
 
     document.querySelectorAll(".tabela-row").forEach(r => r.remove());
 
     lista.forEach(({ id, autor, prosek }) => {
 
-        if (filterNagrade && autor.brojOsvojenihNagrada <= 3) {
-            return;
-        }
+        // if (filterNagrade && autor.brojOsvojenihNagrada <= 3) {
+        //     return;
+        // }
 
         const row = document.createElement("div");
         row.className = "tabela-row";
@@ -74,7 +108,7 @@ function renderAutore(lista, filterNagrade = false) {
 
             <div class="ta-1">
                 <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
-                <p>${autor.ime} ${autor.prezime}</p>
+                <p>${oznaciPretragu(`${autor.ime} ${autor.prezime}`)}</p>
             </div>
             <div class="ta-2"><p>${autor.datumRodjenja || '-'}</p></div>
             <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${autor.status}</span></div>
@@ -99,13 +133,52 @@ function renderAutore(lista, filterNagrade = false) {
 
 
 
+
+// row.innerHTML = `
+
+//             <div class="ta-1">
+//                 <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
+//                 <p>${oznaciPretragu(`${autor.ime} ${autor.prezime}`)}</p>
+//             </div>
+//             <div class="ta-2"><p>${oznaciPretragu(autor.datumRodjenja)}</p></div>
+//             <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${oznaciPretragu(autor.status)}</span></div>
+//             <div class="ta-4"><p>${oznaciPretragu(autor.brojOsvojenihNagrada)}</p></div>
+//             <div class="ta-5"><p>${oznaciPretragu(prodatihPrimeraka)}</p></div>
+//             <div class="ta-6">
+//                 <span class="stars-tabela">${formatZvezdice(prosek)}</span>
+//                 <p class="tabela-rejting">${formatProsek(prosek)}</p>
+//             </div>
+//             <div class="ta-7"><p>${oznaciPretragu(autor.kontaktTelefonMenadzera)}</p></div>
+//             <div class="ta-8">
+//                 <button class="action-buttons btn-obrisi"><ion-icon name="trash"></ion-icon></button>
+//                 <button class="action-buttons btn-izmena"><ion-icon name="create-outline"></ion-icon></button>
+//             </div>
+
+//         `
+
+
+
+
 function filtriraj() {
     const pretraga = searchBar.value.toLowerCase();
     const rezultat = sviAutori.filter(({ autor }) => {
         const imeIPrezime = `${autor.ime} ${autor.prezime}`.toLowerCase();
+        const datum = (autor.datumRodjenja || "");
+        const nagrade = (autor.brojOsvojenihNagrada || "");
+        const status = (autor.status || "").toLowerCase();
+        const prodatih = (autor.brojProdatihPrimeraka || "");
+        const prodatihFormatirano = formatPrimerci(prodatih).toLowerCase();
+        const telefon = (autor.kontaktTelefonMenadzera || "");
+
+        
+        
+
         return imeIPrezime.includes(pretraga);
+        // || datum.includes(pretraga) || nagrade === Number(pretraga) 
+        // || status.includes(pretraga.toLowerCase()) || prodatih === Number(pretraga) || prodatihFormatirano.includes(pretraga.toLowerCase())
+        // || telefon.includes(pretraga);
     });
-    renderAutore(rezultat, false);
+    renderAutore(rezultat);
 }
 
 
@@ -356,9 +429,9 @@ dodajBtn.addEventListener("click", () => {
 });
 
 
-dodajBtn1.addEventListener("click", async() => {
-    renderAutore(sviAutori, true);
-});
+// dodajBtn1.addEventListener("click", async() => {
+//     renderAutore(sviAutori, true);
+// });
 
 
 tabela.addEventListener("click", async (e) => {

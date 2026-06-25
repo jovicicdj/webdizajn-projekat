@@ -28,6 +28,30 @@ function statusKlasa(status) {
 
 }
 
+function escapeHTML(vrednost) {
+    return String(vrednost ?? "").replace(/[&<>"']/g, znak => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[znak]));
+}
+
+function escapeRegExp(vrednost) {
+    return vrednost.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function oznaciPretragu(tekst) {
+    const pretraga = searchBar.value.trim();
+    const bezbedanTekst = escapeHTML(tekst || "-");
+
+    if (!pretraga) return bezbedanTekst;
+
+    const regex = new RegExp(`(${escapeRegExp(pretraga)})`, "gi");
+    return bezbedanTekst.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
 function renderAutori(lista) {
 
     
@@ -53,7 +77,7 @@ function renderAutori(lista) {
             <a href="pojedinacan_autor.html?id=${id}">
                 <img class="author-avatar" src="${slika}" alt="${autor.ime} ${autor.prezime}">
             </a>
-            <h6>${autor.ime} ${autor.prezime}</h6>
+            <h6>${oznaciPretragu(`${autor.ime} ${autor.prezime}`)}</h6>
             <p class="stars">${zvezdice}</p>
             <div class="author-info">
                 <p class="number-of-awards">${autor.brojOsvojenihNagrada} награда</p>
@@ -68,9 +92,15 @@ function renderAutori(lista) {
 
 function filtriraj() {
     const pretraga = searchBar.value.toLowerCase();
+
     let rezultat = sviAutori.filter(({ autor }) => {
         const imeIPrezime = `${autor.ime} ${autor.prezime}`.toLowerCase();
+        // const nagrade = Number(autor.brojOsvojenihNagrada);
+        // const status = (autor.status || "").toLowerCase();
+        
         const poklapa = imeIPrezime.includes(pretraga);
+        // || (pretraga !== "" && nagrade === Number(pretraga));
+        // || status.includes(pretraga.toLowerCase());
         const filterPoklapa = aktivniFilter === "Сви" || autor.status === aktivniFilter;
         return poklapa && filterPoklapa;
     });

@@ -6,12 +6,6 @@ let sveKnjige = {};
 let sviAutori = {};
 let aktivniFilter = "Све";
 
-
-
-
-
-
-
 function zanrKlasa(zanr) {
     const mapa = {
         "Роман": "roman",
@@ -37,16 +31,33 @@ function zanrKlasa(zanr) {
     return mapa[zanr] || "";
 }
 
-function getSlika(objekat) {
-    let v = null;
-    if (objekat && Array.isArray(objekat.slike)) v = objekat.slike[0];
-    else if (objekat && objekat.slike) v = Object.values(objekat.slike)[0];
+function getSlika(knjiga) {
+    if (knjiga.slike) return Object.values(knjiga.slike)[0];
+    return "images/default.jpg";
+}
 
-    if (!v) return "images/placeholder.png";
-    // vec je base64 (data URL) ili obican link/putanja -> koristi direktno
-    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
-    // cist base64 bez prefiksa -> pretvori nazad u sliku
-    return "data:image/png;base64," + v;
+function escapeHTML(vrednost) {
+    return String(vrednost ?? "").replace(/[&<>"']/g, znak => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[znak]));
+}
+
+function escapeRegExp(vrednost) {
+    return vrednost.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function oznaciPretragu(tekst) {
+    const pretraga = searchBar.value.trim();
+    const bezbedanTekst = escapeHTML(tekst || "-");
+
+    if (!pretraga) return bezbedanTekst;
+
+    const regex = new RegExp(`(${escapeRegExp(pretraga)})`, "gi");
+    return bezbedanTekst.replace(regex, '<mark class="search-highlight">$1</mark>');
 }
 
 function renderKnjige(lista) {
@@ -73,13 +84,13 @@ function renderKnjige(lista) {
                 <a href="pojedinacna.html?id=${id}">
                     <img src="${slika}" alt="${knjiga.naziv}">
                 </a>
-                <p class="book-card-naslov">${knjiga.naziv}</p>
+                <p class="book-card-naslov">${oznaciPretragu(knjiga.naziv)}</p>
             </div>
 
             <div class="book-desc">
-                <p class="book-author">Аутор: ${imeAutora}</p>
+                <p class="book-author">Аутор: ${oznaciPretragu(imeAutora)}</p>
                 <p class="book-recom">${knjiga.cena || 0} РСД</p>
-                <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${knjiga.zanr}</button>
+                <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${oznaciPretragu(knjiga.zanr)}</button>
             </div>
         `;
         

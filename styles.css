@@ -6,6 +6,13 @@
     font-family: "Merriweather", sans-serif;
 }
 
+.search-highlight {
+    background-color: #f5c542;
+    color: #1a1a1a;
+    border-radius: 3px;
+    padding: 0 2px;
+}
+
 .wrapper{
     display: flex;
     flex-direction: column;
