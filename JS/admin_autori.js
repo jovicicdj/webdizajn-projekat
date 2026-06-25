@@ -12,6 +12,19 @@ hamburger.addEventListener('click', () =>  {
 });
 
 
+
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    return "data:image/png;base64," + v;
+}
+
+
+
 function statusKlasa(status) {
     if (status === "Активан") return "active";
     if (status === "У пензији") return "retired";
