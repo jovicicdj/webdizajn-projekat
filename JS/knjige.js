@@ -6,12 +6,6 @@ let sveKnjige = {};
 let sviAutori = {};
 let aktivniFilter = "Све";
 
-
-
-
-
-
-
 function zanrKlasa(zanr) {
     const mapa = {
         "Роман": "roman",
@@ -37,16 +31,9 @@ function zanrKlasa(zanr) {
     return mapa[zanr] || "";
 }
 
-function getSlika(objekat) {
-    let v = null;
-    if (objekat && Array.isArray(objekat.slike)) v = objekat.slike[0];
-    else if (objekat && objekat.slike) v = Object.values(objekat.slike)[0];
-
-    if (!v) return "images/placeholder.png";
-    // vec je base64 (data URL) ili obican link/putanja -> koristi direktno
-    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
-    // cist base64 bez prefiksa -> pretvori nazad u sliku
-    return "data:image/png;base64," + v;
+function getSlika(knjiga) {
+    if (knjiga.slike) return Object.values(knjiga.slike)[0];
+    return "images/default.jpg";
 }
 
 function renderKnjige(lista) {
