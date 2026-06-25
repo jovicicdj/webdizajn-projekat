@@ -1,5 +1,6 @@
 const tabela = document.querySelector(".tabela-autora");
 const dodajBtn = document.querySelector(".adm-search-row button");
+const dodajBtn1 = document.getElementById("prikazi-nagrade");
 
 const searchBar = document.querySelector(".adm-search-row .search-bar");
 let sviAutori = [];
@@ -36,17 +37,21 @@ async function ucitajAutore() {
         return { id, autor, prosek };
     });
 
-    renderAutore(sviAutori);
+    renderAutore(sviAutori, false);
 }
 
 
 
 
-function renderAutore(lista) {
+function renderAutore(lista, filterNagrade = false) {
 
     document.querySelectorAll(".tabela-row").forEach(r => r.remove());
 
     lista.forEach(({ id, autor, prosek }) => {
+
+        if (filterNagrade && autor.brojOsvojenihNagrada <= 3) {
+            return;
+        }
 
         const row = document.createElement("div");
         row.className = "tabela-row";
@@ -83,6 +88,51 @@ function renderAutore(lista) {
 
 
 
+// function renderAutore2(lista) {
+
+//     document.querySelectorAll(".tabela-row").forEach(r => r.remove());
+
+//     lista.forEach(({ id, autor, prosek }) => {
+
+//         if (autor.brojOsvojenihNagrada <= 3) {
+//             return;
+//         }
+
+//         const row = document.createElement("div");
+//         row.className = "tabela-row";
+//         row.dataset.id = id;
+//         row.dataset.autor = JSON.stringify(autor)
+//         const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
+//         const prodatihPrimeraka = formatPrimerci(autor.brojProdatihPrimeraka);
+
+//         row.innerHTML = `
+
+//             <div class="ta-1">
+//                 <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
+//                 <p>${autor.ime} ${autor.prezime}</p>
+//             </div>
+//             <div class="ta-2"><p>${autor.datumRodjenja || '-'}</p></div>
+//             <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${autor.status}</span></div>
+//             <div class="ta-4"><p>${autor.brojOsvojenihNagrada || '-'}</p></div>
+//             <div class="ta-5"><p>${prodatihPrimeraka}</p></div>
+//             <div class="ta-6">
+//                 <span class="stars-tabela">${formatZvezdice(prosek)}</span>
+//                 <p class="tabela-rejting">${formatProsek(prosek)}</p>
+//             </div>
+//             <div class="ta-7"><p>${autor.kontaktTelefonMenadzera || '-'}</p></div>
+//             <div class="ta-8">
+//                 <button class="action-buttons btn-obrisi"><ion-icon name="trash"></ion-icon></button>
+//                 <button class="action-buttons btn-izmena"><ion-icon name="create-outline"></ion-icon></button>
+//             </div>
+
+//         `
+//         tabela.appendChild(row);
+
+//     });
+// }
+
+
+
 
 function filtriraj() {
     const pretraga = searchBar.value.toLowerCase();
@@ -90,10 +140,26 @@ function filtriraj() {
         const imeIPrezime = `${autor.ime} ${autor.prezime}`.toLowerCase();
         return imeIPrezime.includes(pretraga);
     });
-    renderAutore(rezultat);
+    renderAutore(rezultat, false);
 }
 
+
+
 searchBar.addEventListener("input", filtriraj);
+
+// document.getElementById("prikazi-nagrade").addEventListener("click", async() => {
+
+
+//     const autori = await ajaxGet(`${firebaseUrl}/autori.json`);
+
+//     prikaziAutore = Object.values(autori).filter(a => Number(a.brojOsvojenihNagrada) > 3);
+
+//     renderAutore(prikaziAutore);
+
+
+// })
+
+
 
 
 function ocistiGreske(red, dodatniRed) {
@@ -320,6 +386,11 @@ dodajBtn.addEventListener("click", () => {
     tabela.appendChild(red);
     tabela.appendChild(biored);
     red.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+
+
+dodajBtn1.addEventListener("click", async() => {
+    renderAutore(sviAutori, true);
 });
 
 
