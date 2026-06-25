@@ -36,6 +36,30 @@ function getSlika(knjiga) {
     return "images/default.jpg";
 }
 
+function escapeHTML(vrednost) {
+    return String(vrednost ?? "").replace(/[&<>"']/g, znak => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[znak]));
+}
+
+function escapeRegExp(vrednost) {
+    return vrednost.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function oznaciPretragu(tekst) {
+    const pretraga = searchBar.value.trim();
+    const bezbedanTekst = escapeHTML(tekst || "-");
+
+    if (!pretraga) return bezbedanTekst;
+
+    const regex = new RegExp(`(${escapeRegExp(pretraga)})`, "gi");
+    return bezbedanTekst.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
 function renderKnjige(lista) {
     booksGrid.innerHTML = "";
 
@@ -60,13 +84,13 @@ function renderKnjige(lista) {
                 <a href="pojedinacna.html?id=${id}">
                     <img src="${slika}" alt="${knjiga.naziv}">
                 </a>
-                <p class="book-card-naslov">${knjiga.naziv}</p>
+                <p class="book-card-naslov">${oznaciPretragu(knjiga.naziv)}</p>
             </div>
 
             <div class="book-desc">
-                <p class="book-author">Аутор: ${imeAutora}</p>
+                <p class="book-author">Аутор: ${oznaciPretragu(imeAutora)}</p>
                 <p class="book-recom">${knjiga.cena || 0} РСД</p>
-                <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${knjiga.zanr}</button>
+                <button class="book-genre ${zanrKlasa(knjiga.zanr)}">${oznaciPretragu(knjiga.zanr)}</button>
             </div>
         `;
         

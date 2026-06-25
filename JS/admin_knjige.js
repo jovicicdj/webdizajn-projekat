@@ -104,6 +104,30 @@ function optioniListe(lista, izabrano) {
     }).join("");
 }
 
+function escapeHTML(vrednost) {
+    return String(vrednost ?? "").replace(/[&<>"']/g, znak => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+    }[znak]));
+}
+
+function escapeRegExp(vrednost) {
+    return vrednost.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function oznaciPretragu(tekst) {
+    const pretraga = searchBar.value.trim();
+    const bezbedanTekst = escapeHTML(tekst || "-");
+
+    if (!pretraga) return bezbedanTekst;
+
+    const regex = new RegExp(`(${escapeRegExp(pretraga)})`, "gi");
+    return bezbedanTekst.replace(regex, '<mark class="search-highlight">$1</mark>');
+}
+
 function ocistiGreske(red, dodatniRed) {
     [red, dodatniRed].forEach(element => {
         if (!element) return;
@@ -175,33 +199,33 @@ function renderKnjige(lista) {
         row.innerHTML = `
             <div class="tr-1">
                 <img src="${slika}" alt="${knjiga.naziv || ""}" class="tabela-knjiga-slika">
-                <p>${knjiga.naziv || "-"}</p>
+                <p>${oznaciPretragu(knjiga.naziv)}</p>
             </div>
 
             <div class="tr-2">
-                <p>${imeAutora(knjiga.idAutora)}</p>
+                <p>${oznaciPretragu(imeAutora(knjiga.idAutora))}</p>
             </div>
 
             <div class="tr-3">
                 <button class="book-genre ${zanrKlasa(knjiga.zanr)} button-tabela">
-                    ${knjiga.zanr || "-"}
+                    ${oznaciPretragu(knjiga.zanr)}
                 </button>
             </div>
 
             <div class="tr-4">
-                <p>${knjiga.format || "-"}</p>
+                <p>${oznaciPretragu(knjiga.format)}</p>
             </div>
 
             <div class="tr-5">
-                <p>${brojRecenzija}</p>
+                <p>${oznaciPretragu(brojRecenzija)}</p>
             </div>
 
             <div class="tr-6">
-                <p>${knjiga.brojStrana || "-"}</p>
+                <p>${oznaciPretragu(knjiga.brojStrana)}</p>
             </div>
 
             <div class="tr-7">
-                <p>${knjiga.isbn || "-"}</p>
+                <p>${oznaciPretragu(knjiga.isbn)}</p>
             </div>
 
             <div class="tr-8">
@@ -229,6 +253,7 @@ function filtriraj() {
         const povez = (knjiga.format || "").toLowerCase();
         const brojStrana = (knjiga.brojStrana || 0);
         const idKnjige = (knjiga.id || "");
+        
 
         return (
             naziv.includes(pretraga) ||
