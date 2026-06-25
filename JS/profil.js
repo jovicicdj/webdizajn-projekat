@@ -104,7 +104,7 @@ function renderOceneKorisnika(ocene, autoriData) {
             profilFormatZvezdice(ocena.vrednost);
 
         const link = card.querySelector(".ocena-autora-link");
-        link.textContent = "\u2192 Pogledaj profil autora";
+        link.textContent = "→ Погледај профил аутора";
         link.href = ocena.idAutora ? `pojedinacan_autor.html?id=${ocena.idAutora}` : "#";
 
         card.querySelector(".datum-ocenjivanja").textContent =

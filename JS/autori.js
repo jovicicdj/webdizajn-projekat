@@ -8,6 +8,17 @@ let sviAutori = [];
 let aktivniFilter = "Сви";
 
 
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    return "data:image/png;base64," + v;
+}
+
+
 function statusKlasa(status) {
 
     if (status === "Активан") return "active";
@@ -35,7 +46,7 @@ function renderAutori(lista) {
         const pune = Math.round(prosek);
         const zvezdice = "★".repeat(pune) + "☆".repeat(5 - pune);
 
-        const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
+        const slika = srcSlike(autor.slike);
         const card = document.createElement("div");
         card.className = "author-card";
         card.innerHTML = `

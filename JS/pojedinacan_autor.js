@@ -2,6 +2,20 @@
 let trenutniId = null;
 let izabranaOcena = 0;
 
+
+
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    return "data:image/png;base64," + v;
+}
+
+
+
 async function ucitajAutora() {
 
     const params = new URLSearchParams(window.location.search)
@@ -25,7 +39,7 @@ async function ucitajAutora() {
         span.dataset.vrednost = 5 - i;
     });
 
-    const slika = Array.isArray(autor.slike) ? autor.slike[0] : (autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg");
+    const slika = srcSlike(autor.slike);
     document.querySelector(".pa-avatar").src = slika;
     document.querySelector(".pa-avatar").alt = autor.ime + " " + autor.prezime;
     document.querySelector(".pa-ime").textContent = autor.ime + " " + autor.prezime;
@@ -202,7 +216,10 @@ document.querySelector(".pa-oceni-btn").addEventListener("click", async () => {
     const sledeciBroj = brojevi.length ? Math.max(...brojevi) + 1 : 1;
     const noviId = "oce" + String(sledeciBroj).padStart(3, "0");
 
+    datum = new Date().toISOString().split("T")[0];
+
     const rezultat = await ajaxPut(`${firebaseUrl}/ocene/${noviId}.json`, {
+        datum: datum,
         idAutora: trenutniId,
         idKorisnika: korisnikId,
         vrednost: izabranaOcena
