@@ -81,7 +81,6 @@ function filtriraj() {
         const naziv = (knjiga.naziv || "").toLowerCase();
         const zanr = (knjiga.zanr || "").toLowerCase();
         const idAutora = (knjiga.idAutora || "");
-        console.log(idAutora);
         const autor = sviAutori?.[idAutora];
         const imeAutora = autor ? (`${autor.ime} ${autor.prezime}`).toLowerCase() : "";
 

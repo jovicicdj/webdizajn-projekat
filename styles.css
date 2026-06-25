@@ -524,10 +524,11 @@ header a:hover{
 }
 
 .main-pojedinacna-content{
-    height: 100%;
+    min-height: 100%;
     padding: 0 16px;
     display: flex;
     gap: 16px;
+    align-items: flex-start;
 
 }
 
@@ -780,7 +781,7 @@ form{
 
 .main-pojedinacna-right{
     flex: 1;
-    height: 500px;
+    height: auto;
     padding: 0 16px;
     color: white;
     border-radius: 8px;
@@ -808,12 +809,12 @@ form{
 
 
 .slicne-knjige{
-    flex: 1;
     border-radius: 8px;
     background-color: #1F1F1F;
     padding: 8px 8px;
     display: flex;
     flex-direction: column;
+    gap: 6px;
     
     
 }
@@ -833,7 +834,8 @@ form{
 
 .slicne-knjige-slika img{
     width: 100px;
-    
+    height: 90px;
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -1427,7 +1429,7 @@ form{
     gap: 8px;
     border-bottom: 1px solid #70707048;
     min-width: 1100px;
-    flex: 1;
+    /* flex: 1; */
 
 
 }
@@ -1696,6 +1698,22 @@ footer{
 
 .footer-card-profil-value{
     font-size: 1.5em;
+}
+
+.footer-autor-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.footer-autor-slika {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #5442e08e;
+    flex-shrink: 0;
 }
 
 
@@ -2115,7 +2133,24 @@ footer{
 }
 
 .edit-row-bio.ima-greske {
+    flex-wrap: wrap;
     align-items: flex-start;
+}
+
+.edit-row-bio.ima-greske label {
+    order: 1;
+    padding-top: 8px;
+}
+
+.edit-row-bio.ima-greske textarea {
+    order: 1;
+    flex: 1 0 calc(100% - 120px);
+}
+
+.edit-row-bio.ima-greske .admin-greska {
+    order: 2;
+    flex-basis: 100%;
+    margin-left: 0;
 }
 
 .admin-greska {

@@ -214,19 +214,27 @@ function renderKnjige(lista) {
 
 function filtriraj() {
     const pretraga = searchBar.value.toLowerCase().trim();
-
-    const rezultat = sveKnjige.filter(({ knjiga }) => {
+    
+    const rezultat = sveKnjige.filter(({ knjiga, brojRecenzija }) => {
         const naziv = (knjiga.naziv || "").toLowerCase();
         const zanr = (knjiga.zanr || "").toLowerCase();
         const autor = imeAutora(knjiga.idAutora).toLowerCase();
         const isbn = (knjiga.isbn || "").toLowerCase();
+        const povez = (knjiga.format || "").toLowerCase();
+        const brojStrana = (knjiga.brojStrana || 0);
+        const idKnjige = (knjiga.id || "");
 
         return (
             naziv.includes(pretraga) ||
             zanr.includes(pretraga) ||
             autor.includes(pretraga) ||
-            isbn.includes(pretraga)
+            isbn.includes(pretraga) || 
+            povez.includes(pretraga) ||
+            brojStrana === Number(pretraga) ||
+            brojRecenzija === Number(pretraga)
         );
+
+        console.log(brojStrana);
     });
 
     renderKnjige(rezultat);
@@ -243,7 +251,6 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
 
     red.innerHTML = `
         <form class="edit-forma" onsubmit="return false;"></form>
-
         <div class="tr-1">
             <input type="file" class="edit-file-input" accept=".jpg,.jpeg,.png,.webp,.avif">
             <img src="${slika}" class="tabela-knjiga-slika edit-slika-preview" style="cursor:pointer;" title="Кликни да промениш слику">

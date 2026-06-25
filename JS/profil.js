@@ -11,7 +11,7 @@ function profilFormatDatum(datum) {
 
 function profilFormatZvezdice(vrednost) {
     const ocena = Math.max(0, Math.min(5, Math.round(Number(vrednost) || 0)));
-    return "★".repeat(ocena) + "☆".repeat(5 - ocena);
+    return "\u2605".repeat(ocena) + "\u2606".repeat(5 - ocena);
 }
 
 function prikaziPraznuListu(container, tekst) {
@@ -23,6 +23,7 @@ function prikaziPraznuListu(container, tekst) {
     p.textContent = tekst;
     container.appendChild(p);
 }
+
 
 function renderRecenzijeKorisnika(recenzije, knjigeData) {
     const container = document.getElementById("recenzije-profil");
@@ -58,7 +59,7 @@ function renderRecenzijeKorisnika(recenzije, knjigeData) {
         card.querySelector(".recenzija-knjiga-sadrzaj").textContent = recenzija.tekst || "Bez teksta recenzije.";
 
         const link = card.querySelector(".recenzija-knjiga-hiperlink");
-        link.textContent = "→ Link do knjige";
+        link.textContent = "\u2192 Link do knjige";
         link.href = recenzija.idKnjige ? `pojedinacna.html?id=${recenzija.idKnjige}` : "#";
 
         card.querySelector(".recenzije-knjiga-datum").textContent =
@@ -103,7 +104,7 @@ function renderOceneKorisnika(ocene, autoriData) {
             profilFormatZvezdice(ocena.vrednost);
 
         const link = card.querySelector(".ocena-autora-link");
-        link.textContent = "→ Pogledaj profil autora";
+        link.textContent = "\u2192 Pogledaj profil autora";
         link.href = ocena.idAutora ? `pojedinacan_autor.html?id=${ocena.idAutora}` : "#";
 
         card.querySelector(".datum-ocenjivanja").textContent =
@@ -112,6 +113,7 @@ function renderOceneKorisnika(ocene, autoriData) {
         container.appendChild(card);
     });
 }
+
 
 async function ucitajProfil() {
     const korisnikId = localStorage.getItem("korisnikId");
@@ -175,8 +177,85 @@ async function ucitajProfil() {
 
     const footerProsek = document.querySelector(".footer-card-profil-value");
     if (footerProsek) {
-        footerProsek.textContent = prosekOcena ? `${prosekOcena.toFixed(1)} ★` : "-";
+        footerProsek.textContent = prosekOcena ? `${prosekOcena.toFixed(1)} \u2605` : "-";
     }
+
+    prikaziNajomiljenijegAutora(oceneKorisnika, autoriData || {});
 }
+
+
+// function prikaziNajomiljenijegAutora(oceneKorisnika, autoriData) {
+//     const footerKartice = document.querySelectorAll(".footer-card-profil");
+//     const kartica = footerKartice[1];
+//     if (!kartica) return;
+
+//     const najomiljenijiAutor = pronadjiNajomiljenijegAutora(oceneKorisnika, autoriData);
+//     const stat = kartica.querySelector(".footer-card-profil-stat");
+//     const vrednost = kartica.querySelector(".footer-card-profil-value");
+//     const dodatak = kartica.querySelector(".footer-card-profil-dodatak");
+
+//     stat.textContent = "NAJOMILJENIJI AUTOR";
+//     vrednost.innerHTML = "";
+
+//     if (!najomiljenijiAutor) {
+//         vrednost.textContent = "-";
+//         dodatak.textContent = "Nema ocena";
+//         return;
+//     }
+
+//     const [autor, ocena] = najomiljenijiAutor;
+//     const autorInfo = document.createElement("span");
+//     autorInfo.className = "footer-autor-info";
+
+//     const slika = document.createElement("img");
+//     slika.className = "footer-autor-slika";
+//     slika.src = getSlikaAutora(autor);
+//     slika.alt = `${autor.ime} ${autor.prezime}`;
+
+//     const ime = document.createElement("span");
+//     ime.textContent = `${autor.ime} ${autor.prezime}`;
+
+//     autorInfo.appendChild(slika);
+//     autorInfo.appendChild(ime);
+//     vrednost.appendChild(autorInfo);
+//     dodatak.textContent = `${ocena} \u2605`;
+// }
+
+// function getSlikaAutora(autor) {
+//     if (Array.isArray(autor.slike)) return autor.slike[0];
+//     if (autor.slike) return Object.values(autor.slike)[0];
+//     return "images/default.jpg";
+// }
+
+// function vremeOcene(datum) {
+//     if (!datum) return 0;
+
+//     const vreme = new Date(datum).getTime();
+//     return isNaN(vreme) ? 0 : vreme;
+// }
+
+// function pronadjiNajomiljenijegAutora(ocene, autoriData) {
+//     const autoriIOcene = ocene
+//         .map(({ ocena }) => {
+//             const autor = autoriData?.[ocena.idAutora];
+//             return autor ? [autor, Number(ocena.vrednost || 0), ocena.datum] : null;
+//         })
+//         .filter(par => par !== null);
+
+//     let najboljiPar = null;
+
+//     autoriIOcene.forEach(([autor, ocena, datum]) => {
+//         if (
+//             !najboljiPar ||
+//             ocena > najboljiPar[1] ||
+//             (ocena === najboljiPar[1] && vremeOcene(datum) < vremeOcene(najboljiPar[2]))
+//         ) {
+//             najboljiPar = [autor, ocena, datum];
+//         }
+//     });
+
+//     return najboljiPar;
+// }
+
 
 ucitajProfil();

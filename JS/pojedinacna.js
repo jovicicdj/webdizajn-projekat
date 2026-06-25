@@ -53,6 +53,20 @@ function getRecenzijeKnjige(idKnjige) {
     });
 }
 
+function napraviSledeciRecenzijaId(recenzijeData) {
+    const brojevi = recenzijeData
+        ? Object.keys(recenzijeData)
+            .map(id => {
+                const poklapanje = id.match(/^rec(\d+)$/);
+                return poklapanje ? Number(poklapanje[1]) : NaN;
+            })
+            .filter(broj => !isNaN(broj))
+        : [];
+
+    const sledeciBroj = brojevi.length ? Math.max(...brojevi) + 1 : 1;
+    return "rec" + String(sledeciBroj).padStart(3, "0");
+}
+
 function ucitajOsnovnePodatke(id, knjiga, autor) {
     const slika = getSlika(knjiga);
     const imeAutora = autor ? `${autor.ime} ${autor.prezime}` : "Непознат аутор";
@@ -103,6 +117,7 @@ function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
     const container = document.querySelector(".slicne-knjige");
 
     container.querySelectorAll(".slicne-knjige-card").forEach(card => card.remove());
+    container.querySelector(".prazna-poruka")?.remove();
 
     const slicne = Object.entries(sveKnjige)
         .filter(([id, knjiga]) => {
@@ -119,6 +134,7 @@ function ucitajSlicneKnjige(trenutniId, trenutnaKnjiga) {
 
     if (slicne.length === 0) {
         const p = document.createElement("p");
+        p.className = "prazna-poruka";
         p.style.color = "#888";
         p.textContent = "Нема сличних књига.";
         container.appendChild(p);
@@ -155,11 +171,13 @@ function ucitajRecenzije(idKnjige) {
     const lista = document.querySelector(".lista-recenzija");
 
     lista.querySelectorAll(".recenzija-card").forEach(card => card.remove());
+    lista.querySelector(".prazna-poruka")?.remove();
 
     const recenzije = getRecenzijeKnjige(idKnjige);
 
     if (recenzije.length === 0) {
         const p = document.createElement("p");
+        p.className = "prazna-poruka";
         p.style.color = "#888";
         p.textContent = "Нема рецензија за ову књигу.";
         lista.appendChild(p);
@@ -268,7 +286,9 @@ async function objaviRecenziju(e) {
         tekst
     };
 
-    const rezultat = await ajaxPost(`${firebaseUrl}/recenzije.json`, novaRecenzija);
+    const recenzijeData = await ajaxGet(firebaseUrl + "/recenzije.json");
+    const novaRecenzijaId = napraviSledeciRecenzijaId(recenzijeData);
+    const rezultat = await ajaxPut(`${firebaseUrl}/recenzije/${novaRecenzijaId}.json`, novaRecenzija);
 
     if (!rezultat) {
         alert("Грешка при објављивању рецензије.");

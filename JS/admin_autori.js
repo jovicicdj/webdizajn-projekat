@@ -12,15 +12,12 @@ hamburger.addEventListener('click', () =>  {
 });
 
 
-
 function statusKlasa(status) {
     if (status === "Активан") return "active";
     if (status === "У пензији") return "retired";
     if (status === "Преминуо") return "deceased";
     return "";
 }
-
-
 
 
 async function ucitajAutore() {
@@ -130,8 +127,6 @@ function renderAutore(lista, filterNagrade = false) {
 
 //     });
 // }
-
-
 
 
 function filtriraj() {
