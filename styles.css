@@ -1834,6 +1834,13 @@ footer{
     display: none;
 }
 
+.login-greska-polje {
+    color: #ff6b6b;
+    font-size: 0.75em;
+    line-height: 1.2;
+    margin: -10px 0 0;
+}
+
 #sign-up-forma, #login-forma{
     flex: 1;
     display: flex;
@@ -2091,6 +2098,37 @@ footer{
     align-items: center;
     padding: 6px 6px;
     gap: 8px;
+}
+
+.edit-row.ima-greske,
+.edit-row-bio.ima-greske {
+    height: auto;
+    min-height: 76px;
+    align-items: flex-start;
+}
+
+.edit-row.ima-greske > div,
+.edit-row-bio.ima-greske > div {
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.edit-row-bio.ima-greske {
+    align-items: flex-start;
+}
+
+.admin-greska {
+    flex-basis: 100%;
+    color: #ff6b6b;
+    font-size: 0.72em;
+    line-height: 1.2;
+    margin: 2px 0 0;
+    white-space: normal;
+}
+
+.input-greska {
+    border-color: #ff6b6b !important;
 }
 
 .edit-row .edit-input {

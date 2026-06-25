@@ -1,84 +1,95 @@
-let correct = false;
-const imeSuRe = document.getElementById
-document.getElementById("login-forma").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    //LOG IN
-
-    //ilija_i i ilija123
-    const korisnickoImeLogIn = document.getElementById("korisnicko-ime-sign-up").value.trim();
-    const lozinkaLogIn = document.getElementById("lozinka-sign-up").value.trim();
-
+function validirajPrijavu(korisnickoIme, lozinka) {
+    const greske = [];
     const korisnickoImeRegEx = /^[a-z]+(_[a-z]+)*$/;
+    const lozinkaRegEx = /^[A-Za-z0-9_!@#$%^&*.-]+$/;
     const maloSlovo = /[a-z]/;
-    // const specijalniKarakter = /_#!/;
     const broj = /[0-9]/;
 
-    console.log("Vrednost:", JSON.stringify(korisnickoImeLogIn));
-    console.log("Vrednost:", JSON.stringify(lozinkaLogIn));
-    
-    if(!korisnickoImeRegEx.test(korisnickoImeLogIn)){
-        alert("Ispravan format imena: ilija_i ili ilija123 (maksimalna duzina 30).")
-        correct = false;
-        return;
+    if (!korisnickoImeRegEx.test(korisnickoIme)) {
+        greske.push({
+            polje: "korisnicko-ime-sign-up",
+            tekst: "Korisnicko ime je u formatu ilija_i."
+        });
     }
 
-    if(!maloSlovo.test(lozinkaLogIn) || !broj.test(lozinkaLogIn)){
-        alert("Lozinka mora da sadrzi malo slovo i broj.");
-        correct = false;
-        return;
-    }
-    correct = true;
-})
-    //======================================================================//
-
-document.getElementById("sign-up-forma").addEventListener("submit", function(e){
-    //SIGN UP
-    const ime = document.getElementById("ime").value.trim();
-    const prezime = document.getElementById("prezime").value.trim();
-    const korisnckoImeSignUp = document.getElementById("korisnicko-ime").value.trim();
-    const email = document.getElementById("email").value.trim();
-    // const datumRodjenja = getElementById("datum-rodjenja").value.trim();
-    const zanimanje = document.getElementById("zanimanje").value.trim();
-    const adresa = document.getElementById("adresa").value.trim();
-    const lozinkaSignUp = document.getElementById("lozinka").value.trim();
-
-    const imeRegEx = /^[A-ZČĆŽŠĐ]/
-    const prezimeRegEx = /^[A-ZČĆŽŠĐ]/
-    const emailRegEx = /^[a-z]+.[a-z]+@(example|gmail|yahoo)\.com$/
-    const zanimanjeRegEx = /^[A-ZČĆŽŠĐ]/
-    const adresaRegEx = /^[A-ZČĆŽŠĐ][a-zčćžšđ]+(\s[A-ZČĆŽŠĐ][a-zčćžšđ]+)*\s[0-9]+,\s[A-ZČĆŽŠĐ][a-zčćžšđ]+(\s[A-ZČĆŽŠĐ][a-zčćžšđ]+)*$/
-
-    if(!imeRegEx.test(ime)){
-        alert("Ime mora pocinjati velikim slovom.")
-        correct = false;
-        return;
+    if (!lozinkaRegEx.test(lozinka) || !maloSlovo.test(lozinka) || !broj.test(lozinka)) {
+        greske.push({
+            polje: "lozinka-sign-up",
+            tekst: "Lozinka mora biti na latinici i sadrzati malo slovo i broj."
+        });
     }
 
-    if(!prezimeRegEx.test(prezime)){
-        alert("Prezime mora pocinjati velikim slovom.")
-        correct = false;
-        return;
+    return greske;
+}
+
+function validirajRegistraciju(podaci) {
+    const greske = [];
+
+    const imeRegEx = /^[А-ЯЂЈЉЊЋЏ][а-яђјљњћџ]+$/;
+    const prezimeRegEx = /^[А-ЯЂЈЉЊЋЏ][а-яђјљњћџ]+$/;
+    const korisnickoImeRegEx = /^[a-z]+(_[a-z]+)*$/;
+    const emailRegEx = /^[a-z][a-z0-9._-]*@(gmail|yahoo)\.com$/;
+    const zanimanjeRegEx = /^[А-ЯЂЈЉЊЋЏ][а-яђјљњћџ]+(\s[А-ЯЂЈЉЊЋЏа-яђјљњћџ][а-яђјљњћџ]*)*$/;
+    const adresaRegEx = /^[А-ЯЂЈЉЊЋЏ][а-яђјљњћџ]+(\s[А-ЯЂЈЉЊЋЏа-яђјљњћџ][а-яђјљњћџ]+)*\s[0-9]+,\s+[А-ЯЂЈЉЊЋЏ][а-яђјљњћџ]+(\s[А-ЯЂЈЉЊЋЏа-яђјљњћџ][а-яђјљњћџ]+)*$/;
+    const lozinkaRegEx = /^[A-Za-z0-9_!@#$%^&*.-]+$/;
+    const maloSlovo = /[a-z]/;
+    const broj = /[0-9]/;
+
+    if (!imeRegEx.test(podaci.ime)) {
+        greske.push({
+            polje: "ime",
+            tekst: "Ime mora pocinjati velikim cirilicnim slovom i biti na cirilici."
+        });
     }
 
-    if(!emailRegEx.test(email)){
-        alert("Email u formatu ime.prezime@example/gmail/yahoo.com")
-        correct = false;
-        return;
+    if (!prezimeRegEx.test(podaci.prezime)) {
+        greske.push({
+            polje: "prezime",
+            tekst: "Prezime mora pocinjati velikim cirilicnim slovom i biti na cirilici."
+        });
     }
 
-    if(!zanimanjeRegEx.test(zanimanje)){
-        alert("Zanimanje mora poceti velikim slovom.")
-        correct = false;
-        return;
+    if (!korisnickoImeRegEx.test(podaci.korisnickoIme)) {
+        greske.push({
+            polje: "korisnicko-ime",
+            tekst: "Korisnicko ime je u formatu ilija_i."
+        });
     }
 
-    if(!adresaRegEx(adresa)){
-        alert("Adresa u formatu Ulica broj, Grad")
-        correct = false;
-        return;
+    if (!emailRegEx.test(podaci.email)) {
+        greske.push({
+            polje: "email",
+            tekst: "Email je u formatu username@gmail.com ili username@yahoo.com."
+        });
     }
 
-    correct = true;
-})
+    if (!podaci.datumRodjenja) {
+        greske.push({
+            polje: "datum-rodjenja",
+            tekst: "Unesite datum rodjenja."
+        });
+    }
 
+    if (!zanimanjeRegEx.test(podaci.zanimanje)) {
+        greske.push({
+            polje: "zanimanje",
+            tekst: "Zanimanje mora poceti velikim cirilicnim slovom i biti na cirilici."
+        });
+    }
+
+    if (!adresaRegEx.test(podaci.adresa)) {
+        greske.push({
+            polje: "adresa",
+            tekst: "Adresa je u formatu Ulica broj, Grad i mora biti na cirilici."
+        });
+    }
+
+    if (!lozinkaRegEx.test(podaci.lozinka) || !maloSlovo.test(podaci.lozinka) || !broj.test(podaci.lozinka)) {
+        greske.push({
+            polje: "lozinka",
+            tekst: "Lozinka mora biti na latinici i sadrzati malo slovo i broj."
+        });
+    }
+
+    return greske;
+}

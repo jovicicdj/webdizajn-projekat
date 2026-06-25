@@ -98,6 +98,29 @@ function optioniListe(lista, izabrano) {
     }).join("");
 }
 
+function ocistiGreske(red, dodatniRed) {
+    [red, dodatniRed].forEach(element => {
+        if (!element) return;
+        element.classList.remove("ima-greske");
+        element.querySelectorAll(".admin-greska").forEach(greska => greska.remove());
+        element.querySelectorAll(".input-greska").forEach(input => input.classList.remove("input-greska"));
+    });
+}
+
+function prikaziGresku(input, tekst) {
+    input.classList.add("input-greska");
+
+    const greska = document.createElement("p");
+    greska.className = "admin-greska";
+    greska.textContent = tekst;
+
+    input.insertAdjacentElement("afterend", greska);
+}
+
+function dodajGresku(greske, input, tekst) {
+    greske.push({ input, tekst });
+}
+
 async function ucitajKnjigeUTabelu() {
     const [knjigeData, autoriData, recenzijeData] = await Promise.all([
         ajaxGet(firebaseUrl + "/knjige.json"),
@@ -216,7 +239,7 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     const opisRed = document.createElement("div");
     opisRed.className = "tabela-row edit-row-bio";
 
-    const slika = getSlika(podaci);
+    const slika = podaci.slike ? Object.values(podaci.slike)[0] : "images/placeholder.png";
 
     red.innerHTML = `
         <form class="edit-forma" onsubmit="return false;"></form>
@@ -293,31 +316,76 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     });
 
     red.querySelector(".btn-sacuvaj").addEventListener("click", () => {
-        const naziv = red.querySelector(".f-naziv").value.trim();
-        const idAutora = red.querySelector(".f-autor").value.trim();
-        const zanr = red.querySelector(".f-zanr").value.trim();
-        const format = red.querySelector(".f-format").value.trim();
-        const brojStrana = red.querySelector(".f-broj-strana").value.trim();
-        const isbn = red.querySelector(".f-isbn").value.trim();
-        const cena = opisRed.querySelector(".f-cena").value.trim();
-        const opis = opisRed.querySelector(".f-opis").value.trim();
+        ocistiGreske(red, opisRed);
+
+        const nazivInput = red.querySelector(".f-naziv");
+        const autorInput = red.querySelector(".f-autor");
+        const zanrInput = red.querySelector(".f-zanr");
+        const formatInput = red.querySelector(".f-format");
+        const brojStranaInput = red.querySelector(".f-broj-strana");
+        const isbnInput = red.querySelector(".f-isbn");
+        const cenaInput = opisRed.querySelector(".f-cena");
+        const opisInput = opisRed.querySelector(".f-opis");
+
+        const naziv = nazivInput.value.trim();
+        const idAutora = autorInput.value.trim();
+        const zanr = zanrInput.value.trim();
+        const format = formatInput.value.trim();
+        const brojStrana = brojStranaInput.value.trim();
+        const isbn = isbnInput.value.trim();
+        const cena = cenaInput.value.trim();
+        const opis = opisInput.value.trim();
         const slika = red.querySelector(".edit-slika-preview").src;
+        const greske = [];
 
-        if (!naziv || !idAutora || !zanr || !format || !brojStrana || !isbn || !cena || !opis) {
-            alert("Попуните сва поља.");
-            return;
-        }
-
+        const nazivRegEx = /^[А-ЯЂЈЉЊЋЏ][А-ЯЂЈЉЊЋЏа-яђјљњћџ0-9\s.,:;!?'"\-()]{1,79}$/;
         const brojStranaRegEx = /^[1-9][0-9]*$/;
         const isbnRegEx = /^[0-9]{3}-[0-9]{10}$/;
 
-        if (!brojStranaRegEx.test(brojStrana) || !brojStranaRegEx.test(cena)) {
-            alert("Број страна и цена морају бити позитивни бројеви.");
-            return;
+        if (!naziv) {
+            dodajGresku(greske, nazivInput, "Unesite naziv knjige.");
+        } else if (!nazivRegEx.test(naziv)) {
+            dodajGresku(greske, nazivInput, "Naziv knjige mora poceti velikim cirilicnim slovom i biti na cirilici.");
         }
 
-        if (!isbnRegEx.test(isbn)) {
-            alert("ISBN мора бити у формату 978-1234567890.");
+        if (!idAutora) {
+            dodajGresku(greske, autorInput, "Izaberite autora.");
+        }
+
+        if (!zanr) {
+            dodajGresku(greske, zanrInput, "Izaberite zanr.");
+        }
+
+        if (!format) {
+            dodajGresku(greske, formatInput, "Izaberite format.");
+        }
+
+        if (!brojStrana) {
+            dodajGresku(greske, brojStranaInput, "Unesite broj strana.");
+        } else if (!brojStranaRegEx.test(brojStrana)) {
+            dodajGresku(greske, brojStranaInput, "Broj strana mora biti pozitivan broj.");
+        }
+
+        if (!isbn) {
+            dodajGresku(greske, isbnInput, "Unesite ISBN.");
+        } else if (!isbnRegEx.test(isbn)) {
+            dodajGresku(greske, isbnInput, "ISBN mora biti u formatu 978-1234567890.");
+        }
+
+        if (!cena) {
+            dodajGresku(greske, cenaInput, "Unesite cenu.");
+        } else if (!brojStranaRegEx.test(cena)) {
+            dodajGresku(greske, cenaInput, "Cena mora biti pozitivan broj.");
+        }
+
+        if (!opis) {
+            dodajGresku(greske, opisInput, "Unesite opis knjige.");
+        }
+
+        if (greske.length > 0) {
+            red.classList.add("ima-greske");
+            opisRed.classList.add("ima-greske");
+            greske.forEach(({ input, tekst }) => prikaziGresku(input, tekst));
             return;
         }
 

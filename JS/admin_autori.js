@@ -96,6 +96,30 @@ function filtriraj() {
 searchBar.addEventListener("input", filtriraj);
 
 
+function ocistiGreske(red, dodatniRed) {
+    [red, dodatniRed].forEach(element => {
+        if (!element) return;
+        element.classList.remove("ima-greske");
+        element.querySelectorAll(".admin-greska").forEach(greska => greska.remove());
+        element.querySelectorAll(".input-greska").forEach(input => input.classList.remove("input-greska"));
+    });
+}
+
+function prikaziGresku(input, tekst) {
+    input.classList.add("input-greska");
+
+    const greska = document.createElement("p");
+    greska.className = "admin-greska";
+    greska.textContent = tekst;
+
+    input.insertAdjacentElement("afterend", greska);
+}
+
+function dodajGresku(greske, input, tekst) {
+    greske.push({ input, tekst });
+}
+
+
 
 
 function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }) {
@@ -176,47 +200,76 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
 
     red.querySelector(".btn-sacuvaj").addEventListener("click", () => {
 
-        const imeIPrezime = red.querySelector(".f-ime").value.trim().split(" ");
+        ocistiGreske(red, biored);
+
+        const imeInput = red.querySelector(".f-ime");
+        const datumInput = red.querySelector(".f-datum");
+        const statusInput = red.querySelector(".f-status");
+        const nagradeInput = red.querySelector(".f-nagrade");
+        const primerciInput = red.querySelector(".f-primerci");
+        const telefonInput = red.querySelector(".f-telefon");
+        const bioInput = biored.querySelector(".f-bio");
+
+        const imeIPrezime = imeInput.value.trim().split(" ");
         const ime = imeIPrezime[0] || "";
         const prezime = imeIPrezime.slice(1).join(" ") || "";
-        const datum = red.querySelector(".f-datum").value.trim();
-        const status = red.querySelector(".f-status").value.trim();
-        const nagrade = red.querySelector(".f-nagrade").value.trim();
-        const primerci = red.querySelector(".f-primerci").value.trim();
-        const telefon = red.querySelector(".f-telefon").value.trim();
-        const bio = biored.querySelector(".f-bio").value.trim();
+        const datum = datumInput.value.trim();
+        const status = statusInput.value.trim();
+        const nagrade = nagradeInput.value.trim();
+        const primerci = primerciInput.value.trim();
+        const telefon = telefonInput.value.trim();
+        const bio = bioInput.value.trim();
+        const greske = [];
     
-        if (!ime || !datum || !status || !nagrade || !primerci || !telefon || !bio) {
-            // TODO
-            alert("Попуните сва поља."); 
-            return;
-        }
-
-
-        const imeAutoraRegEx = /^[А-ЯЂЈЉЊЋЏ][А-ЯЂЈЉЊЋЏа-яђјљњћџ -]{1,59}$/;
+        const imeAutoraRegEx = /^[А-ЯЂЈЉЊЋЏ]/;
         const nagradePrimerciRegEx = /^[1-9]{1}[0-9]*$/;    
         //+381 64 222-3333
         const brojTelefonaRegEx = /^\+381\s6[0-9]{1}\s[0-9]{3}-[0-9]{4}$/;
 
-        if(!imeAutoraRegEx.test(ime)){
-            alert("Ime autora mora poceti velikim slovom")
-            return;
+        if (!imeInput.value.trim()) {
+            dodajGresku(greske, imeInput, "Unesite ime i prezime autora.");
+        } else if (!prezime) {
+            dodajGresku(greske, imeInput, "Unesite i prezime autora.");
+        } else if(!imeAutoraRegEx.test(imeInput.value.trim())){
+            dodajGresku(greske, imeInput, "Ime i prezime autora moraju poceti velikim cirilicnim slovom i biti na cirilici.");
         }
 
-        if(!nagradePrimerciRegEx.test(nagrade)){
-            alert("Nagrade se unose samo u brojevima");
-            return;
+        if (!datum) {
+            dodajGresku(greske, datumInput, "Unesite datum rodjenja.");
         }
 
-        if(!nagradePrimerciRegEx.test(primerci)){
-            alert("Primerci se unose samo u brojevima");
-            return;
+        if (!status) {
+            dodajGresku(greske, statusInput, "Izaberite status autora.");
         }
 
-        if(!brojTelefonaRegEx.test(telefon)){
-            alert("Broj telefona je u formatu +381658467823.")
+        if (!nagrade) {
+            dodajGresku(greske, nagradeInput, "Unesite broj nagrada.");
+        } else if(!nagradePrimerciRegEx.test(nagrade)){
+            dodajGresku(greske, nagradeInput, "Nagrade se unose samo pozitivnim brojevima.");
+        }
+
+        if (!primerci) {
+            dodajGresku(greske, primerciInput, "Unesite broj prodatih primeraka.");
+        } else if(!nagradePrimerciRegEx.test(primerci)){
+            dodajGresku(greske, primerciInput, "Primerci se unose samo pozitivnim brojevima.");
+        }
+
+        if (!telefon) {
+            dodajGresku(greske, telefonInput, "Unesite telefon menadzera.");
+        } else if(!brojTelefonaRegEx.test(telefon)){
+            dodajGresku(greske, telefonInput, "Broj telefona je u formatu +381 64 123-4567.");
+        }
+
+        if (!bio) {
+            dodajGresku(greske, bioInput, "Unesite biografiju autora.");
+        }
+
+        if (greske.length > 0) {
+            red.classList.add("ima-greske");
+            biored.classList.add("ima-greske");
+            greske.forEach(({ input, tekst }) => prikaziGresku(input, tekst));
             return;
-        }   
+        }
 
         const noviPodaci = {
             ime,
