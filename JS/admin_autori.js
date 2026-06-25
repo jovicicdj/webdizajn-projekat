@@ -163,6 +163,7 @@ searchBar.addEventListener("input", filtriraj);
 
 
 
+
 function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }) {
     
     const red = document.createElement("div");
@@ -432,3 +433,27 @@ document.getElementById("modal-brisanje-close").addEventListener("click", () => 
 
 
 ucitajAutore();
+const btnNagrade = document.querySelector(".ta-4").addEventListener("click", () => {
+    const rezultat = sviAutori.filter(({autor}) => {
+        return autor.brojOsvojenihNagrada > 3;
+        
+    }).sort((a, b) => a.autor.brojOsvojenihNagrada - b.autor.brojOsvojenihNagrada)
+    renderAutore(rezultat);
+});
+
+const btnDatumRodjenja = document.querySelector(".ta-2").addEventListener("click", () =>{
+    const rezultat = sviAutori.filter(({autor}) =>{
+        const datumDelovi = autor.datumRodjenja.split("-");
+        const godinaRodjenja = datumDelovi[0];
+        return godinaRodjenja >= 1800;
+    }).sort((a, b) => a.autor.datumRodjenja.split("-")[0] - b.autor.datumRodjenja.split("-")[0]);
+    renderAutore(rezultat);
+})
+
+
+const btnStatus = document.querySelector(".ta-3").addEventListener("click", () =>{
+    const rezultat = sviAutori.filter(({autor}) => {
+        return autor.status == "Активан";
+    })
+    renderAutore(rezultat);
+})
