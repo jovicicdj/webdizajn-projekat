@@ -13,6 +13,21 @@ hamburger.addEventListener('click', () =>  {
 
 
 
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+
+    //Ako ima prefiks data onda je base64
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+
+    //Pretvaranje nazad u sliku
+    return "data:image/png;base64," + v;
+}
+
+
 function statusKlasa(status) {
     if (status === "Активан") return "active";
     if (status === "У пензији") return "retired";
@@ -57,7 +72,7 @@ function renderAutore(lista, filterNagrade = false) {
         row.className = "tabela-row";
         row.dataset.id = id;
         row.dataset.autor = JSON.stringify(autor)
-        const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
+        const slika = srcSlike(autor.slike);
         const prodatihPrimeraka = formatPrimerci(autor.brojProdatihPrimeraka);
 
         row.innerHTML = `
@@ -88,49 +103,6 @@ function renderAutore(lista, filterNagrade = false) {
 
 
 
-// function renderAutore2(lista) {
-
-//     document.querySelectorAll(".tabela-row").forEach(r => r.remove());
-
-//     lista.forEach(({ id, autor, prosek }) => {
-
-//         if (autor.brojOsvojenihNagrada <= 3) {
-//             return;
-//         }
-
-//         const row = document.createElement("div");
-//         row.className = "tabela-row";
-//         row.dataset.id = id;
-//         row.dataset.autor = JSON.stringify(autor)
-//         const slika = autor.slike ? Object.values(autor.slike)[0] : "images/default.jpg";
-//         const prodatihPrimeraka = formatPrimerci(autor.brojProdatihPrimeraka);
-
-//         row.innerHTML = `
-
-//             <div class="ta-1">
-//                 <img src="${slika}" class="tabela-autor-slika" alt="${autor.ime} ${autor.prezime}">
-//                 <p>${autor.ime} ${autor.prezime}</p>
-//             </div>
-//             <div class="ta-2"><p>${autor.datumRodjenja || '-'}</p></div>
-//             <div class="ta-3"><span class="status ${statusKlasa(autor.status)}">${autor.status}</span></div>
-//             <div class="ta-4"><p>${autor.brojOsvojenihNagrada || '-'}</p></div>
-//             <div class="ta-5"><p>${prodatihPrimeraka}</p></div>
-//             <div class="ta-6">
-//                 <span class="stars-tabela">${formatZvezdice(prosek)}</span>
-//                 <p class="tabela-rejting">${formatProsek(prosek)}</p>
-//             </div>
-//             <div class="ta-7"><p>${autor.kontaktTelefonMenadzera || '-'}</p></div>
-//             <div class="ta-8">
-//                 <button class="action-buttons btn-obrisi"><ion-icon name="trash"></ion-icon></button>
-//                 <button class="action-buttons btn-izmena"><ion-icon name="create-outline"></ion-icon></button>
-//             </div>
-
-//         `
-//         tabela.appendChild(row);
-
-//     });
-// }
-
 
 
 
@@ -146,18 +118,6 @@ function filtriraj() {
 
 
 searchBar.addEventListener("input", filtriraj);
-
-// document.getElementById("prikazi-nagrade").addEventListener("click", async() => {
-
-
-//     const autori = await ajaxGet(`${firebaseUrl}/autori.json`);
-
-//     prikaziAutore = Object.values(autori).filter(a => Number(a.brojOsvojenihNagrada) > 3);
-
-//     renderAutore(prikaziAutore);
-
-
-// })
 
 
 
@@ -195,8 +155,7 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
 
     const biored = document.createElement("div");
     biored.className = "tabela-row edit-row-bio"
-    const slika = podaci.slike ? Object.values(podaci.slike)[0] : "images/placeholder.png";
-
+    const slika = srcSlike(podaci.slike);
 
     red.innerHTML = `
     
@@ -247,11 +206,18 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
     const slikaPreview = red.querySelector(".edit-slika-preview");
 
     slikaPreview.addEventListener("click", () => fileInput.click());
+
+    let novaSlikaBase64 = null;
+
+
     fileInput.addEventListener("change", () => {
         const file = fileInput.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = (e) => slikaPreview.src = e.target.result;
+            reader.onload = (e) => {
+                slikaPreview.src = e.target.result;
+                novaSlikaBase64 = e.target.result;      //Ceo data URL (base64) koji cuvamo u bazi
+            };
             reader.readAsDataURL(file);
         }
     });
@@ -346,9 +312,9 @@ function napraviFormu({ naslov, btnTekst, podaci = {}, prosek = null, onSubmit }
             brojProdatihPrimeraka: primerci,
             biografija: bio,
             kontaktTelefonMenadzera: telefon,
-            slike: podaci.slike || {}
+            slike: novaSlikaBase64 ? { 0: novaSlikaBase64 } : (podaci.slike || {})
         };
-
+        
         onSubmit(noviPodaci, red, biored);
     });
 
@@ -369,10 +335,18 @@ dodajBtn.addEventListener("click", () => {
     const { red, biored } = napraviFormu({
         btnTekst: "Додај",
         onSubmit: async (podaci, r, b) => {
-            const rezultat = await ajaxPost(
-                `${firebaseUrl}/autori.json`,
-                podaci
-            );
+            //izracunaj sledeci id: aut001, aut002, ... (max postojeci + 1)
+            const sviIzBaze = await ajaxGet(`${firebaseUrl}/autori.json`);
+            const brojevi = sviIzBaze
+                ? Object.keys(sviIzBaze)
+                    .filter(k => k.startsWith("aut"))
+                    .map(k => parseInt(k.slice(3)))
+                    .filter(n => !isNaN(n))
+                : [];
+            const sledeciBroj = brojevi.length ? Math.max(...brojevi) + 1 : 1;
+            const noviId = "aut" + String(sledeciBroj).padStart(3, "0");
+
+            const rezultat = await ajaxPut(`${firebaseUrl}/autori/${noviId}.json`, podaci);
             if (rezultat) {
                 r.remove();
                 b.remove();

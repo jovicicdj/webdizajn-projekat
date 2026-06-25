@@ -58,7 +58,7 @@ function renderRecenzijeKorisnika(recenzije, knjigeData) {
         card.querySelector(".recenzija-knjiga-sadrzaj").textContent = recenzija.tekst || "Bez teksta recenzije.";
 
         const link = card.querySelector(".recenzija-knjiga-hiperlink");
-        link.textContent = "→ Link do knjige";
+        link.textContent = "→ Линк до књиге";
         link.href = recenzija.idKnjige ? `pojedinacna.html?id=${recenzija.idKnjige}` : "#";
 
         card.querySelector(".recenzije-knjiga-datum").textContent =
@@ -103,7 +103,7 @@ function renderOceneKorisnika(ocene, autoriData) {
             profilFormatZvezdice(ocena.vrednost);
 
         const link = card.querySelector(".ocena-autora-link");
-        link.textContent = "→ Pogledaj profil autora";
+        link.textContent = "→ Погледај профил аутора";
         link.href = ocena.idAutora ? `pojedinacan_autor.html?id=${ocena.idAutora}` : "#";
 
         card.querySelector(".datum-ocenjivanja").textContent =

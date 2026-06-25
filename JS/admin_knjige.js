@@ -65,10 +65,16 @@ function zatvoriModalBrisanje() {
     idZaBrisanje = null;
 }
 
-function getSlika(knjiga) {
-    if (Array.isArray(knjiga.slike)) return knjiga.slike[0];
-    if (knjiga.slike) return Object.values(knjiga.slike)[0];
-    return "images/default.jpg";
+function getSlika(objekat) {
+    let v = null;
+    if (objekat && Array.isArray(objekat.slike)) v = objekat.slike[0];
+    else if (objekat && objekat.slike) v = Object.values(objekat.slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    //Vec je base64 (data URL) ili obican link/putanja -> koristi direktno
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    // cist base64 bez prefiksa -> pretvori nazad u sliku
+    return "data:image/png;base64," + v;
 }
 
 function brojRecenzijaKnjige(recenzijeData, idKnjige) {
@@ -304,13 +310,18 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
     const fileInput = red.querySelector(".edit-file-input");
     const slikaPreview = red.querySelector(".edit-slika-preview");
 
+    let novaSlikaBase64 = null;
+
     slikaPreview.addEventListener("click", () => fileInput.click());
     fileInput.addEventListener("change", () => {
         const file = fileInput.files[0];
 
         if (file) {
             const reader = new FileReader();
-            reader.onload = (e) => slikaPreview.src = e.target.result;
+            reader.onload = (e) => {
+                slikaPreview.src = e.target.result;
+                novaSlikaBase64 = e.target.result; // ceo data URL (base64) koji cuvamo u bazi
+            };
             reader.readAsDataURL(file);
         }
     });
@@ -335,7 +346,7 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
         const isbn = isbnInput.value.trim();
         const cena = cenaInput.value.trim();
         const opis = opisInput.value.trim();
-        const slika = red.querySelector(".edit-slika-preview").src;
+
         const greske = [];
 
         const nazivRegEx = /^[А-ЯЂЈЉЊЋЏ][А-ЯЂЈЉЊЋЏа-яђјљњћџ0-9\s.,:;!?'"\-()]{1,79}$/;
@@ -397,7 +408,7 @@ function napraviFormu({ btnTekst, podaci = {}, brojRecenzija = 0, onSubmit }) {
             isbn,
             naziv,
             opis,
-            slike: [slika],
+            slike: novaSlikaBase64 ? [novaSlikaBase64] : (podaci.slike || []),
             zanr
         };
 
@@ -421,7 +432,18 @@ dodajBtn.addEventListener("click", () => {
     const { red, opisRed } = napraviFormu({
         btnTekst: "Додај",
         onSubmit: async (podaci, r, o) => {
-            const rezultat = await ajaxPost(`${firebaseUrl}/knjige.json`, podaci);
+            //izracunaj sledeci id: knj001, knj002, ... (max postojeci + 1)
+            const sveIzBaze = await ajaxGet(`${firebaseUrl}/knjige.json`);
+            const brojevi = sveIzBaze
+                ? Object.keys(sveIzBaze)
+                    .filter(k => k.startsWith("knj"))
+                    .map(k => parseInt(k.slice(3)))
+                    .filter(n => !isNaN(n))
+                : [];
+            const sledeciBroj = brojevi.length ? Math.max(...brojevi) + 1 : 1;
+            const noviId = "knj" + String(sledeciBroj).padStart(3, "0");
+
+            const rezultat = await ajaxPut(`${firebaseUrl}/knjige/${noviId}.json`, podaci);
 
             if (rezultat) {
                 r.remove();

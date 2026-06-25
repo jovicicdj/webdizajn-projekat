@@ -4,6 +4,20 @@ let sveOcene = {};
 let sviKorisnici = {};
 let trenutnaKnjigaId = null;
 
+
+
+function srcSlike(slike) {
+    let v = null;
+    if (Array.isArray(slike)) v = slike[0];
+    else if (slike) v = Object.values(slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    return "data:image/png;base64," + v;
+}
+
+
+
 function zanrKlasa(zanr) {
     const mapa = {
         "Роман": "roman",
@@ -30,8 +44,15 @@ function zanrKlasa(zanr) {
 }
 
 function getSlika(objekat) {
-    if (objekat.slike) return Object.values(objekat.slike)[0];
-    return "images/default.jpg";
+    let v = null;
+    if (objekat && Array.isArray(objekat.slike)) v = objekat.slike[0];
+    else if (objekat && objekat.slike) v = Object.values(objekat.slike)[0];
+
+    if (!v) return "images/placeholder.png";
+    // vec je base64 (data URL) ili obican link/putanja -> koristi direktno
+    if (v.startsWith("data:") || v.startsWith("http") || v.startsWith("images/")) return v;
+    // cist base64 bez prefiksa -> pretvori nazad u sliku
+    return "data:image/png;base64," + v;
 }
 
 
